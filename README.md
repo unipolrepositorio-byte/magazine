@@ -50,3 +50,4 @@ To build the project using docker you can run this command.
 To run the project using docker yo can run this command
 
 ### `docker run -p 80:80 magazine-spa`
+test
