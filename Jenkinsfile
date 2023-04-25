@@ -37,6 +37,11 @@ pipeline {
                     }
                 }
             }
+                post {
+                    always {
+                        sh "docker rmi ${DOCKER_HUB_USERNAME}/${DOCKER_HUB_REPO}:${env.GIT_COMMIT_HASH}"
+                    }
+                }
         }
     }
 }
