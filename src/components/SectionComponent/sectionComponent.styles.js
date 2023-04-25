@@ -1,26 +1,28 @@
 import { makeStyles } from "@material-ui/core";
-import mq from "../../config/mq";
 const useStyles = makeStyles((theme) => ({
   container: {
-    height: "28rem",
+    padding: "2rem",
+    width: "100%",
+    overflow: "hidden",
+    position: "relative",
     backgroundSize: "cover",
     display: "flex",
-    flexDirection: "column",
-    flex: 0.7,
-    justifyContent: "center",
-    alignItems: "center",
-    [mq("md")]: {
+    justifyContent: "space-around",
+
+    "@media (max-width: 780px)": {
       width: "100%",
-      height: "28rem",
+      overflow: "hidden",
+      position: "relative",
       backgroundSize: "cover",
       display: "flex",
-      justifyContent: "center",
-      alignContent: "center",
+      flexDirection: "column-reverse",
+      justifyContent: "flex-end",
       alignItems: "center",
     },
   },
   textDescription: {
     fontSize: "40px",
+    textAlign: "center",
   },
 }));
 
