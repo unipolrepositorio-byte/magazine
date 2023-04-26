@@ -1,5 +1,5 @@
-import useStyles from "./mainComponent.styles"
-const MainComponent = ({children}) => {
+import useStyles from './mainComponent.styles';
+const MainComponent = ({ children }) => {
     const classes = useStyles();
     return <div className={classes.container}>
         {children}

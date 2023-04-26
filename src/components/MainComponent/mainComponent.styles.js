@@ -1,5 +1,5 @@
-import { makeStyles } from "@material-ui/core";
-import mq from "../../config/mq";
+import { makeStyles } from '@material-ui/core';
+import mq from '../../config/mq';
 const useStyles = makeStyles(theme => ({
   container: {
     height: '28rem',
@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     flex: 0.7,
     justifyContent: 'center',
     alignItems: 'center',
-    [mq("md")]: {
+    [mq('md')]: {
       width: '100%',
       height: '28rem',
       backgroundSize: 'cover',
