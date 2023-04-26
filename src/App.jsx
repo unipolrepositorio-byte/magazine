@@ -4,7 +4,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import BannerComponent from './components/HeaderComponent';
+import BannerComponent from './components/BannerComponent';
 import MainContextProvider from './context/MainContextProvider';
 import SectionComponent from './components/SectionComponent';
 import AsideComponent from './components/AsideComponent';
