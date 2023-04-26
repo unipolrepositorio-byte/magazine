@@ -1,59 +1,59 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
-import Roboto from "../assets/font/Roboto-Regular.ttf";
+import Roboto from '../assets/font/Roboto-Regular.ttf';
 const RobotoRegular = {
-  fontFamily: "Roboto-Regular",
-  fontStyle: "normal",
+  fontFamily: 'Roboto-Regular',
+  fontStyle: 'normal',
   fontWeight: 100,
-  src: `url(${Roboto})`,
-};
+  src: `url(${Roboto})`
+}
 const theme = createTheme({
   typography: {
-    fontFamily: [RobotoRegular.fontFamily].join(","),
+    fontFamily: [RobotoRegular.fontFamily].join(','),
   },
   palette: {
     primary: {
       // green dark
-      main: "#01461D",
+      main: '#01461D',
     },
     secondary: {
       // green ligth
-      main: "#178435",
+      main: '#178435',
     },
     third: {
       // gray
-      main: "#D4D4D4",
+      main: '#D4D4D4',
     },
     fourth: {
-      main: "#CFFF8D",
+      main: '#CFFF8D',
     },
     neutro1: {
       //white
-      main: "#ffffff",
+      main: '#ffffff',
     },
     neutro2: {
       //black
-      main: "#000000",
+      main: '#000000',
     },
   },
   overrides: {
     MuiCssBaseline: {
-      "@global": {
-        "@font-face": [RobotoRegular],
+      '@global': {
+        '@font-face': [RobotoRegular],
       },
       body: {
-        fontFamily: ["Roboto-Regular"],
+        fontFamily: ['Roboto-Regular'],
       },
-      "h1, h2, h3, h4, h5, h6": {
+      'h1, h2, h3, h4, h5, h6': {
         margin: 0,
         padding: 0,
       },
     },
   },
-});
+})
 const Theme = ({ children }) => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    {children}
+    { children }
   </ThemeProvider>
-);
+)
 export default Theme;

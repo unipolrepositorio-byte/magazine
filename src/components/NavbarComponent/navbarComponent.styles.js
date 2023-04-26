@@ -2,20 +2,20 @@ import { makeStyles } from "@material-ui/core";
 import mq from "../../config/mq";
 const useStyles = makeStyles((theme) => ({
   container: {
-    width: "100%",
-    height: "6rem",
-    overflow: "hidden",
+    width: '100%',
+    height: '6rem',
+    overflow: 'hidden',
     border: "1px solid",
-    backgroundSize: "cover",
-    position: "absolute",
+    backgroundSize: 'cover',
+    position: 'absolute',
     display: "flex",
-    justifyContent: "center",
+    justifyContent: 'center',
     [mq("md")]: {
-      display: "none",
+      display: 'none',
     },
   },
   textDescription: {
-    fontSize: "20px",
+    fontSize: '20px',
   },
 }));
 
