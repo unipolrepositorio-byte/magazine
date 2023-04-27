@@ -83,6 +83,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.primary.main,
         fontWeight: 800,
         fontFamily: 'Montserrat',
+        textTransform: 'uppercase',
       },
       '& h4': {
         fontSize: '32px',
@@ -104,11 +105,29 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'Lato',
         fontWeight: 275,
         lineHeight: '136%',
+        textTransform: 'capitalize',
       },
       '& h5:first-letter': {
         textTransform: 'uppercase',
       },
-  },
+    },
+   
+    content: {
+      '& hr': {
+        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.main,
+        height: 2,
+        marginBottom: '1rem',
+      },
+      [mq('sm')]: {
+        '& hr': {
+          color: theme.palette.primary.main,
+          backgroundColor: theme.palette.primary.main,
+          height: 5,
+          marginBottom: '1rem',
+        },
+      }
+    },
   },
 
 

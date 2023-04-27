@@ -22,7 +22,6 @@ export default function PopperContainer() {
   const handleClick = (newPlacement) => (event) => {
     setAnchorEl(event.currentTarget);
     setOpen((prev) => placement !== newPlacement || !prev);
-    console.log(newPlacement);
     setPlacement(newPlacement);
   };
 
