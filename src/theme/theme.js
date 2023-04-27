@@ -15,9 +15,26 @@ const theme = createTheme({
       // green dark
       main: '#01461D',
     },
-    secondary: {
-      // green ligth
-      main: '#178435',
+    palette: {
+        primary: {
+            
+            main: '#01461D'
+        },
+        secondary: {
+            main: '#178435'
+        }, 
+        third: {
+            main: '#D4D4D4'
+        }, 
+        fourth: {
+            main: '#1BC70C'
+        },
+        neutro1: {
+            main: '#ffffff',
+        },
+        neutro2: {
+            main: '#000000'
+        }
     },
     third: {
       // gray

@@ -3,11 +3,9 @@ import mq from '../../config/mq';
 
 const useStyles = makeStyles(theme => ({
     header: {
-        display: 'flex',
-        background: theme.palette.neutro1.main,
+        display: 'grid',
+        background: theme.palette.neutro2.main,
         height: '10rem',
-        alignContent: 'center',
-        justifyContent: 'center',
     },
     container: {
         color: theme.palette.primary.main,
