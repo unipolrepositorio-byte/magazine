@@ -1,9 +1,14 @@
 import useStyles from './mainComponent.styles';
+import ItemComponent from './itemComponent/index';
+import article from '../../__mock__/article.json';
+
 const MainComponent = ({ children }) => {
+
     const classes = useStyles();
     return <div className={classes.container}>
         {children}
-        <h5 className={classes.textDescription} >MainComponent</h5>
+        <ItemComponent props={article} />
+        <ItemComponent props={article} />
     </div>
 }
 export default MainComponent;
