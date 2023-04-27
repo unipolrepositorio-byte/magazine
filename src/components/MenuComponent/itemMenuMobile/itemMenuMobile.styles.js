@@ -1,19 +1,22 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-    iconItemMenu: {
-        '&.MuiSvgIcon-root':{
-            width:'45px',
-            height: '45px',
-        },
-        padding: '2px',
-        background:'white',
-        borderRadius: '50%',
-        color: theme.palette.secondary.main
+    
+    iconItemMenu:{
+        '&&.MuiButtonBase-root':{
+            backgroundColor:theme.palette.neutro1.main,
+        }
     },
     labelItemMenu: {
-        color:'white'
+        marginTop:'5px',
+        color: theme.palette.neutro1.main,
+        fontWeight:'bolder',
+        fontSize:'1rem'
     },
-
+    icon:{
+        fill: theme.palette.secondary.main,
+        width:'25px',
+        height:'25px'
+    }
 }));
 export default useStyles;

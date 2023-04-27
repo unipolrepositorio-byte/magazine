@@ -10,17 +10,17 @@ const Header = () => {
     {
       name:'ARTICULOS',
       to:'/articles',
-      icon:''
+      icon:'articles'
     },
     {
       name:'INICIO',
       to:'/',
-      icon:''
+      icon:'home'
     },
     {
       name:'VOLUMENES',
       to:'/volumes',
-      icon:''
+      icon:'volumes'
     }
   ]
 

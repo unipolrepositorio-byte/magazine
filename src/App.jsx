@@ -11,6 +11,7 @@ import AsideComponent from './components/AsideComponent';
 import MainComponent from './components/MainComponent';
 import ImageCarousel from './components/ImageCarousel';
 import NavbarComponent from './components/NavbarComponent';
+import Header from './components/Header';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<>
+              <Header/>
               <BannerComponent />
               <SectionComponent >
                 <MainComponent />

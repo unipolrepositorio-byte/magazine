@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
             fontWeight:'bolder',
             color: theme.palette.neutro1.main,
             padding: '3px 5px',
+            gap:'3px',
             '&:hover': {
                 color: theme.palette.neutro2.main,
             }
@@ -32,6 +33,9 @@ const useStyles = makeStyles(theme => ({
                 background: 'none',
             }
         }
+    },
+    icon:{
+        fill:theme.palette.neutro1.main,
     }
 }));
 
