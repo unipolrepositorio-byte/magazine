@@ -14,7 +14,7 @@ const ItemComponent = ({ props }) => {
     <Box className={classes.wrapper} >
       <Box className={classes.content}>
         <Typography variant="h3" >
-          ARTICULOS MAS RECIENTES
+          ARTÍCULOS MAS RECIENTES
         </Typography>
         <Typography>
           {date}

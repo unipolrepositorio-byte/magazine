@@ -1,14 +1,27 @@
 import { createTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
 import Roboto from '../assets/font/Roboto-Regular.ttf';
+import Montserrat from '../assets/font/MontserratAlternates-Regular.otf';
+import Lato from '../assets/font/Lato-Regular.ttf';
+
 const RobotoRegular = {
   fontFamily: 'Roboto-Regular',
-  fontStyle: 'normal',
-  fontWeight: 100,
   src: `url(${Roboto})`
+}
+const MontserratRegular = {
+  fontFamily: 'Montserrat',
+  src: `url(${Montserrat})`
+}
+const LatoRegular = {
+  fontFamily: 'Lato',
+  src: `url(${Lato})`
 }
 const theme = createTheme({
   typography: {
-    fontFamily: [RobotoRegular.fontFamily].join(','),
+    fontFamily: [
+      `'${MontserratRegular.fontFamily}'`,
+      `'${RobotoRegular.fontFamily}'`,
+      `'${LatoRegular.fontFamily}'`,
+      ].join(','),
   },
   palette: {
     primary: {
