@@ -5,6 +5,7 @@ import mq from '../../config/mq';
 const useStyles = makeStyles((theme) => ({
   containerGlider: {
     width: '80%',
+    maxWidth: '900px',
     margin: '0 auto',
     '& .glider-contain':{
       '& .glider-prev':{
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   titleCarrousel:{
     textAlign: 'center',
     color: theme.palette.primary.main,
-    fontWeight: 'bolder',
+    fontFamily: 'Montserrat-Bold',
     [mq('xxs')]:{
       fontSize:'1.2rem'
     },
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize:'1.6rem'
     },
     [mq('sm')]:{
-      fontSize:'3rem'
+      fontSize:'48px'
     },
     margin:'15px 0'
   },
@@ -66,8 +67,8 @@ const useStyles = makeStyles((theme) => ({
       height:'30px'
     },
     [mq('sm')]:{
-      width:'50px',
-      height:'50px'
+      width:'40px',
+      height:'40px'
     }
   }
 }

@@ -3,7 +3,7 @@ import mq from '../../../config/mq';
 
 const useStyles = makeStyles(theme => ({
     itemContainer: {
-        width:'80px',
+        width:'5rem',
         '&.glider-slide':{
             minWidth:'50px'
         }
@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
     imageContainer: {
         aspectRatio: '1 / 1.5',
         width:'80%',
+        maxWidth:'400px',
         objectFit: 'fill',
         '& img':{
             height:'100%'
@@ -28,11 +29,10 @@ const useStyles = makeStyles(theme => ({
             fontSize:'1.1rem',
         },
         [mq('md')]:{
-            fontSize:'1.8rem',
-            fontWeight:'normal',
+            fontSize:'1.3rem',
         },
         [mq('lg')]:{
-            fontSize:'2.8rem'
+            fontSize:'1.5rem'
         }
     },
     labelTitle: {
@@ -42,13 +42,13 @@ const useStyles = makeStyles(theme => ({
             fontSize:'1rem'
         },
         [mq('sm')]:{
-            fontSize:'1.3rem'
+            fontSize:'1.2rem'
         },
         [mq('md')]:{
-            fontSize:'2rem'
+            fontSize:'1.4rem'
         },
         [mq('lg')]:{
-            fontSize:'3rem'
+            fontSize:'1.6rem'
         }
     }
 }));
