@@ -10,8 +10,6 @@ import tele from '../../../../assets/icons/tele.svg';
 import link from '../../../../assets/icons/link.svg';
 import useStyles from './PopperComponent.styles';
 
-
-
 export default function PopperContainer() {
   const classes = useStyles();
 
@@ -27,7 +25,23 @@ export default function PopperContainer() {
 
   return (
     <Box>
-      <Popper open={open} anchorEl={anchorEl} placement={placement} transition>
+      <Popper
+        open={open}
+        anchorEl={anchorEl}
+        placement={placement}
+        transition
+        modifiers={[
+          {
+            name: 'flip',
+            enabled: false,
+            options: {
+              altBoundary: false,
+              rootBoundary: 'document',
+              padding: 8,
+            },
+          },
+        ]}
+      >
         {({ TransitionProps }) => (
           <Box className={classes.box} >
             <Fade {...TransitionProps} timeout={1050} >

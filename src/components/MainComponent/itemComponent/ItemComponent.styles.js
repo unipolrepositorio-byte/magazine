@@ -2,14 +2,12 @@ import { makeStyles } from '@material-ui/core';
 import mq from '../../../config/mq';
 
 const useStyles = makeStyles((theme) => ({
-  
   wrapper: {
     display: 'flex',
     '& h3': {
       fontSize: '30px',
       color: theme.palette.primary.main,
-      fontWeight: 800,
-      fontFamily: 'Montserrat',
+      fontFamily: 'Montserrat-Bold',
       textTransform: 'uppercase',
     },
     '& h4': {
@@ -17,19 +15,19 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.neutro2.main,
       fontWeight: 800,
       textTransform: 'uppercase',
-      fontFamily: 'Roboto',
+      fontFamily: 'Roboto-Bold',
     },
     '& h5': {
       fontSize: '12px',
       color: theme.palette.neutro2.main,
       fontWeight: 300,
-      fontFamily: 'Lato',
+      fontFamily: 'Lato-Ligth',
       lineHeight: '136%',
       fontStyle: 'normal',
     },
     '& p': {
       fontSize: '10px',
-      fontFamily: 'Lato',
+      fontFamily: 'Lato-Ligth',
       fontWeight: 275,
       lineHeight: '136%',
       textTransform: 'capitalize',
@@ -82,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '36px',
         color: theme.palette.primary.main,
         fontWeight: 800,
-        fontFamily: 'Montserrat',
+        fontFamily: 'Montserrat-Bold',
         textTransform: 'uppercase',
       },
       '& h4': {
@@ -90,19 +88,19 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.neutro2.main,
         fontWeight: 800,
         textTransform: 'uppercase',
-        fontFamily: 'Roboto',
+        fontFamily: 'Roboto-Bold',
       },
       '& h5': {
         fontSize: '24px',
         color: theme.palette.neutro2.main,
         fontWeight: 300,
-        fontFamily: 'Lato',
+        fontFamily: 'Lato-Ligth',
         lineHeight: '136%',
         fontStyle: 'normal',
       },
       '& p': {
         fontSize: '14px',
-        fontFamily: 'Lato',
+        fontFamily: 'Lato-Ligth',
         fontWeight: 275,
         lineHeight: '136%',
         textTransform: 'capitalize',

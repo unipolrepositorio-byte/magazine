@@ -1,26 +1,26 @@
 import { createTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
-import Roboto from '../assets/font/Roboto-Regular.ttf';
-import Montserrat from '../assets/font/MontserratAlternates-Regular.otf';
-import Lato from '../assets/font/Lato-Regular.ttf';
+import Roboto from '../assets/font/Roboto-Bold.ttf';
+import Montserrat from '../assets/font/Montserrat-Bold.ttf';
+import Lato from '../assets/font/Lato-Light.ttf';
 
 const RobotoRegular = {
-  fontFamily: 'Roboto-Regular',
+  fontFamily: 'Roboto-Bold',
   src: `url(${Roboto})`
 }
 const MontserratRegular = {
-  fontFamily: 'Montserrat',
+  fontFamily: 'Montserrat-Bold',
   src: `url(${Montserrat})`
 }
 const LatoRegular = {
-  fontFamily: 'Lato',
+  fontFamily: 'Lato-Ligth',
   src: `url(${Lato})`
 }
 const theme = createTheme({
   typography: {
     fontFamily: [
-      `'${MontserratRegular.fontFamily}'`,
-      `'${RobotoRegular.fontFamily}'`,
-      `'${LatoRegular.fontFamily}'`,
+      `"${MontserratRegular.fontFamily}"`,
+      //`"${RobotoRegular.fontFamily}"`,
+      `"${LatoRegular.fontFamily}"`,
       ].join(','),
   },
   palette: {
@@ -51,7 +51,9 @@ const theme = createTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': [RobotoRegular],
+        '@font-face': [RobotoRegular, 
+                      MontserratRegular, 
+                      LatoRegular],
       },
       body: {
         fontFamily: ['Roboto-Regular'],
