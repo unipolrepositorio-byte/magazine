@@ -1,13 +1,87 @@
 import { makeStyles } from "@material-ui/core";
+import mq from '../../config/mq';
 
 const useStyles = makeStyles(theme => ({
-    menu: {
-        'ul': {
-            listStyle: 'none',
-            'li': {
-                marginLeft: '10px'
-            }
+    /*  DESKTOP STYLES  */
+    menuDesktop: {
+        
+        width:'100%',
+        [mq('xxs')]:{
+            display: 'none'
+        },
+        [mq('sm')]:{
+            display: 'block'
         }
+    },
+    menuContainer: {
+        justifyContent:'space-evenly',
+        alignItems:'center',
+    },
+    link:{
+        textDecoration:'none'
+    },
+    icon: {
+        width:'20px',
+        height:'20px'
+    },
+
+
+    /*  MOBILE STYLES  */
+    menuMobile: {
+        [mq('sm')]:{
+            display:'none'
+        }
+    },
+    menuLoginMobile:{
+        height:'calc(100% - 36px)',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+    },
+    containerMenuClosed: {
+        position:'fixed',
+        bottom:'0',
+        zIndex:'2',
+        height: '46px',
+        width:'100%',
+        background: theme.palette.primary.main,
+        borderBottom: '10px solid',
+        borderBottomColor: theme.palette.secondary.main,
+    },
+    menuOpenerIcon:{
+        position: 'absolute',
+        top: '-22.5px',
+        left: 'calc(50vw - 22.5px)',
+        '&.MuiSvgIcon-root':{
+            width:'45px',
+            height: '45px',
+        },
+    },
+    containerMenuOpened: {
+        position:'fixed',
+        bottom:'0',
+        zIndex:'1',
+        alignItems:'center',
+        height: '180px',
+        textAlign:'center'
+    },
+    backgroundImage: {
+        filter: 'brightness(30%)',
+        position:'absolute',
+        zIndex:'-1',
+        width: '100%',
+        height: '100%',
+        '& img':{
+            width: '100%'
+        }
+    },
+    menuCloseIcon:{
+        width:'45px',
+        height: '45px',
+    },
+    closeIcon:{
+        fill: theme.palette.neutro1.main
     }
+    
 }));
 export default useStyles;
