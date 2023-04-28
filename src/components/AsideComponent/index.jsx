@@ -3,7 +3,7 @@ const AsideComponent = ({ children }) => {
     const classes = useStyles();
     return <div className={classes.container}>
         {children}
-        <h3 className={classes.textDescription} >AsideComponent</h3>
+        <h3 className={classes.textDescription} >Image Aside Here</h3>
     </div>
 }
 export default AsideComponent;
