@@ -6,16 +6,13 @@ import pdfIcon from '../../../assets/icons/pdf.svg'
 
 
 const ItemComponent = ({ props }) => {
-  const { id, title, date, brief, pdf, author } = props;
+  const { id, title, date, brief, pdf, Authors } = props;
 
   const classes = useStyles();
 
   return (
     <Box className={classes.wrapper} >
       <Box className={classes.content}>
-        <Typography variant="h3" >
-          ARTÍCULOS MAS RECIENTES
-        </Typography>
         <Typography>
           {date}
         </Typography>
@@ -25,9 +22,15 @@ const ItemComponent = ({ props }) => {
         <Typography variant="h5">
           {brief}
         </Typography>
-        <Typography>
-          {author}
-        </Typography>
+        {Authors.length > 1 ? <Typography>
+          {Authors.map(autor => (
+            autor + ' / '
+          ))}
+        </Typography> : <Typography>
+          {Authors.map(autor => (
+            autor
+          ))}
+        </Typography>}
         <div className={classes.icons} >
           <IconButton aria-label="pictureAsPdfIcon" >
             <img src={pdfIcon} alt="pdf icon" />
@@ -35,11 +38,6 @@ const ItemComponent = ({ props }) => {
           <PopperContainer />
         </div>
         <hr />
-        <div className={classes.separator}>
-          <div className={classes.circle}></div>
-          <div className={classes.circle}></div>
-          <div className={classes.circle}></div>
-        </div>
       </Box>
     </Box>
   );

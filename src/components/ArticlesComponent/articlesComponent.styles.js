@@ -1,26 +1,38 @@
 import { makeStyles } from '@material-ui/core';
 import mq from '../../config/mq';
 const useStyles = makeStyles(theme => ({
+
+  wrapper:{
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+
   container: {
-    height: '28rem',
-    backgroundSize: 'cover',
     display: 'flex',
     flexDirection: 'column',
-    flex: 0.7,
-    justifyContent: 'center',
-    alignItems: 'center',
-    [mq('md')]: {
-      width: '100%',
-      height: '28rem',
-      backgroundSize: 'cover',
-      display: 'flex',
-      justifyContent: 'center',
-      alignContent: 'center',
-      alignItems: 'center',
+    '& h3': {
+      marginTop: '3rem',
+      marginBottom: '0.2rem',
+      fontSize: '30px',
+      color: theme.palette.primary.main,
+      fontWeight: 800,
+      fontFamily: 'Montserrat-Bold',
+      textTransform: 'uppercase',
     },
-  },
-  textDescription: {
-    fontSize: '40px',
+
+    [mq('md')]: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '80%',
+      '& h3': {
+        fontSize: '36px',
+        color: theme.palette.primary.main,
+        fontWeight: 800,
+        fontFamily: 'Montserrat-Bold',
+        textTransform: 'uppercase',
+      },
+    },
   },
 }));
 

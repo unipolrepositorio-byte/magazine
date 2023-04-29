@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import useStyles from './articlesComponent.styles';
 import useFetch from '../../hooks/useFetch';
-import { logDOM } from '@testing-library/react';
+import ItemComponent from '../MainComponent/itemComponent';
+import Typography from '@mui/material/Typography'
 
 
 const MainComponent = ({ children }) => {
@@ -12,13 +13,15 @@ const MainComponent = ({ children }) => {
 
     const classes = useStyles();
     return (
-        <div className={classes.container}>
-            <h2>ARTÍCULOS</h2>
-            {isLoading ? <p>..loading</p> : data.map(article => (
-                <h5 key={article.id} >
-                    {article.title}
-                </h5>
-            ))}
+        <div className={classes.wrapper}>
+            <div className={classes.container}>
+                <h3 variant="h3" paragraph>
+                    ARTÍCULOS
+                </h3>
+                {isLoading ? <p>..loading</p> : data.map(article => (
+                    <ItemComponent props={article} />
+                ))}
+            </div>
         </div>
     );
 }

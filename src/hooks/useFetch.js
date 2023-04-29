@@ -1,32 +1,5 @@
 import { useState } from "react";
-//import articles from '';
-
-const articles = [
-    {
-        id: 34,
-        title: 'canopy-top measurements do not accurate',
-        date: '04/15/2023',
-        brief: 'Spectral turning of visual pigments often faciliates... ',
-        Autors: ['Marco Antonio', 'Guillermo'],
-        pdf: 'route to download'
-    },
-    {
-        id: 35,
-        title: 'canopy-top measurements do not accurate',
-        date: '04/15/2023',
-        Autors: ['Marco Antonio', 'Guillermo'],
-        brief: 'Spectral turning of visual pigments often faciliates... ',
-        pdf: 'route to download'
-    },
-    {
-        id: 36,
-        title: 'canopy-top measurements do not accurate',
-        date: '04/15/2023',
-        Autors: ['Marco Antonio', 'Guillermo'],
-        brief: 'Spectral turning of visual pigments often faciliates... ',
-        pdf: 'route to download'
-    }
-]
+import articles from '../__mock__/article.json';
 
 const useFetch = (loading = true) => {
     const [data, setData] = useState([]);
@@ -37,7 +10,6 @@ const useFetch = (loading = true) => {
         const data = await response;
         if (limit !== false) {
             const newData = data.slice(0, limit)
-            console.log(newData.length);
             setData(newData); 
             setIsLoading(false);
         } else {
