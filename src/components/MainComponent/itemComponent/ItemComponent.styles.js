@@ -4,32 +4,23 @@ import mq from '../../../config/mq';
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: 'flex',
-    '& h3': {
-      fontSize: '30px',
-      color: theme.palette.primary.main,
-      fontFamily: 'Montserrat-Bold',
-      textTransform: 'uppercase',
-    },
+    alignItems: 'center',
+    width: '100%',
     '& h4': {
       fontSize: '14px',
       color: theme.palette.neutro2.main,
-      fontWeight: 800,
       textTransform: 'uppercase',
       fontFamily: 'Roboto-Bold',
     },
     '& h5': {
       fontSize: '12px',
       color: theme.palette.neutro2.main,
-      fontWeight: 300,
       fontFamily: 'Lato-Ligth',
-      lineHeight: '136%',
       fontStyle: 'normal',
     },
     '& p': {
       fontSize: '10px',
       fontFamily: 'Lato-Ligth',
-      fontWeight: 275,
-      lineHeight: '136%',
       textTransform: 'capitalize',
     },
     '& h5:first-letter': {
@@ -53,19 +44,6 @@ const useStyles = makeStyles((theme) => ({
       },
     }
   },
-  separator: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: 3,
-    marginBottom: '2rem',
-  },
-  circle: {
-    width: '12px',
-    height: '12px',
-    color: theme.palette.secondary.main,
-    backgroundColor: theme.palette.secondary.main,
-    borderRadius: '50%',
-  },
   icons: {
     display: 'flex',
     justifyContent: 'end',
@@ -76,13 +54,8 @@ const useStyles = makeStyles((theme) => ({
   [mq('sm')]: {
     wrapper: {
       display: 'flex',
-      '& h3': {
-        fontSize: '36px',
-        color: theme.palette.primary.main,
-        fontWeight: 800,
-        fontFamily: 'Montserrat-Bold',
-        textTransform: 'uppercase',
-      },
+      alignItems: 'center',
+
       '& h4': {
         fontSize: '32px',
         color: theme.palette.neutro2.main,
