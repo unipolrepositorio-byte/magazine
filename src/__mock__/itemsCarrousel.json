@@ -1,0 +1,45 @@
+{
+    "items" :[
+    {
+      "id": 45,
+      "image": "url of imagen",
+      "date": "04/15/2023",
+      "title": "Vol.1",
+      "overData": "Volumen 1 revista informativa"
+    },
+    {
+      "id": 46,
+      "image": "url of imagen",
+      "date": "01/15/2023",
+      "title": "Vol.2",
+      "overData": "Volumen 1 revista informativa"
+    },
+    {
+      "id": 43,
+      "image": "url of imagen",
+      "date": "01/01/2023",
+      "title": "Vol.3",
+      "overData": "Volumen 3 revista informativa"
+    },
+    {
+        "id": 48,
+        "image": "url of imagen",
+        "date": "04/15/2023",
+        "title": "Vol.4",
+        "overData": "Volumen 4 revista informativa"
+    },
+    {
+        "id": 49,
+        "image": "url of imagen",
+        "date": "01/15/2023",
+        "title": "Vol.5",
+        "overData": "Volumen 5 revista informativa"
+    },
+    {
+        "id": 50,
+        "image": "url of imagen",
+        "date": "01/01/2023",
+        "title": "Vol.6",
+        "overData": "Volumen 6 revista informativa"
+    }
+  ]}

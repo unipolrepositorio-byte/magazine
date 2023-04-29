@@ -1,5 +1,4 @@
 import useStyles from "./itemMenuMobile.styles.js";
-import { SvgIcon } from "@mui/material";
 import {ReactComponent as Home} from '../../../assets/image/inicio.svg';
 import {ReactComponent as Articles} from '../../../assets/image/articulos.svg'
 import {ReactComponent as Volumes} from '../../../assets/image/volumenes.svg'
