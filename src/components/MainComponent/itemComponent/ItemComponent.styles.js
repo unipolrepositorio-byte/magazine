@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '10px',
       fontFamily: 'Lato-Ligth',
       textTransform: 'capitalize',
+      marginTop: '2px',
     },
     '& h5:first-letter': {
       textTransform: 'uppercase',
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.primary.main,
       backgroundColor: theme.palette.primary.main,
       height: 2,
+      marginTop: '0rem',
       marginBottom: '1rem',
     },
     [mq('sm')]: {
@@ -40,15 +42,11 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.primary.main,
         backgroundColor: theme.palette.primary.main,
         height: 5,
+        marginTop: '2rem',
         marginBottom: '1rem',
+        
       },
     }
-  },
-  icons: {
-    display: 'flex',
-    justifyContent: 'end',
-    alignItems: 'end',
-    paddingRight: '1rem',
   },
 
   [mq('sm')]: {
@@ -81,23 +79,6 @@ const useStyles = makeStyles((theme) => ({
       '& h5:first-letter': {
         textTransform: 'uppercase',
       },
-    },
-   
-    content: {
-      '& hr': {
-        color: theme.palette.primary.main,
-        backgroundColor: theme.palette.primary.main,
-        height: 2,
-        marginBottom: '1rem',
-      },
-      [mq('sm')]: {
-        '& hr': {
-          color: theme.palette.primary.main,
-          backgroundColor: theme.palette.primary.main,
-          height: 5,
-          marginBottom: '1rem',
-        },
-      }
     },
   },
 

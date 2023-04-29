@@ -34,6 +34,8 @@ function App() {
               <Header />
               <BannerComponent />
               <ArticlesComponent />
+              <ImageCarousel />
+              <NavbarComponent />
             </>} />
             <Route path="/volumes" element={<>
             </>} />

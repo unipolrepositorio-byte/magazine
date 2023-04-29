@@ -2,7 +2,6 @@ import { IconButton, Box } from '@material-ui/core';
 import Typography from '@mui/material/Typography';
 import useStyles from './ItemComponent.styles';
 import PopperContainer from './PopperContainer';
-import pdfIcon from '../../../assets/icons/pdf.svg'
 
 
 const ItemComponent = ({ props }) => {
@@ -31,12 +30,7 @@ const ItemComponent = ({ props }) => {
             autor
           ))}
         </Typography>}
-        <div className={classes.icons} >
-          <IconButton aria-label="pictureAsPdfIcon" >
-            <img src={pdfIcon} alt="pdf icon" />
-          </IconButton>
-          <PopperContainer />
-        </div>
+        <PopperContainer />
         <hr />
       </Box>
     </Box>

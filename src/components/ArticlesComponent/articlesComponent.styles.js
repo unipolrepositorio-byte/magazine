@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
     flexDirection: 'column',
+    width: '80%',
     '& h3': {
       marginTop: '3rem',
       marginBottom: '0.2rem',
