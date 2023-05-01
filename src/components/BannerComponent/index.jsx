@@ -1,9 +1,32 @@
-import useStyles from './bannerComponent.styles'
+import { Grid } from '@material-ui/core';
+import useStyles from './bannerComponent.styles';
+import logo from '../../assets/image/logo.png';
+import CarrouselBanner from '../CarrouselBanner';
 const BannerComponent = ({ children }) => {
     const classes = useStyles();
-    return <div className={classes.container}>
-        {children}
-        <h3 className={classes.textDescription} >BanerComponent</h3>
-    </div>
+    return (
+        <>
+            <Grid container className={classes.bannerContainer}>
+                <Grid xs={12} item  container className={classes.tittleArea}>
+                    <Grid item xs='auto' className={classes.logoContainer}>
+                        <img alt='logo' src={logo} className={classes.logo}/>
+                    </Grid>
+                </Grid>
+                <Grid xs={12} item className={classes.carrouselAreaDesktop}>
+                    <div className={classes.containerCarrousel}>
+                        <CarrouselBanner id={'C2'}/>
+                    </div>
+                </Grid>
+                <Grid xs={12} item className={classes.carrouselAreaMobile}>
+                    <div className={classes.containerCarrousel}>
+                        <CarrouselBanner id={'C1'}/>
+                    </div>
+                </Grid>
+                
+            </Grid>
+
+        </>
+        
+    )
 }
 export default BannerComponent;

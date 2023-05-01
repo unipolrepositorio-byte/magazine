@@ -4,18 +4,22 @@ import mq from '../../config/mq';
 const useStyles = makeStyles(theme => ({
     /*  DESKTOP STYLES  */
     menuDesktop: {
-        
+        height:'max-Content',
         width:'100%',
         [mq('xxs')]:{
             display: 'none'
         },
         [mq('sm')]:{
-            display: 'block'
-        }
+            display: 'block',
+            zIndex:'1'
+        },
+        
     },
     menuContainer: {
         justifyContent:'space-evenly',
         alignItems:'center',
+        height:'50px',
+        paddingBottom: '10px'
     },
     link:{
         textDecoration:'none'
@@ -33,10 +37,13 @@ const useStyles = makeStyles(theme => ({
         }
     },
     menuLoginMobile:{
-        height:'calc(100% - 36px)',
+        height:'12rem',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        alignItems: 'center'
+        alignItems: 'center',
+        '& a':{
+            zIndex: '1'
+        }
     },
     containerMenuClosed: {
         position:'fixed',
