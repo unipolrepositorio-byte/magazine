@@ -21,6 +21,9 @@ const useStyles = makeStyles(theme => ({
         height:'50px',
         paddingBottom: '10px'
     },
+    menuContainerHidden: {
+        visibility: 'hidden'
+    },
     link:{
         textDecoration:'none'
     },
