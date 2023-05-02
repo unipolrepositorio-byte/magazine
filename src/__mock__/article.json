@@ -1,34 +1,34 @@
 [
-    {
-        "id": 34,
-        "title": "canopy-top measurements do not accurate quantiy",
-        "date": "04/15/2023",
-        "brief": "Spectral turning of visual pigments often faciliates... ",
-        "authors": [
-            "Marco Antonio",
-            "Guillermo"
-        ],
-        "pdf": "route to download"
-    },
-    {
-        "id": 35,
-        "title": "canopy-top measurements do not accurate quantiy",
-        "date": "04/15/2023",
-        "authors": [
-            "Guillermo"
-        ],
-        "brief": "Spectral turning of visual pigments often faciliates... ",
-        "pdf": "route to download"
-    },
-    {
-        "id": 36,
-        "title": "canopy-top measurements do not accurate quantiy",
-        "date": "04/15/2023",
-        "authors": [
-            "Marco Antonio",
-            "Guillermo"
-        ],
-        "brief": "Spectral turning of visual pigments often faciliates... ",
-        "pdf": "route to download"
-    }
+        {
+                "id": 34,
+                "title": "canopy-top measurements do not accurate quantiy",
+                "date": "04/15/2023",
+                "brief": "Spectral turning of visual pigments often faciliates... ",
+                "authors": [
+                        "Marco Antonio",
+                        "Guillermo"
+                ],
+                "pdf": "route to download"
+        },
+        {
+                "id": 35,
+                "title": "canopy-top measurements do not accurate quantiy",
+                "date": "04/15/2023",
+                "authors": [
+                        "Guillermo"
+                ],
+                "brief": "Spectral turning of visual pigments often faciliates... ",
+                "pdf": "route to download"
+        },
+        {
+                "id": 36,
+                "title": "canopy-top measurements do not accurate quantiy",
+                "date": "04/15/2023",
+                "authors": [
+                        "Marco Antonio",
+                        "Guillermo"
+                ],
+                "brief": "Spectral turning of visual pigments often faciliates... ",
+                "pdf": "route to download"
+        }
 ]
