@@ -1,6 +1,8 @@
 import { useState } from "react";
 import articles from '../__mock__/article.json';
 
+
+//TODO: refactor this fetch using usequery
 const useFetch = (loading = true) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(loading);

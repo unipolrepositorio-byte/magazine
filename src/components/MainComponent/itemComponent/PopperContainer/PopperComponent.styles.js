@@ -28,7 +28,7 @@ const useStyles = makeStyles( theme => ({
     gap: 10,
     marginTop: '-1.5rem',
     '& img': {
-      width: '15px',
+      width: '1rem',
     },
     [mq('md')]: {
       display: 'flex',
@@ -38,7 +38,7 @@ const useStyles = makeStyles( theme => ({
       gap: 18,
       marginTop: '0rem',
       '& img': {
-        width: '27px',
+        width: '1.7rem',
       },
     },
   },
