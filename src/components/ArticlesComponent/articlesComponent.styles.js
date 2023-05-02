@@ -5,6 +5,7 @@ const useStyles = makeStyles(theme => ({
   wrapper:{
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'column',
   },
 
@@ -25,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     [mq('md')]: {
       display: 'flex',
       flexDirection: 'column',
-      width: '80%',
+      width: '60rem',
       '& h3': {
         fontSize: '36px',
         color: theme.palette.primary.main,

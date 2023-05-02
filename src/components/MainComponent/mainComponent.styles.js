@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     display: 'flex',
     flexDirection: 'column',
+    maxWidth: '57rem',
     flex: 0.7,
     [mq('md')]: {
       width: '100%',

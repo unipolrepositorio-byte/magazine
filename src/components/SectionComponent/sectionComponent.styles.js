@@ -9,12 +9,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-around',
     [mq('md')]: {
       width: '100%',
-      position: 'relative',
-      backgroundSize: 'cover',
       display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
     },
   },
 }));

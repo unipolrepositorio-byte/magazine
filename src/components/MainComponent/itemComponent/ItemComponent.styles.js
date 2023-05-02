@@ -28,31 +28,12 @@ const useStyles = makeStyles((theme) => ({
       textTransform: 'uppercase',
     },
   },
- 
-  content: {
-    '& hr': {
-      color: theme.palette.primary.main,
-      backgroundColor: theme.palette.primary.main,
-      height: 2,
-      marginTop: '0rem',
-      marginBottom: '1rem',
-    },
-    [mq('sm')]: {
-      '& hr': {
-        color: theme.palette.primary.main,
-        backgroundColor: theme.palette.primary.main,
-        height: 5,
-        marginTop: '2rem',
-        marginBottom: '1rem',
-        
-      },
-    }
-  },
 
   [mq('sm')]: {
     wrapper: {
       display: 'flex',
       alignItems: 'center',
+      width: '100%',
 
       '& h4': {
         fontSize: '32px',
@@ -80,6 +61,26 @@ const useStyles = makeStyles((theme) => ({
         textTransform: 'uppercase',
       },
     },
+  }, 
+
+  content: {
+    '& hr': {
+      color: theme.palette.primary.main,
+      backgroundColor: theme.palette.primary.main,
+      height: 2,
+      marginTop: '0rem',
+      marginBottom: '1rem',
+    },
+    [mq('sm')]: {
+      '& hr': {
+        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.main,
+        height: 5,
+        marginTop: '2rem',
+        marginBottom: '1rem',
+        
+      },
+    }
   },
 
 
