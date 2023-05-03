@@ -12,6 +12,7 @@ import MainComponent from './components/MainComponent';
 import ImageCarousel from './components/ImageCarousel';
 import NavbarComponent from './components/NavbarComponent';
 import Header from './components/Header';
+import ArticlesComponent from './components/ArticlesComponent';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<>
-              <Header/>
+              <Header />
               <BannerComponent />
               <SectionComponent >
                 <MainComponent />
@@ -30,6 +31,11 @@ function App() {
               <NavbarComponent />
             </>} />
             <Route path="/articles" element={<>
+              <Header />
+              <BannerComponent />
+              <ArticlesComponent />
+              <ImageCarousel />
+              <NavbarComponent />
             </>} />
             <Route path="/volumes" element={<>
             </>} />

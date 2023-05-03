@@ -8,6 +8,7 @@ import face from '../../../../assets/icons/face.svg';
 import wpp from '../../../../assets/icons/wpp.svg';
 import tele from '../../../../assets/icons/tele.svg';
 import link from '../../../../assets/icons/link.svg';
+import pdfIcon from '../../../../assets/icons/pdf.svg'
 import useStyles from './PopperComponent.styles';
 
 export default function PopperContainer() {
@@ -57,11 +58,16 @@ export default function PopperContainer() {
 
         )}
       </Popper>
-      <Grid container justifyContent="center">
-        <IconButton aria-label="" onClick={handleClick('top-end')}>
-          <img src={link} alt="link icon" />
-        </IconButton>
-      </Grid>
+      <div >
+        <Grid container className={classes.icons}>
+          <IconButton className={classes.buttonIcon} aria-label="pictureAsPdfIcon" >
+            <img src={pdfIcon} alt="pdf icon" />
+          </IconButton>
+          <IconButton className={classes.buttonIcon} aria-label="" onClick={handleClick('top')}>
+            <img src={link} alt="link icon" />
+          </IconButton>
+        </Grid>
+      </div>
     </Box>
   );
 }
