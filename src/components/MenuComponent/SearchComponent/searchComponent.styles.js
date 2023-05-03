@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     button: {
         display: 'felx',
         fontSize: '8px',
-        width: '58px',
+        width: '3.6rem',
         backgroundColor: theme.palette.neutro1.main,
         color: theme.palette.primary.main,
         fontFamily: 'Roboto-Bold',
@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
 
     input: {
         '& .MuiOutlinedInput-root': {
+            color: theme.palette.neutro1.main,
             '& fieldset': {
                 borderColor: theme.palette.neutro1.main,
                 borderWidth: '0 0 2px 0',
@@ -58,6 +59,7 @@ const useStyles = makeStyles(theme => ({
     [mq('md')]: {
         input: {
             '& .MuiOutlinedInput-root': {
+                color: theme.palette.neutro1.main,
                 '& fieldset': {
                     borderColor: theme.palette.neutro1.main,
                     borderWidth: '0 0 10px 0',
@@ -77,8 +79,7 @@ const useStyles = makeStyles(theme => ({
         },
         button: {
             fontSize: '36px',
-            width: '165px',
-            backgroundColor: theme.palette.neutro1.main,
+            width: '10.3rem',            backgroundColor: theme.palette.neutro1.main,
             color: theme.palette.primary.main,
             fontFamily: 'Roboto-Bold',
             padding: '0.1rem 0.3rem 0.1rem 0.3rem',
