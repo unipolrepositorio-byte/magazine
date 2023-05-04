@@ -41,6 +41,13 @@ const useStyles = makeStyles(theme => ({
     },
     menuLoginMobile:{
         height:'12rem',
+        //height:'10rem',
+        //height: '100%',
+        marginTop: '4rem',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
         '& a':{
             zIndex: '1'
         }
@@ -125,7 +132,11 @@ const useStyles = makeStyles(theme => ({
                 }
             }
         },
-        
+    },   
+    collapse: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
     
 }));

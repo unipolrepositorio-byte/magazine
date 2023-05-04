@@ -3,7 +3,6 @@ import useStyles from './header.styles';
 import { searchGiffs } from '../../services';
 import MenuComponent from '../MenuComponent';
 import SearchComponent from '../MenuComponent/SearchComponent';
-import BanerContextProvider from '../../context/BanerContextProvider';
 
 const Header = () => {
   searchGiffs('better call saul');
@@ -28,12 +27,10 @@ const Header = () => {
   ]
 
   return (
-    <BanerContextProvider>
-      <div className={classes.header}>
-        <MenuComponent items={items} />
-        <SearchComponent />
-      </div>
-    </BanerContextProvider>
+    <div className={classes.header}>
+      <MenuComponent items={items} />
+      <SearchComponent />
+    </div>
   )
 }
 export default Header;

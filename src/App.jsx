@@ -14,6 +14,7 @@ import NavbarComponent from './components/NavbarComponent';
 import Header from './components/Header';
 import ArticlesComponent from './components/ArticlesComponent';
 import BannerStaticComponent from './components/BannerStaticComponent';
+import BanerContextProvider from './context/BanerContextProvider';
 
 function App() {
   return (
@@ -22,8 +23,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<>
-              <Header />
-              <BannerComponent />
+              <BanerContextProvider>
+                <Header />
+                <BannerComponent />
+              </BanerContextProvider>
               <SectionComponent >
                 <MainComponent />
                 <AsideComponent />
@@ -32,14 +35,16 @@ function App() {
               <NavbarComponent />
             </>} />
             <Route path="/articles" element={<>
-              <Header />
-              <BannerStaticComponent />
+              <BanerContextProvider>
+                <Header />
+                <BannerStaticComponent />
+              </BanerContextProvider>
               <ArticlesComponent />
               <ImageCarousel />
               <NavbarComponent />
             </>} />
             <Route path="/volumes" element={<>
-              <Header/>
+              <Header />
               <BannerStaticComponent />
             </>} />
             <Route path="/content/strapi" element={<></>} />

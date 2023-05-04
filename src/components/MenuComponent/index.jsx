@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SvgIcon } from '@material-ui/core';
-import { Button, Grid, IconButton, Slide } from '@mui/material';
+import { Button, Grid, IconButton, Slide, Collapse } from '@mui/material';
 import { useState, useContext, React } from 'react';
 import useStyles from './menuComponent.styles';
 import imageFooter from '../../assets/image/banner.jpg';
@@ -40,21 +40,14 @@ const MenuComponent = ({ items }) => {
                                 </Link>
                             ))}
                         </Grid>
-                        {!searchInput && location === '/' ? <Grid item xs={3} container className={classes.menuContainer}>
+                        {!searchInput && location === '/' ? <Grid item xs={3} container className={!searchInput ? classes.menuContainer : classes.menuContainerHidden}>
                             <Link to={'/content/strapi'} className={classes.link}>
                                 <ItemMenuDesktop label='INICIAR SESION' variant={'outlined'} />
                             </Link>
                             <Link to={'/register'} className={classes.link}>
                                 <ItemMenuDesktop label='REGISTRARSE' variant={'contained'} />
                             </Link>
-                        </Grid> : <Grid item xs={3} container className={classes.menuContainerHidden}>
-                            <Link to={'/content/strapi'} className={classes.link}>
-                                <ItemMenuDesktop label='INICIAR SESION' variant={'outlined'} />
-                            </Link>
-                            <Link to={'/register'} className={classes.link}>
-                                <ItemMenuDesktop label='REGISTRARSE' variant={'contained'} />
-                            </Link>
-                        </Grid>}
+                        </Grid> : null}
                         <Grid item xs={1} container className={classes.menuContainer}>
                             <IconButton onClick={handleSearchInput} >
                                 <SearchIcon className={classes.icon} />
@@ -88,33 +81,35 @@ const MenuComponent = ({ items }) => {
                         </IconButton>
                     </Grid>
                 </Grid>
-                <Grid container className={classes.menuLoginMobile}>
-                    {location === '/' && !searchInput ? <>
-                        <Grid container justifyContent='space-evenly' alignItems='center'>
-                            <Link to={'/content/strapi'} className={classes.link}>
-                                <ItemMenuDesktop label='INICIAR SESION' variant={'outlined'} />
-                            </Link>
-                            <Link to={'/register'} className={classes.link}>
-                                <ItemMenuDesktop label='REGISTRARSE' variant={'contained'} />
-                            </Link>
-                        </Grid>
-                    </> : null}
-                    {location === '/volumes' && <>
-                        <Grid container direction='column' alignItems='flex-start' className={classes.buttonVolumes} rowGap={2}>
-                            <Button variant='contained' onClick={() => { setVolumeButton(prev => !prev) }}>{volumeButton ? 'BOTON' : 'AÑO'}</Button>
-                            {volumeButton && <Grid container columns={{ xs: 14 }} rowGap={1} justifyContent='space-around'>
-                                {volumes.map(item => {
-                                    return (
-                                        <Grid item xs>
-                                            {item}
-                                        </Grid>
-                                    )
-                                })}
-                            </Grid>}
-                        </Grid>
-                    </>}
-
-                </Grid>
+                <Collapse in={!searchInput}
+                    className={classes.collapse}>
+                    <Grid container className={classes.menuLoginMobile}>
+                        {location === '/' && !searchInput ? <>
+                            <Grid container justifyContent='space-evenly' alignItems='center'>
+                                <Link to={'/content/strapi'} className={classes.link}>
+                                    <ItemMenuDesktop label='INICIAR SESION' variant={'outlined'} />
+                                </Link>
+                                <Link to={'/register'} className={classes.link}>
+                                    <ItemMenuDesktop label='REGISTRARSE' variant={'contained'} />
+                                </Link>
+                            </Grid>
+                        </> : null}
+                        {location === '/volumes' && <>
+                            <Grid container direction='column' alignItems='flex-start' className={classes.buttonVolumes} rowGap={2}>
+                                <Button variant='contained' onClick={() => { setVolumeButton(prev => !prev) }}>{volumeButton ? 'BOTON' : 'AÑO'}</Button>
+                                {volumeButton && <Grid container columns={{ xs: 14 }} rowGap={1} justifyContent='space-around'>
+                                    {volumes.map(item => {
+                                        return (
+                                            <Grid item xs>
+                                                {item}
+                                            </Grid>
+                                        )
+                                    })}
+                                </Grid>}
+                            </Grid>
+                        </>}
+                    </Grid>
+                </Collapse>
                 <Slide direction="up" in={open} timeout={500}>
                     <div className={classes.containerMenuClosed}>
                         <SvgIcon className={classes.menuOpenerIcon} onClick={() => { setOpen(prev => !prev) }}>

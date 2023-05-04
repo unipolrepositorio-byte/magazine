@@ -3,16 +3,26 @@ import { NoEncryption } from '@mui/icons-material';
 import mq from '../../../config/mq';
 
 const useStyles = makeStyles(theme => ({
+
     wraper: {
+        width: '100%',
+        marginTop: '-1rem',
         display: 'flex',
         justifyContent: 'center',
+        alignItems: 'center', 
     },
     container: {
         display: 'flex', 
         flexDirection: 'column',
         gap: 20,
         alignItems: 'center', 
-        width: '70%',
+        justifyContent: 'center',
+        width: '16.3rem',
+    },
+    collapse: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center', 
     },
     button: {
         display: 'felx',
@@ -56,30 +66,32 @@ const useStyles = makeStyles(theme => ({
             },
         },
     },
+
     [mq('md')]: {
         input: {
             '& .MuiOutlinedInput-root': {
                 color: theme.palette.neutro1.main,
                 '& fieldset': {
                     borderColor: theme.palette.neutro1.main,
-                    borderWidth: '0 0 10px 0',
+                    borderWidth: '0 0 8px 0',
                     borderRadius: 0,
                 },
                 '&:hover fieldset': {
                     borderColor: theme.palette.neutro1.main,
-                    borderWidth: '0 0 10px 0',
+                    borderWidth: '0 0 8px 0',
                     borderRadius: 0,
                 },
                 '&.Mui-focused fieldset': {
                     borderColor: theme.palette.neutro1.main,
-                    borderWidth: '0 0 10px 0',
+                    borderWidth: '0 0 8px 0',
                     borderRadius: 0,
                 },
             },
         },
         button: {
             fontSize: '36px',
-            width: '10.3rem',            backgroundColor: theme.palette.neutro1.main,
+            width: '10.3rem',            
+            backgroundColor: theme.palette.neutro1.main,
             color: theme.palette.primary.main,
             fontFamily: 'Roboto-Bold',
             padding: '0.1rem 0.3rem 0.1rem 0.3rem',
@@ -91,7 +103,85 @@ const useStyles = makeStyles(theme => ({
                 display: 'none'
             },
         },
+        wraper: {
+            width: '100%',
+            marginTop: '2.5rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center', 
+        },
+        container: {
+            display: 'flex', 
+            flexDirection: 'column',
+            gap: 20,
+            alignItems: 'center', 
+            justifyContent: 'center',
+            width: '50rem',
+        },
+        collapse: {
+            display: 'flex', 
+            justifyContent: 'center',
+            alignItems: 'center', 
+        },
     },
+
+    [mq('sm')]: {
+        input: {
+            '& .MuiOutlinedInput-root': {
+                color: theme.palette.neutro1.main,
+                '& fieldset': {
+                    borderColor: theme.palette.neutro1.main,
+                    borderWidth: '0 0 8px 0',
+                    borderRadius: 0,
+                },
+                '&:hover fieldset': {
+                    borderColor: theme.palette.neutro1.main,
+                    borderWidth: '0 0 8px 0',
+                    borderRadius: 0,
+                },
+                '&.Mui-focused fieldset': {
+                    borderColor: theme.palette.neutro1.main,
+                    borderWidth: '0 0 8px 0',
+                    borderRadius: 0,
+                },
+            },
+        },
+        button: {
+            fontSize: '36px',
+            width: '10.3rem',            
+            backgroundColor: theme.palette.neutro1.main,
+            color: theme.palette.primary.main,
+            fontFamily: 'Roboto-Bold',
+            padding: '0.1rem 0.3rem 0.1rem 0.3rem',
+            boxShadow: 'none',
+            border: 'none',
+            borderRadius: '0',
+            textTransform: 'uppercase',
+            '& svg': {
+                display: 'none'
+            },
+        },
+        wraper: {
+            width: '100%',
+            marginTop: '2.5rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center', 
+        },
+        container: {
+            display: 'flex', 
+            flexDirection: 'column',
+            gap: 20,
+            alignItems: 'center', 
+            justifyContent: 'center',
+        },
+        collapse: {
+            display: 'flex', 
+            justifyContent: 'center',
+            alignItems: 'center', 
+        },
+    },
+
 
 }));
 
