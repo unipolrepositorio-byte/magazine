@@ -12,6 +12,9 @@ import ArticlesComponent from './components/ArticlesComponent';
 import BannerStaticComponent from './components/BannerStaticComponent';
 import BanerContextProvider from './context/BanerContextProvider';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import BreadCrumbsComponent from './components/BreadCrumbsComponent';
+import VolumeDetailComponent from './components/VolumesComponent/VolumeDetailComponent';
+import VolumesDateComponent from './components/VolumesComponent/VolumesDateComponent';
 
 function App() {
   const queryClient = new QueryClient();
@@ -19,52 +22,44 @@ function App() {
   return (
     <Theme>
       <QueryClientProvider client={queryClient}>
-      <MainContextProvider>
-        <BanerContextProvider>
+        <MainContextProvider>
           <BrowserRouter>
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <>
-                    <Header />
-                    <BannerComponent />
-                    <SectionComponent>
-                      <MainComponent />
-                      <AsideComponent />
-                    </SectionComponent>
-                    <ImageCarousel />
-                    <NavbarComponent />
-                  </>
-                }
-              />
-              <Route
-                path="/articles"
-                element={
-                  <>
-                    <Header />
-                    <BannerStaticComponent />
-                    <ArticlesComponent />
-                    <ImageCarousel />
-                    <NavbarComponent />
-                  </>
-                }
-              />
-              <Route
-                path="/volumes"
-                element={
-                  <>
-                    <Header />
-                    <BannerStaticComponent />
-                  </>
-                }
-              />
+              <Route path="/volume/:id" element={<VolumeDetailComponent />} />
+              <Route path="/volumes/:date" element={<VolumesDateComponent />} />
+              <Route path="/" element={<>
+                <BanerContextProvider>
+                  <Header />
+                  <BannerComponent />
+                  <BreadCrumbsComponent />
+                </BanerContextProvider>
+                <SectionComponent >
+                  <MainComponent />
+                  <AsideComponent />
+                </SectionComponent>
+                <ImageCarousel />
+                <NavbarComponent />
+              </>} />
+              <Route path="/articles" element={<>
+                <BanerContextProvider>
+                  <Header />
+                  <BannerStaticComponent />
+                </BanerContextProvider>
+                <ArticlesComponent />
+                <ImageCarousel />
+                <NavbarComponent />
+              </>} />
+              <Route path="/volumes" element={<>
+                <BanerContextProvider>
+                  <Header />
+                  <BannerStaticComponent />
+                </BanerContextProvider>
+              </>} />
               <Route path="/content/strapi" element={<></>} />
               <Route path="/register" element={<></>} />
             </Routes>
           </BrowserRouter>
-        </BanerContextProvider>
-      </MainContextProvider>
+        </MainContextProvider>
       </QueryClientProvider>
     </Theme>
   );
