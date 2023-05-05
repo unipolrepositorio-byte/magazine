@@ -14,6 +14,8 @@ import BanerContextProvider from './context/BanerContextProvider';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import BreadCrumbsComponent from './components/BreadCrumbsComponent';
 import VolumeDetailComponent from './components/VolumesComponent/VolumeDetailComponent';
+import { Volume } from './pages/Volume';
+import MenuComponent from './components/MenuComponent';
 
 function App() {
   const queryClient = new QueryClient();
@@ -46,27 +48,34 @@ function App() {
                 <ImageCarousel />
                 <NavbarComponent />
               </>} />
-              <Route path="/volumes" element={<>
-                <BanerContextProvider>
-                  <Header />
-                  <BannerStaticComponent />
-                </BanerContextProvider>
-              </>} >
-                <Route path=":date" element={<>
-                  <BanerContextProvider>
-                    <Header />
-                    <BannerStaticComponent />
-                  </BanerContextProvider>
-                </>} />
+              <Route path="/volumes">
+                <Route path='' element={
+                  <>
+                    <BanerContextProvider>
+                      <Header />
+                      <BannerStaticComponent />
+                    </BanerContextProvider>
+                  </>}
+                />
+                <Route path=":date" element={
+                  <>
+                    <BanerContextProvider>
+                      <Header />
+                      <BannerStaticComponent />
+                    </BanerContextProvider>
+                  </>} 
+                />
+                <Route path="volume/:id" element={
+                  <>
+                    <BanerContextProvider>
+                      <Header />
+                      <BannerStaticComponent />
+                      <BreadCrumbsComponent />
+                      <Volume/>
+                    </BanerContextProvider>
+                  </>} 
+                />
               </Route>
-              <Route path="/volume/:id" element={<>
-                <BanerContextProvider>
-                  <Header />
-                  <BannerStaticComponent />
-                  <BreadCrumbsComponent />
-                </BanerContextProvider>
-                <VolumeDetailComponent />
-              </>} />
               <Route path="/content/strapi" element={<></>} />
               <Route path="/register" element={<></>} />
             </Routes>
