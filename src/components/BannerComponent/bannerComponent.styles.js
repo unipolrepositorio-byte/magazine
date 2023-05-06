@@ -3,25 +3,25 @@ import mq from '../../config/mq';
 
 const useStyles = makeStyles(theme => ({
   bannerContainer: {
-    [mq('xxs')]:{
-      height: 'calc(12rem + 50px)',
-    },
     [mq('sm')]:{
       borderBottom: `10px solid ${theme.palette.secondary.main}`,
       height: '18.5rem',
     }
   },
+  collapse: {
+    width: '100%'
+  },
   tittleArea: {
     [mq('xxs')]:{
       background: theme.palette.primary.main,
       borderBottom: `10px solid ${theme.palette.secondary.main}`,
-      height:'50px',
+      height: '3rem',
     },
     [mq('sm')]:{
       background: 'transparent',
       borderBottom: `10px solid transparent`,
       position:'relative',
-      zIndex:'1'
+      zIndex:'1',
     },
     [mq('md')]:{
       height:'4rem',
@@ -32,6 +32,20 @@ const useStyles = makeStyles(theme => ({
     [mq('xl')]:{
       height:'4.6rem',
     }
+  },
+  searchMovile: {
+    width: '100%',
+  },
+  searcheDesktop: {
+    display: 'none',
+  },
+  [mq('sm')]:{
+    searchMovile: {
+      display: 'none',   
+    },
+    searcheDesktop: {
+      display: 'flex',
+    },
   },
   logoContainer:{
     background: theme.palette.neutro1.main,
@@ -62,7 +76,7 @@ const useStyles = makeStyles(theme => ({
   carrouselAreaMobile:{
     width:'100%',
     [mq('xxs')]:{
-      display:'block'
+      display:'flex'
     },
     [mq('sm')]:{
       display:'none'
@@ -116,7 +130,7 @@ const useStyles = makeStyles(theme => ({
         }
       }
     }
-  }
+  },
 }));
 
 export default useStyles;

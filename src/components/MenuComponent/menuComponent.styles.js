@@ -21,6 +21,9 @@ const useStyles = makeStyles(theme => ({
         height:'50px',
         paddingBottom: '10px'
     },
+    menuContainerHidden: {
+        visibility: 'hidden'
+    },
     link:{
         textDecoration:'none'
     },
@@ -37,7 +40,11 @@ const useStyles = makeStyles(theme => ({
         }
     },
     menuLoginMobile:{
-        height:'12rem',
+        marginTop: '4rem',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
         '& a':{
             zIndex: '1'
         }
@@ -89,6 +96,7 @@ const useStyles = makeStyles(theme => ({
     buttonVolumes:{
         [mq('xxs')]:{
             padding:'1rem',
+            marginTop: '-4rem', 
         },
         [mq('sm')]:{
             padding:'2rem 5rem',
@@ -122,7 +130,11 @@ const useStyles = makeStyles(theme => ({
                 }
             }
         },
-        
+    },   
+    collapse: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
     
 }));
