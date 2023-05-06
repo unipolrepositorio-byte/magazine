@@ -40,9 +40,6 @@ const useStyles = makeStyles(theme => ({
         }
     },
     menuLoginMobile:{
-        height:'12rem',
-        //height:'10rem',
-        //height: '100%',
         marginTop: '4rem',
         display: 'flex',
         flexDirection: 'row',

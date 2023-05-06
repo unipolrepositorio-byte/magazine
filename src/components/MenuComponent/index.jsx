@@ -40,14 +40,21 @@ const MenuComponent = ({ items }) => {
                                 </Link>
                             ))}
                         </Grid>
-                        {!searchInput && location === '/' ? <Grid item xs={3} container className={!searchInput ? classes.menuContainer : classes.menuContainerHidden}>
+                        {!searchInput && location === '/' ? <Grid item xs={3} container className={classes.menuContainer}>
                             <Link to={'/content/strapi'} className={classes.link}>
                                 <ItemMenuDesktop label='INICIAR SESION' variant={'outlined'} />
                             </Link>
                             <Link to={'/register'} className={classes.link}>
                                 <ItemMenuDesktop label='REGISTRARSE' variant={'contained'} />
                             </Link>
-                        </Grid> : null}
+                        </Grid> : <Grid item xs={3} container className={classes.menuContainerHidden}>
+                            <Link to={'/content/strapi'} className={classes.link}>
+                                <ItemMenuDesktop label='INICIAR SESION' variant={'outlined'} />
+                            </Link>
+                            <Link to={'/register'} className={classes.link}>
+                                <ItemMenuDesktop label='REGISTRARSE' variant={'contained'} />
+                            </Link>
+                        </Grid>}
                         <Grid item xs={1} container className={classes.menuContainer}>
                             <IconButton onClick={handleSearchInput} >
                                 <SearchIcon className={classes.icon} />
@@ -55,18 +62,21 @@ const MenuComponent = ({ items }) => {
                         </Grid>
                     </Grid>
                     {location === '/volumes' &&
-                        <Grid item container direction='column' alignItems='center' className={classes.buttonVolumes} rowGap={2}>
-                            <Button variant='contained' onClick={() => { setVolumeButton(prev => !prev) }}>{volumeButton ? 'BOTON' : 'AÑO'}</Button>
-                            {volumeButton && <Grid container rowGap={1}>
-                                {volumes.map(item => {
-                                    return (
-                                        <Grid item >
-                                            {item}
-                                        </Grid>
-                                    )
-                                })}
-                            </Grid>}
-                        </Grid>
+                        <Collapse in={!searchInput}
+                            className={classes.collapse}>
+                            <Grid item container direction='column' alignItems='center' className={classes.buttonVolumes} rowGap={2}>
+                                <Button variant='contained' onClick={() => { setVolumeButton(prev => !prev) }}>{volumeButton ? 'BOTON' : 'AÑO'}</Button>
+                                {volumeButton && <Grid container rowGap={1}>
+                                    {volumes.map(item => {
+                                        return (
+                                            <Grid item >
+                                                {item}
+                                            </Grid>
+                                        )
+                                    })}
+                                </Grid>}
+                            </Grid>
+                        </Collapse>
                     }
                 </Grid>
             </div>

@@ -3,13 +3,13 @@ import mq from '../../config/mq';
 
 const useStyles = makeStyles(theme => ({
   bannerContainer: {
-    [mq('xxs')]:{
-      height: 'calc(12rem + 50px)',
-    },
     [mq('sm')]:{
       borderBottom: `10px solid ${theme.palette.secondary.main}`,
       height: '18.5rem',
     }
+  },
+  collapse: {
+    width: '100%'
   },
   tittleArea: {
     [mq('xxs')]:{
@@ -32,6 +32,20 @@ const useStyles = makeStyles(theme => ({
     [mq('xl')]:{
       height:'4.6rem',
     }
+  },
+  searchMovile: {
+    width: '100%',
+  },
+  searcheDesktop: {
+    display: 'none',
+  },
+  [mq('sm')]:{
+    searchMovile: {
+      display: 'none',   
+    },
+    searcheDesktop: {
+      display: 'flex',
+    },
   },
   logoContainer:{
     background: theme.palette.neutro1.main,
