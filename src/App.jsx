@@ -13,6 +13,7 @@ import ImageCarousel from './components/ImageCarousel';
 import NavbarComponent from './components/NavbarComponent';
 import Header from './components/Header';
 import ArticlesComponent from './components/ArticlesComponent';
+import BannerStaticComponent from './components/BannerStaticComponent';
 
 function App() {
   return (
@@ -32,14 +33,14 @@ function App() {
             </>} />
             <Route path="/articles" element={<>
               <Header />
-              <BannerComponent />
+              <BannerStaticComponent />
               <ArticlesComponent />
               <ImageCarousel />
               <NavbarComponent />
             </>} />
             <Route path="/volumes" element={<>
               <Header/>
-              <BannerComponent/>
+              <BannerStaticComponent />
             </>} />
             <Route path="/content/strapi" element={<></>} />
             <Route path="/register" element={<></>} />
