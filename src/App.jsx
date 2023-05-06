@@ -38,6 +38,8 @@ function App() {
               <NavbarComponent />
             </>} />
             <Route path="/volumes" element={<>
+              <Header/>
+              <BannerComponent/>
             </>} />
             <Route path="/content/strapi" element={<></>} />
             <Route path="/register" element={<></>} />

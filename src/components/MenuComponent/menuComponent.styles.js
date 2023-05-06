@@ -38,9 +38,6 @@ const useStyles = makeStyles(theme => ({
     },
     menuLoginMobile:{
         height:'12rem',
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
         '& a':{
             zIndex: '1'
         }
@@ -88,6 +85,44 @@ const useStyles = makeStyles(theme => ({
     },
     closeIcon:{
         fill: theme.palette.neutro1.main
+    },
+    buttonVolumes:{
+        [mq('xxs')]:{
+            padding:'1rem',
+        },
+        [mq('sm')]:{
+            padding:'2rem 5rem',
+        },
+        [mq('md')]:{
+            padding:'1rem 8rem',
+        },
+        [mq('lg')]:{
+            padding:'1rem 15rem',
+            paddingTop:''
+        },
+        [mq('xl')]:{
+            padding:'1rem 30rem',
+            paddingTop:''
+        },
+        '& button':{
+            background: theme.palette.neutro1.main,
+            padding: '0px 10px',
+            color: theme.palette.primary.main,
+            fontWeight: 'bolder',
+            fontSize:'0.875rem',
+            '&:hover':{
+                background: theme.palette.primary.main,
+                color: theme.palette.neutro1.main,
+            },
+            '&.MuiButton-text':{
+                color:'white',
+                background:'transparent',
+                '&:hover':{
+                    background:'rgba(0,0,0,.5)'
+                }
+            }
+        },
+        
     }
     
 }));
