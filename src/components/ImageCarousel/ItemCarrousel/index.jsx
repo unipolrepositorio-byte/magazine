@@ -1,25 +1,12 @@
 import useStyles from './ItemCarrousel.styles';
 import logo from '../../../assets/image/portada.png';
+import { dateFormat } from '../../../utilities/dateFormat';
 
 import { Grid } from '@material-ui/core';
 
 
 const ItemCarrousel = ({item}) => {
 
-    const dateFormat = (dateString) => {
-        var date = new Date(dateString);
-        var optionMonth = {month: 'long'};
-        var optionDay = {day: 'numeric'};
-        var optionYear = {year: 'numeric'};
-
-        var month = date.toLocaleDateString('es-Es', optionMonth);
-        month = month[0].toUpperCase()+month.slice(1);
-        var day = date.toLocaleDateString('es-Es', optionDay);
-        var year = date.toLocaleDateString('es-Es', optionYear).slice(2);
-
-        const finalDate = `${month} ${day} | ${year}`;
-        return finalDate
-    }
 
     const classes = useStyles();
     return (

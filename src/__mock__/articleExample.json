@@ -1,0 +1,134 @@
+{
+    "data": {
+        "id": 1,
+        "attributes": {
+            "title": "El trabajo de la policía boliviana: un análisis de su labor",
+            "date": "2023-05-03",
+            "brief": "La Policía Boliviana es una institución encargada de mantener el orden público y la seguridad ciudadana en todo el territorio boliviano. Esta entidad cuenta con una estructura jerárquica que permite la gestión y dirección de la seguridad ciudadana, además de contar con una serie de recursos técnicos, logísticos y humanos para realizar sus tareas.\n\nEn este artículo se analiza el trabajo de la Policía Boliviana, incluyendo su estructura, recursos y desafíos, así como sus principales acciones y operaciones en el marco del mantenimiento del orden público y la seguridad ciudadana.",
+            "pdf": null,
+            "completeText": "La Policía Boliviana es una institución encargada de mantener el orden público y la seguridad ciudadana en todo el territorio boliviano. Esta entidad cuenta con una estructura jerárquica que permite la gestión y dirección de la seguridad ciudadana, además de contar con una serie de recursos técnicos, logísticos y humanos para realizar sus tareas.\n\nEn este artículo se analiza el trabajo de la Policía Boliviana, incluyendo su estructura, recursos y desafíos, así como sus principales acciones y operaciones en el marco del mantenimiento del orden público y la seguridad ciudadana.\n\nEstructura y recursos de la Policía Boliviana\n\nLa Policía Boliviana se divide en dos grandes ramas: la Policía Nacional y la Policía Técnica Científica. La Policía Nacional es la encargada de mantener el orden público y la seguridad ciudadana en todo el territorio boliviano, mientras que la Policía Técnica Científica es la encargada de realizar peritajes y análisis científicos en apoyo a las investigaciones policiales.\n\nLa Policía Nacional se divide a su vez en diferentes unidades, siendo las más importantes la Unidad de Bomberos, la Unidad de Investigaciones, la Unidad de Tránsito y la Unidad de Control Operativo.\n\nLa Unidad de Bomberos se encarga de la atención de emergencias relacionadas con incendios, explosiones, rescates, entre otros. La Unidad de Investigaciones se encarga de la investigación de delitos y la búsqueda de prófugos. La Unidad de Tránsito es la encargada de regular y controlar el tránsito vehicular en las ciudades y carreteras del país, mientras que la Unidad de Control Operativo es la encargada de realizar operativos de control en distintos ámbitos.\n\nAdemás de estas unidades, la Policía Boliviana cuenta con otros recursos técnicos y logísticos para realizar sus tareas, como son las unidades motorizadas, las unidades caninas, los helicópteros, entre otros.\n\nDesafíos y desventajas de la Policía Boliviana\n\nA pesar de contar con una estructura organizacional y recursos técnicos, la Policía Boliviana enfrenta una serie de desafíos en su labor cotidiana. Uno de los principales desafíos es la falta de recursos humanos, lo que hace que la labor policial sea insuficiente en algunas zonas del país.\n\nOtro desafío importante es la falta de capacitación técnica y profesional de algunos policías, lo que puede afectar su desempeño en situaciones de emergencia. Además, la corrupción en algunas instancias policiales también es un problema que afecta la confianza de la ciudadanía en la policía.\n\nAcciones y operaciones de la Policía Boliviana\n\nA pesar de los desafíos que enfrenta, la Policía Boliviana realiza una serie de acciones y operaciones para mantener el orden público y la seguridad ciudadana. Algunas de las más relevantes son:\n\n- Operativos contra el narcotráfico: La Policía Boliviana realiza operativos de control y decomiso de drogas en distintas zonas del país, en coordinación con otras instituciones.\n\n- Operativos de control de armas: La Policía Boliviana realiza operativos para controlar el uso ilegal de armas de fuego y para evitar el tráfico de armas en el país.\n- Control de manifestaciones: La Policía Boliviana también es responsable de garantizar la seguridad durante las manifestaciones y protestas sociales en el país, tanto para los manifestantes como para los ciudadanos que no participan en ellas.\n\n- Control del tráfico vehicular: La Unidad de Tránsito de la Policía Boliviana es responsable de regular y controlar el tráfico vehicular en las ciudades y carreteras del país, con el objetivo de prevenir accidentes de tráfico y mejorar la seguridad vial.\n\n- Prevención del delito: La Policía Boliviana lleva a cabo acciones de prevención del delito en distintas zonas del país, a través de programas y campañas que buscan concientizar a la población sobre los riesgos del delito y la importancia de la denuncia.\n\nEn conclusión, la Policía Boliviana es una institución encargada de mantener el orden público y la seguridad ciudadana en todo el territorio boliviano. A pesar de enfrentar desafíos como la falta de recursos humanos, la falta de capacitación técnica y profesional de algunos policías, y la corrupción en algunas instancias policiales, la Policía Boliviana realiza una serie de acciones y operaciones para cumplir con su labor, como la lucha contra el narcotráfico, el control de armas, el control de manifestaciones, el control del tráfico vehicular y la prevención del delito.",
+            "createdAt": "2023-05-04T03:43:17.776Z",
+            "updatedAt": "2023-05-07T05:03:18.596Z",
+            "publishedAt": "2023-05-04T03:48:21.244Z",
+            "images": {
+                "data": []
+            },
+            "tables": {
+                "data": []
+            },
+            "autors": {
+                "data": [
+                    {
+                        "id": 1,
+                        "attributes": {
+                            "fullName": "Juan Perez",
+                            "institutionalAffiliation": "Universidad Nacional de Colombia",
+                            "email": "juan.perez@unal.edu.co",
+                            "orcid": "0000-0002-1234-5678",
+                            "copyrightRegistration": "© Juan Perez, 2021",
+                            "createdAt": "2023-05-04T03:45:09.669Z",
+                            "updatedAt": "2023-05-04T03:48:28.066Z",
+                            "publishedAt": "2023-05-04T03:48:28.061Z"
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "attributes": {
+                            "fullName": "Luis Garcia",
+                            "institutionalAffiliation": "Universidad Autonomá Tomás Frias",
+                            "email": "luis.perez@unal.edu.co",
+                            "orcid": "0000-0002-1234-56712",
+                            "copyrightRegistration": "© Luis Garcia, 2021",
+                            "createdAt": "2023-05-07T05:01:19.876Z",
+                            "updatedAt": "2023-05-07T05:02:51.482Z",
+                            "publishedAt": "2023-05-07T05:02:51.479Z"
+                        }
+                    }
+                ]
+            },
+            "bibliographies": {
+                "data": [
+                    {
+                        "id": 1,
+                        "attributes": {
+                            "publicationType": "journal article",
+                            "authorLastName": "García",
+                            "authorInitials": "J. A.",
+                            "publicationYear": 2022,
+                            "publicationTitle": "The Effects of Sleep Deprivation on Cognitive Performance in College Students",
+                            "volume": "31",
+                            "issue": "1",
+                            "pages": "e13243",
+                            "editorInitials": null,
+                            "editorLastName": null,
+                            "publicationPlace": null,
+                            "publisher": null,
+                            "electronicAddress": "https://doi.org/10.1111/jsr.13243",
+                            "createdAt": "2023-05-04T03:47:30.629Z",
+                            "updatedAt": "2023-05-04T03:48:33.915Z",
+                            "publishedAt": "2023-05-04T03:48:33.910Z"
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "attributes": {
+                            "publicationType": "journal article",
+                            "authorLastName": "Gordillo",
+                            "authorInitials": "G.C",
+                            "publicationYear": 2015,
+                            "publicationTitle": "Dinámica de sistemas un enfoque práctico ",
+                            "volume": "31",
+                            "issue": "3",
+                            "pages": "e1334",
+                            "editorInitials": null,
+                            "editorLastName": null,
+                            "publicationPlace": null,
+                            "publisher": null,
+                            "electronicAddress": "https://doi.org/10.1111/jsr.1334",
+                            "createdAt": "2023-05-07T05:00:22.176Z",
+                            "updatedAt": "2023-05-07T05:00:23.653Z",
+                            "publishedAt": "2023-05-07T05:00:23.645Z"
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "attributes": {
+                            "publicationType": "journal article",
+                            "authorLastName": "Perez",
+                            "authorInitials": "P. A.",
+                            "publicationYear": 2017,
+                            "publicationTitle": "The troops of Sleep Deprivation on Cognitive Performance in College Students",
+                            "volume": "31",
+                            "issue": "3",
+                            "pages": "e1334",
+                            "editorInitials": null,
+                            "editorLastName": null,
+                            "publicationPlace": null,
+                            "publisher": null,
+                            "electronicAddress": "https://doi.org/10.1111/jsr.1334",
+                            "createdAt": "2023-05-07T04:52:28.246Z",
+                            "updatedAt": "2023-05-07T04:59:06.403Z",
+                            "publishedAt": "2023-05-07T04:59:06.399Z"
+                        }
+                    }
+                ]
+            },
+            "volume": {
+                "data": {
+                    "id": 1,
+                    "attributes": {
+                        "title": "Volumen 1 nro 1 -",
+                        "date": "2023-05-10",
+                        "createdAt": "2023-05-06T23:10:57.045Z",
+                        "updatedAt": "2023-05-07T04:48:26.001Z",
+                        "publishedAt": "2023-05-06T23:11:05.274Z"
+                    }
+                }
+            },
+            "menus": {
+                "data": []
+            }
+        }
+    },
+    "meta": {}
+}
