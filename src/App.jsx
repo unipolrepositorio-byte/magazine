@@ -1,9 +1,5 @@
 import Theme from './theme/theme';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import BannerComponent from './components/BannerComponent';
 import MainContextProvider from './context/MainContextProvider';
 import SectionComponent from './components/SectionComponent';
@@ -15,45 +11,61 @@ import Header from './components/Header';
 import ArticlesComponent from './components/ArticlesComponent';
 import BannerStaticComponent from './components/BannerStaticComponent';
 import BanerContextProvider from './context/BanerContextProvider';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
     <Theme>
+      <QueryClientProvider client={queryClient}>
       <MainContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<>
-              <BanerContextProvider>
-                <Header />
-                <BannerComponent />
-              </BanerContextProvider>
-              <SectionComponent >
-                <MainComponent />
-                <AsideComponent />
-              </SectionComponent>
-              <ImageCarousel />
-              <NavbarComponent />
-            </>} />
-            <Route path="/articles" element={<>
-              <BanerContextProvider>
-                <Header />
-                <BannerStaticComponent />
-              </BanerContextProvider>
-              <ArticlesComponent />
-              <ImageCarousel />
-              <NavbarComponent />
-            </>} />
-            <Route path="/volumes" element={<>
-              <BanerContextProvider>
-                <Header />
-                <BannerStaticComponent />
-              </BanerContextProvider>
-            </>} />
-            <Route path="/content/strapi" element={<></>} />
-            <Route path="/register" element={<></>} />
-          </Routes>
-        </BrowserRouter>
+        <BanerContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Header />
+                    <BannerComponent />
+                    <SectionComponent>
+                      <MainComponent />
+                      <AsideComponent />
+                    </SectionComponent>
+                    <ImageCarousel />
+                    <NavbarComponent />
+                  </>
+                }
+              />
+              <Route
+                path="/articles"
+                element={
+                  <>
+                    <Header />
+                    <BannerStaticComponent />
+                    <ArticlesComponent />
+                    <ImageCarousel />
+                    <NavbarComponent />
+                  </>
+                }
+              />
+              <Route
+                path="/volumes"
+                element={
+                  <>
+                    <Header />
+                    <BannerStaticComponent />
+                  </>
+                }
+              />
+              <Route path="/content/strapi" element={<></>} />
+              <Route path="/register" element={<></>} />
+            </Routes>
+          </BrowserRouter>
+        </BanerContextProvider>
       </MainContextProvider>
+      </QueryClientProvider>
     </Theme>
   );
 }

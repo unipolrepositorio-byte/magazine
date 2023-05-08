@@ -5,6 +5,7 @@ import PopperContainer from './PopperContainer';
 
 
 const ItemComponent = ({ props }) => {
+  
   const { id, title, date, brief, pdf, authors } = props;
 
   const classes = useStyles();
@@ -21,12 +22,12 @@ const ItemComponent = ({ props }) => {
         <Typography variant="h5">
           {brief}
         </Typography>
-        {authors.length > 1 ? <Typography>
-          {authors.map(author => (
+        {authors && authors.length > 1 ? <Typography>
+          {authors && authors.map(author => (
             author + ' / '
           ))}
         </Typography> : <Typography>
-          {authors.map(author => (
+          {authors && authors.map(author => (
             author
           ))}
         </Typography>}

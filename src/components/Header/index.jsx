@@ -1,11 +1,9 @@
 import React from 'react'
 import useStyles from './header.styles';
-import { searchGiffs } from '../../services';
 import MenuComponent from '../MenuComponent';
 import SearchComponent from '../MenuComponent/SearchComponent';
 
 const Header = () => {
-  searchGiffs('better call saul');
   const classes = useStyles();
 
   const items = [
