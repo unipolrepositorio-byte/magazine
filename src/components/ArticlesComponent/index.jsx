@@ -1,15 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useStyles from './articlesComponent.styles';
-import useFetch from '../../hooks/useFetch';
 import ItemComponent from '../MainComponent/itemComponent';
-import Typography from '@mui/material/Typography'
+import { useQuery } from 'react-query';
+import queryString from 'query-string';
+import articlesService from '../../async/services/articlesService';
 
 
-const MainComponent = ({ children }) => {
-    const { data, isLoading, getData, setIsLoading } = useFetch();
-    useEffect(() => {
-        getData();
-    }, [isLoading])
+const MainComponent = () => {
+    const { data, isLoading, error } = useQuery('search', () => articlesService());
+    console.log('get data ->', data);
 
     const classes = useStyles();
     return (
@@ -18,8 +17,8 @@ const MainComponent = ({ children }) => {
                 <h3 variant="h3" paragraph>
                     ARTÍCULOS
                 </h3>
-                {isLoading ? <p>..loading</p> : data.map(article => (
-                    <ItemComponent props={article} />
+                {isLoading ? <p>..loading</p> : data.data.map(({attributes}) => (
+                    <ItemComponent props={attributes} />
                 ))}
             </div>
         </div>
