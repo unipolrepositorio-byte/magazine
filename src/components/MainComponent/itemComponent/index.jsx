@@ -5,9 +5,8 @@ import PopperContainer from './PopperContainer';
 
 
 const ItemComponent = ({ props }) => {
-  
-  const { id, title, date, brief, pdf, authors } = props;
 
+  const { id, title, date, brief, pdf, autors } = props;
   const classes = useStyles();
 
   return (
@@ -22,13 +21,13 @@ const ItemComponent = ({ props }) => {
         <Typography variant="h5">
           {brief}
         </Typography>
-        {authors && authors.length > 1 ? <Typography>
-          {authors && authors.map(author => (
-            author + ' / '
+        {autors.data && autors.data.length > 1 ? <Typography>
+          {autors.data && autors.data.map(autor => (
+            autor.attributes.fullName + ' / '
           ))}
         </Typography> : <Typography>
-          {authors && authors.map(author => (
-            author
+          {autors.data && autors.data.map(autor => (
+            autor.attributes.fullName
           ))}
         </Typography>}
         <PopperContainer />
