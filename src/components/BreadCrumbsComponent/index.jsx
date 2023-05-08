@@ -1,27 +1,28 @@
+import { useContext } from 'react';
 import useStyles from './breadCrumbComponent.styles';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
+import { BanerContext } from '../../context/BanerContext';
 import { Link } from 'react-router-dom';
 
-const YEAR = 2023;
-const VOLUMEN_ID = 1;
-
 const BreadCrumbComponent = () => {
+    const { date, volume, searchInput } = useContext(BanerContext);
     const classes = useStyles();
     return (
         <div className={classes.container}>
-            <Breadcrumbs separator="|" aria-label="breadcrumb"
+            {!searchInput && <Breadcrumbs separator="|" aria-label="breadcrumb"
                 className={classes.content}>
                 <Link
-                    to={`/volumes/${YEAR}`}>
-                    ABRIL 16. {YEAR}
+                    to={`/volumes/${date}`}>
+                    {date}
                 </Link>
                 <Link
-                    to={`/volume/${VOLUMEN_ID}`}>
-                    Vol.1
+                    to={`/volume/${volume}`}>
+                    Vol. {volume}
                 </Link>
                 <Typography>Nu.1</Typography>
-            </Breadcrumbs>
+            </Breadcrumbs>}
+
         </div>
     )
 }

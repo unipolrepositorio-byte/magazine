@@ -14,7 +14,6 @@ import BanerContextProvider from './context/BanerContextProvider';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import BreadCrumbsComponent from './components/BreadCrumbsComponent';
 import VolumeDetailComponent from './components/VolumesComponent/VolumeDetailComponent';
-import VolumesDateComponent from './components/VolumesComponent/VolumesDateComponent';
 
 function App() {
   const queryClient = new QueryClient();
@@ -25,8 +24,6 @@ function App() {
         <MainContextProvider>
           <BrowserRouter>
             <Routes>
-              <Route path="/volume/:id" element={<VolumeDetailComponent />} />
-              <Route path="/volumes/:date" element={<VolumesDateComponent />} />
               <Route path="/" element={<>
                 <BanerContextProvider>
                   <Header />
@@ -54,6 +51,21 @@ function App() {
                   <Header />
                   <BannerStaticComponent />
                 </BanerContextProvider>
+              </>} >
+                <Route path=":date" element={<>
+                  <BanerContextProvider>
+                    <Header />
+                    <BannerStaticComponent />
+                  </BanerContextProvider>
+                </>} />
+              </Route>
+              <Route path="/volume/:id" element={<>
+                <BanerContextProvider>
+                  <Header />
+                  <BannerStaticComponent />
+                  <BreadCrumbsComponent />
+                </BanerContextProvider>
+                <VolumeDetailComponent />
               </>} />
               <Route path="/content/strapi" element={<></>} />
               <Route path="/register" element={<></>} />

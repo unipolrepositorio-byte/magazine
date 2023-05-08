@@ -27,7 +27,6 @@ const useStyles = makeStyles(theme => ({
         height: '2.5rem',
         display: 'flex',
         backgroundColor: theme.palette.neutro1.main,
-        //backgroundColor: 'gray',
         color: theme.palette.primary.main,
         '& a': {
             color: theme.palette.primary.main,
@@ -56,7 +55,6 @@ const useStyles = makeStyles(theme => ({
             height: '7rem',
             display: 'flex',
             backgroundColor: theme.palette.neutro1.main,
-            //backgroundColor: 'gray',
             color: theme.palette.primary.main,
             '& a': {
                 color: theme.palette.primary.main,
