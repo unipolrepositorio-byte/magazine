@@ -9,12 +9,13 @@ import ItemMenuDesktop from './itemMenuDesktop/index';
 import ItemMenuMobile from "./itemMenuMobile";
 import { ReactComponent as Hamburger } from '../../assets/image/hamburger.svg';
 import { ReactComponent as SearchIcon } from '../../assets/image/buscador.svg';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import { BanerContext } from '../../context/BanerContext';
 
 const MenuComponent = ({ items }) => {
     const { searchInput, setSearchInput } = useContext(BanerContext);
+    const { date } = useParams();
     const classes = useStyles(searchInput);
     const [open, setOpen] = useState(true);
     const [volumeButton, setVolumeButton] = useState(false);
@@ -61,7 +62,7 @@ const MenuComponent = ({ items }) => {
                             </IconButton>
                         </Grid>
                     </Grid>
-                    {location === '/volumes' &&
+                    {location === '/volumes' || location == `/volumes/${date}` ?
                         <Collapse in={!searchInput}
                             className={classes.collapse}>
                             <Grid item container direction='column' alignItems='center' className={classes.buttonVolumes} rowGap={2}>
@@ -77,7 +78,7 @@ const MenuComponent = ({ items }) => {
                                 </Grid>}
                             </Grid>
                         </Collapse>
-                    }
+                        : null}
                 </Grid>
             </div>
 
@@ -104,7 +105,7 @@ const MenuComponent = ({ items }) => {
                                 </Link>
                             </Grid>
                         </> : null}
-                        {location === '/volumes' && <>
+                        {location === '/volumes' || location == `/volumes/${date}` ? <>
                             <Grid container direction='column' alignItems='flex-start' className={classes.buttonVolumes} rowGap={2}>
                                 <Button variant='contained' onClick={() => { setVolumeButton(prev => !prev) }}>{volumeButton ? 'BOTON' : 'AÑO'}</Button>
                                 {volumeButton && <Grid container columns={{ xs: 14 }} rowGap={1} justifyContent='space-around'>
@@ -117,7 +118,7 @@ const MenuComponent = ({ items }) => {
                                     })}
                                 </Grid>}
                             </Grid>
-                        </>}
+                        </> : null}
                     </Grid>
                 </Collapse>
                 <Slide direction="up" in={open} timeout={500}>

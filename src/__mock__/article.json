@@ -4,19 +4,59 @@
                 "title": "canopy-top measurements do not accurate quantiy",
                 "date": "04/15/2023",
                 "brief": "Spectral turning of visual pigments often faciliates... ",
-                "authors": [
-                        "Marco Antonio",
-                        "Guillermo"
-                ],
+                "autors": {
+                        "data": [
+                                {
+                                        "id": 1,
+                                        "attributes": {
+                                                "fullName": "Juan Perez",
+                                                "institutionalAffiliation": "Universidad Nacional de Colombia",
+                                                "email": "juan.perez@unal.edu.co",
+                                                "orcid": "0000-0002-1234-5678",
+                                                "copyrightRegistration": "© Juan Perez, 2021",
+                                                "createdAt": "2023-05-04T03:45:09.669Z",
+                                                "updatedAt": "2023-05-04T03:48:28.066Z",
+                                                "publishedAt": "2023-05-04T03:48:28.061Z"
+                                        }
+                                },
+                                {
+                                        "id": 2,
+                                        "attributes": {
+                                                "fullName": "Luis Garcia",
+                                                "institutionalAffiliation": "Universidad Autonomá Tomás Frias",
+                                                "email": "luis.perez@unal.edu.co",
+                                                "orcid": "0000-0002-1234-56712",
+                                                "copyrightRegistration": "© Luis Garcia, 2021",
+                                                "createdAt": "2023-05-07T05:01:19.876Z",
+                                                "updatedAt": "2023-05-07T05:02:51.482Z",
+                                                "publishedAt": "2023-05-07T05:02:51.479Z"
+                                        }
+                                }
+                        ]
+                },
                 "pdf": "route to download"
         },
         {
                 "id": 35,
                 "title": "canopy-top measurements do not accurate quantiy",
                 "date": "04/15/2023",
-                "authors": [
-                        "Guillermo"
-                ],
+                "autors": {
+                        "data": [
+                                {
+                                        "id": 1,
+                                        "attributes": {
+                                                "fullName": "Juan Perez",
+                                                "institutionalAffiliation": "Universidad Nacional de Colombia",
+                                                "email": "juan.perez@unal.edu.co",
+                                                "orcid": "0000-0002-1234-5678",
+                                                "copyrightRegistration": "© Juan Perez, 2021",
+                                                "createdAt": "2023-05-04T03:45:09.669Z",
+                                                "updatedAt": "2023-05-04T03:48:28.066Z",
+                                                "publishedAt": "2023-05-04T03:48:28.061Z"
+                                        }
+                                }
+                        ]
+                },
                 "brief": "Spectral turning of visual pigments often faciliates... ",
                 "pdf": "route to download"
         },
@@ -24,10 +64,36 @@
                 "id": 36,
                 "title": "canopy-top measurements do not accurate quantiy",
                 "date": "04/15/2023",
-                "authors": [
-                        "Marco Antonio",
-                        "Guillermo"
-                ],
+                "autors": {
+                        "data": [
+                                {
+                                        "id": 1,
+                                        "attributes": {
+                                                "fullName": "Juan Perez",
+                                                "institutionalAffiliation": "Universidad Nacional de Colombia",
+                                                "email": "juan.perez@unal.edu.co",
+                                                "orcid": "0000-0002-1234-5678",
+                                                "copyrightRegistration": "© Juan Perez, 2021",
+                                                "createdAt": "2023-05-04T03:45:09.669Z",
+                                                "updatedAt": "2023-05-04T03:48:28.066Z",
+                                                "publishedAt": "2023-05-04T03:48:28.061Z"
+                                        }
+                                },
+                                {
+                                        "id": 2,
+                                        "attributes": {
+                                                "fullName": "Luis Garcia",
+                                                "institutionalAffiliation": "Universidad Autonomá Tomás Frias",
+                                                "email": "luis.perez@unal.edu.co",
+                                                "orcid": "0000-0002-1234-56712",
+                                                "copyrightRegistration": "© Luis Garcia, 2021",
+                                                "createdAt": "2023-05-07T05:01:19.876Z",
+                                                "updatedAt": "2023-05-07T05:02:51.482Z",
+                                                "publishedAt": "2023-05-07T05:02:51.479Z"
+                                        }
+                                }
+                        ]
+                },
                 "brief": "Spectral turning of visual pigments often faciliates... ",
                 "pdf": "route to download"
         }
