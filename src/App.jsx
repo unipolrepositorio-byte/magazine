@@ -13,6 +13,7 @@ import BannerStaticComponent from './components/BannerStaticComponent';
 import BanerContextProvider from './context/BanerContextProvider';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import BreadCrumbsComponent from './components/BreadCrumbsComponent';
+import VolumesComponent from './components/VolumesComponent';
 import VolumeDetailComponent from './components/VolumesComponent/VolumeDetailComponent';
 import { Volume } from './pages/Volume';
 import MenuComponent from './components/MenuComponent';
@@ -63,7 +64,7 @@ function App() {
                       <Header />
                       <BannerStaticComponent />
                     </BanerContextProvider>
-                  </>} 
+                  </>}
                 />
                 <Route path="volume/:id" element={
                   <>
@@ -71,9 +72,9 @@ function App() {
                       <Header />
                       <BannerStaticComponent />
                       <BreadCrumbsComponent />
-                      <Volume/>
+                      <Volume />
                     </BanerContextProvider>
-                  </>} 
+                  </>}
                 />
               </Route>
               <Route path="/content/strapi" element={<></>} />
