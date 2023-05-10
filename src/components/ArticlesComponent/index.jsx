@@ -7,8 +7,7 @@ import articlesService from '../../async/services/articlesService';
 
 
 const MainComponent = () => {
-    const { data, isLoading, error } = useQuery('search', () => articlesService());
-    console.log('get data ->', data);
+    const { data, isLoading, error } = useQuery('articles', () => articlesService());
 
     const classes = useStyles();
     return (
@@ -17,8 +16,8 @@ const MainComponent = () => {
                 <h3 variant="h3" paragraph>
                     ARTÍCULOS
                 </h3>
-                {isLoading ? <p>..loading</p> : data.data.map(({id,attributes}) => (
-                    <ItemComponent props={attributes} id={id}/>
+                {isLoading ? <p>..loading</p> : data.data.map(({ id, attributes }) => (
+                    <ItemComponent props={attributes} id={id} />
                 ))}
             </div>
         </div>

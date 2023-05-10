@@ -1,29 +1,26 @@
 import { useEffect } from 'react';
 import useStyles from './mainComponent.styles';
 import ItemComponent from './itemComponent/index';
-import article from '../../__mock__/article.json';
 import Typography from '@mui/material/Typography'
-import useFetch from '../../hooks/useFetch';
+import articlesRecentService from '../../async/services/articlesRecentService';
+import { useQuery } from 'react-query';
 
 const NUMBER_OF_ARTICLES = 2
 
 const MainComponent = ({ children }) => {
-    const { data, isLoading, getData, setIsLoading } = useFetch();
-    useEffect(() => {
-        getData(NUMBER_OF_ARTICLES);
-    }, [isLoading])
+    const { data, isLoading, error } = useQuery('newsArticles', () => articlesRecentService());
 
     const classes = useStyles();
     console.log(data);
     return <div className={classes.container}>
         {children}
 
-        {isLoading ? <p>..loading</p> : data.map(article => (
+        {isLoading ? <p>..loading</p> : data.data.map(({ attributes }) => (
             <>
                 <Typography variant="h3" >
                     ARTÍCULOS MAS RECIENTES
                 </Typography>
-                <ItemComponent props={article} />
+                <ItemComponent props={attributes} />
                 <div className={classes.separator}>
                     <div className={classes.circle}></div>
                     <div className={classes.circle}></div>

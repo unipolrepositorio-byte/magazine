@@ -18,7 +18,6 @@ const buildOptions = (payload, method, isFile) => {
 
 const request = async(endpoint, payload, method, isFile) => {
     const options = buildOptions(payload, method, isFile);
-    console.log('here')
     const response = await fetch(endpoint, options);
     if (response.ok) {
         try {
