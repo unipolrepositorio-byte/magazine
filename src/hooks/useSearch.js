@@ -3,6 +3,7 @@ import { useState } from "react"
 const useSearch = () => {
     const [searchInput, setSearchInput] = useState(false);
     const [date, setDate] = useState('ABRIL 16. 2023');
+    const [initialDate, setInitialDate] = useState('ABRIL 16. 2023');
     const [volume, setVolume] = useState(1);
 
     return {
@@ -11,7 +12,9 @@ const useSearch = () => {
         date, 
         setDate, 
         volume, 
-        setVolume
+        setVolume,
+        initialDate, 
+        setInitialDate
     }
 }
 export default useSearch;

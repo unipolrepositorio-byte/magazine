@@ -55,17 +55,16 @@ function App() {
                     <BanerContextProvider>
                       <Header />
                       <BannerStaticComponent />
+                      <VolumesComponent />
                     </BanerContextProvider>
-                  </>}
-                />
-                <Route path=":date" element={
-                  <>
-                    <BanerContextProvider>
-                      <Header />
-                      <BannerStaticComponent />
-                    </BanerContextProvider>
-                  </>}
-                />
+                  </>} />
+                <Route path=":date" element={<>
+                  <BanerContextProvider>
+                    <Header />
+                    <BannerStaticComponent />
+                    <VolumesComponent />
+                  </BanerContextProvider>
+                </>} />
                 <Route path="volume/:id" element={
                   <>
                     <BanerContextProvider>

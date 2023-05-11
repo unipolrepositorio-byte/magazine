@@ -9,7 +9,8 @@ import volumes from '../../__mock__/volumes'
 const VolumesComponent = ({ children }) => {
     const { date } = useParams();
     // if date exists date in params so add param in uri for search
-    let URI = date ? `${volumes}/${date}` : volumes;
+    //let URI = date ? `${volumes}/${date}` : volumes;
+    const URI = volumes
 
     const { data, isLoading, getData } = useFetch(true, URI);
     const classes = useStyles();

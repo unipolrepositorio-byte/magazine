@@ -1,16 +1,19 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import useStyles from './volumeItemComponent.styles';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Typography from '@mui/material/Typography';
-
+import { BanerContext } from '../../../context/BanerContext';
 
 const VolumeItemComponent = (props) => {
+    const { setDate } = useContext(BanerContext);
     const { data } = props;
     const navigate = useNavigate();
 
-    const goVolume = (id) => {
-        navigate(`/volume/${id}`)
+    const goVolume = (id, date) => {
+        setDate(date)
+        navigate(`/volumes/volume/${id}`)
     }
 
     const classes = useStyles();
@@ -20,7 +23,7 @@ const VolumeItemComponent = (props) => {
                 <ImageList sx={{ margin: 3 }} cols={3} gap={75}>
                     {data.map((item) => (
                         <>
-                            <ImageListItem key={item.id} sx={{ width: '18rem' }} onClick={() => goVolume(item.id)}>
+                            <ImageListItem key={item.id} sx={{ width: '18rem' }} onClick={() => goVolume(item.id, item.date)}>
                                 <img
                                     src={`${item.portrait}?w=164&h=164&fit=crop&auto=format`}
                                     srcSet={`${item.portrait}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
@@ -45,7 +48,7 @@ const VolumeItemComponent = (props) => {
                 <ImageList sx={{ margin: 3 }} cols={2} gap={20}>
                     {data.map((item) => (
                         <>
-                            <ImageListItem key={item.id} onClick={() => goVolume(item.id)}>
+                            <ImageListItem key={item.id} onClick={() => goVolume(item.id, item.date)}>
                                 <img
                                     src={`${item.portrait}`}
                                     srcSet={`${item.portrait}`}

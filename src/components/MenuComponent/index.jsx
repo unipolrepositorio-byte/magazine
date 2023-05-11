@@ -62,7 +62,7 @@ const MenuComponent = ({ items }) => {
                             </IconButton>
                         </Grid>
                     </Grid>
-                    {location === '/volumes' || location == `/volumes/${date}` ?
+                    {location === '/volumes' || date ?
                         <Collapse in={!searchInput}
                             className={classes.collapse}>
                             <Grid item container direction='column' alignItems='center' className={classes.buttonVolumes} rowGap={2}>
@@ -105,7 +105,7 @@ const MenuComponent = ({ items }) => {
                                 </Link>
                             </Grid>
                         </> : null}
-                        {location === '/volumes' || location == `/volumes/${date}` ? <>
+                        {location === '/volumes' || date ? <>
                             <Grid container direction='column' alignItems='flex-start' className={classes.buttonVolumes} rowGap={2}>
                                 <Button variant='contained' onClick={() => { setVolumeButton(prev => !prev) }}>{volumeButton ? 'BOTON' : 'AÑO'}</Button>
                                 {volumeButton && <Grid container columns={{ xs: 14 }} rowGap={1} justifyContent='space-around'>
