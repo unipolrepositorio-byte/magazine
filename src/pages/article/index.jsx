@@ -1,78 +1,55 @@
-import { Collapse, Grid } from "@material-ui/core";
-import { useState } from "react";
+import { Grid } from "@material-ui/core";
+import { useState, useEffect, React } from "react";
 import { useParams } from "react-router-dom";
 import useStyles from "./article.styles";
-import {ReactComponent as Icon} from '../../assets/icons/face.svg';
-import { ReactComponent as HamburgerIcon } from '../../assets/image/hamburger.svg';
-import { ReactComponent as PdfIcon } from '../../assets/image/PDF.svg';
-import { ReactComponent as LinkIcon } from '../../assets/image/link2.svg';
-import { ReactComponent as ImageIcon } from '../../assets/image/imagen.svg';
-import { ReactComponent as WhatsappIcon } from '../../assets/image/whasap.svg';
-import { ReactComponent as TelegramIcon } from '../../assets/image/telegram.svg';
-import { ReactComponent as FaceIcon } from '../../assets/image/facebook.svg';
-import logo from '../../assets/image/logo.png';
-import ItemComponent from "../../components/MainComponent/itemComponent";
 import { TitleArea } from "./TitleArea";
 import { ReferencesArea } from "./ReferencesArea";
 import { MenuMobile } from "./menuMobile";
 import { MenuDesktop } from "./menuDesktop";
-
+import articleService from "../../async/services/articleService";
+import { TextArea } from "./textArea";
 
 export const Article = () => {
 
-    const data = require ('../../__mock__/articleExample.json').data.attributes;
+    ///const data = require('../../__mock__/articleExample.json');
 
-    const auth = [];
-
-    data.autors.data.map(item=>{
-        auth.push(item.attributes.fullName)
-    })
-
-
+    const { id } = useParams();
     const classes = useStyles();
+    const [data, setData] = useState();
 
-
+    const loadData = async () => {
+        const response = await articleService(id);
+        setData(response);
+    }
+    useEffect(()=>{loadData()},[])
     
 
-    const FormatText = ({text}) => {
-        const parrafos = text.split('\n\n');
-        return(
-            <>
-                {
-                    parrafos.map(item=>{
-                        return(<p>{item}</p>)
-                    })
-                }
-            </>
-        )
-    }
-
     return ( 
-        <Grid container direction='column' className={classes.articleContainer}>
-            <Grid item>
-                <TitleArea date={data.date} title={data.title} autors={auth}/>
-            </Grid>
-            {/*-----MENU STICKY----- */}
-            
-            <MenuMobile/>
+    data&&<Grid container direction='column' className={classes.articleContainer}>
+        <Grid item>
+            <TitleArea
+                date={data?.data?.attributes?.date} 
+                title={data?.data?.attributes?.title} 
+                autors={data?.data?.attributes?.autors?.data}
+                volume={data?.data?.attributes?.volume?.data}
+            />
+        </Grid>
 
-            <Grid item container >
-                <Grid item container direction="column" xs className={`${classes.textArea}`} >
-                    <Grid item>
-                        <FormatText text={data.completeText}/>
-                    </Grid>
-                    <Grid item>
-                        <ReferencesArea references={data.bibliographies.data}/>
-                    </Grid>
+        <MenuMobile menu={data?.data?.attributes?.menus}/>
+
+        <Grid item container>
+            <Grid item xs container direction="column" className={`${classes.textArea}`}>
+                <Grid item>
+                    <TextArea text={data?.data?.attributes?.completeText}/>
                 </Grid>
-                <Grid item xs='auto'>
-                    <MenuDesktop references={data.bibliographies.data}/>
+                <Grid item>
+                    <ReferencesArea references={data?.data?.attributes?.bibliographies.data}/>
                 </Grid>
             </Grid>
-
-            <Grid item >
-                
+            <Grid item xs='auto'>
+                <MenuDesktop references={data?.data?.attributes?.bibliographies.data} menu={data?.data?.attributes?.menus}/>
             </Grid>
         </Grid>
+    </Grid>
     )
 }

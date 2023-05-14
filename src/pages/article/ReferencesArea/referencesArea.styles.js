@@ -4,6 +4,7 @@ export const useStyles = makeStyles(theme => ({
     title:{
         [mq('xxs')]:{
             fontSize: '1rem',
+            paddingLeft:'0rem',
         },
         [mq('sm')]:{
             fontSize:'2rem',
@@ -16,7 +17,7 @@ export const useStyles = makeStyles(theme => ({
     container: {
         [mq('xxs')]:{
             fontSize: '0.875rem',
-            padding:'0 2rem',
+            
         },
         [mq('sm')]:{
             fontSize:'1.5rem',

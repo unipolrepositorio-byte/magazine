@@ -2,6 +2,9 @@ import { makeStyles } from "@material-ui/core";
 import mq from '../../../config/mq';
 
 export const useStyles = makeStyles (theme => ({
+    container:{
+        padding:'1rem 2rem'
+    },
     date:{
         [mq('xxs')]:{
             fontSize:'0.75rem',

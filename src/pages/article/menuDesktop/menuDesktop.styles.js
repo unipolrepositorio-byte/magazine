@@ -12,7 +12,12 @@ export const useStyles = makeStyles(theme=>({
     },
     menuContainer:{
         width:'50px',
-        margin:'0 30px'
+        [mq('sm')]:{
+            margin:'0 10px'
+        },
+        [mq('md')]:{
+            margin:'0 20px'
+        }
     },
     hamburguerIcon:{
         background:theme.palette.primary.main,
@@ -46,9 +51,17 @@ export const useStyles = makeStyles(theme=>({
             width:'30px'
         }
     },
+    subMenu:{
+        [mq('sm')]:{
+            width:'190px'
+        },
+        [mq('md')]:{
+            width:'250px'
+        }
+    },
     referencesContainer:{
         background:'#EEEEEE',
-        width:'250px',
+        
         height:'100vh',
         fontFamily: 'Lato-ligth',
         fontWeight: '400',
@@ -63,14 +76,19 @@ export const useStyles = makeStyles(theme=>({
         placeContent:'center',
         marginTop:'20px',
         '& img':{
-            width:'200px'
+            [mq('sm')]:{
+                width:'180px'
+            },
+            [mq('md')]:{
+                width:'200px'
+            },
         }
     },
     panelContainer:{
         background:theme.palette.primary.main,
         color: theme.palette.neutro1.main,
         fill: theme.palette.neutro1.main,
-        width:'250px',
+        
         height:'100vh',
         fontSize:'25px',
         fontFamily: 'Lato-ligth',
@@ -118,7 +136,7 @@ export const useStyles = makeStyles(theme=>({
     figureMedia:{
         gap:'10px',
         alignItems:'center',
-        width:'250px',
+        
         '& img':{
             width:'250px'
         },
@@ -145,8 +163,8 @@ export const useStyles = makeStyles(theme=>({
     },
     indexReferences:{
         position:'absolute',
-        left:'-10px',
-        top:'1px',
+        left:'-15px',
+        top:'-2px',
         fontSize:'1rem',
     },
     linkReferences:{

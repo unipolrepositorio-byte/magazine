@@ -64,17 +64,49 @@ export const useStyles = makeStyles(theme => ({
     },
     menuReferences:{
         background:'white',
-        height:'130px',
-        width:'calc(calc(100vw / 12) * 3)'
+        '& ul':{
+            
+            fontSize:'0.8rem',
+            fontFamily:'Lato-ligth',
+            padding:'0 20px',
+            '& a':{
+                color:theme.palette.primary.main,
+            }
+        }
     },
     menuMedia:{
         background:theme.palette.primary.main,
-        height:'230px',
         width:'calc(calc(100vw / 12) * 6)'
     },
     optionMenuMedia:{
         display:'flex',
         justifyContent:'center',
-        background:'white'
+        background:'white',
+        '& button':{
+            color:theme.palette.primary.main,
+            height:'20px'
+        }
+    },
+    figureMedia:{
+        gap:'10px',
+        alignItems:'center',
+        '& img':{
+            marginTop:'1rem',
+            width:'80%',
+        },
+        '& .MuiButtonBase-root':{
+            background:theme.palette.neutro1.main,
+            fontFamily:'Lato-ligth',
+            fontWeight:'700',
+            color:theme.palette.primary.main,
+            borderRadius:'20px',
+            height:'25px',
+        },
+        '& p':{
+            color: theme.palette.neutro1.main,
+            fontFamily:'Lato-ligth',
+            fontSize:'0.8rem',
+            paddingLeft:'1rem'
+        }
     },
 }))

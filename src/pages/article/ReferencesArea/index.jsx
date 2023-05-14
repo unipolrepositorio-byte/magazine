@@ -7,7 +7,19 @@ export const ReferencesArea = ({references}) => {
 
     const classes = useStyles();
 
-    const Reference = ({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear, index}) => {
+    const Reference = ({
+            authorInitial, 
+            authorLastName, 
+            publicationTitle, 
+            editorInitials, 
+            editorLastName, 
+            volume, 
+            pages, 
+            publicationYear, 
+            index, 
+            electronicAddress
+    }) => {
+        
         const final = referencesFormat({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear});
         return(
         <Grid container direction="column" spacing={1} className={classes.container}>
@@ -23,7 +35,7 @@ export const ReferencesArea = ({references}) => {
                         <Link item><label>Go to reference </label></Link>
                     </Grid>
                     <Grid item>
-                        <Link item><label>Crossref </label></Link>
+                        <Link item to={electronicAddress}><label>Crossref </label></Link>
                     </Grid>
                     <Grid item>
                         <Link item><label>PubMed</label></Link>
@@ -39,10 +51,11 @@ export const ReferencesArea = ({references}) => {
 
     return(
         <>
-            <p className={classes.title}>REFERENCIAS</p>
-            {references.map((item, index) => {
+            <p className={classes.title} id='referencesArea'>REFERENCIAS</p>
+            {references && references.map((item, index) => {
                 return (
-                    <Reference 
+                    <Reference
+                        key={index}
                         authorInitial={item.attributes.authorInitials}
                         authorLastName={item.attributes.authorLastName}
                         publicationTitle={item.attributes.publicationTitle}
@@ -52,6 +65,7 @@ export const ReferencesArea = ({references}) => {
                         pages={item.attributes.pages}
                         publicationYear={item.attributes.publicationYear}
                         index={index}
+                        electronicAddress={item.attributes.electronicAddress}
                     />)
             })}
         </>

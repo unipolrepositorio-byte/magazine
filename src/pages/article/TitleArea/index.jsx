@@ -1,14 +1,22 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { autorsFormat } from "../../../utilities/autorsFormat";
 import { dateFormat } from "../../../utilities/dateFormat";
+import { volumeInfoFormat } from "../../../utilities/volumeInfoFormat";
 import { useStyles } from "./titleArea.styles";
 
-export const TitleArea = ({date, title, autors}) => {
+export const TitleArea = ({date, title, autors, volume}) => {
+
+    console.log(autors);
+    
+    const autorNames=[];
+    autors.map(item=>{
+        autorNames.push(item.attributes.fullName)
+    })
 
     const classes = useStyles();
 
     return(
-        <Grid container direction='column'>
+        <Grid container direction='column' className={classes.container}>
             <Grid item className={classes.date}>
                     <label>{dateFormat(date)}</label>
             </Grid>
@@ -16,10 +24,10 @@ export const TitleArea = ({date, title, autors}) => {
                     <label>{title}</label>
             </Grid>
             <Grid item className={classes.autors}>
-                    <label>{autorsFormat(autors)}</label>
+                    <label>{autorsFormat(autorNames)}</label>
             </Grid>
             <Grid item className={classes.volumeInfo}>
-                <label>Abril 16 2023 | Vol.2 | No 1 </label>
+                <label>{volumeInfoFormat(volume)}</label>
             </Grid>
         </Grid>
             

@@ -1,6 +1,7 @@
-import { Collapse, Grid } from "@material-ui/core";
+import { Collapse, Grid, Button } from "@material-ui/core";
 import { useStyles } from "./menuMobile.styles";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as HamburgerIcon } from '../../../assets/image/hamburger.svg';
 import { ReactComponent as PdfIcon } from '../../../assets/image/PDF.svg';
 import { ReactComponent as LinkIcon } from '../../../assets/image/link2.svg';
@@ -9,13 +10,16 @@ import { ReactComponent as WhatsappIcon } from '../../../assets/image/whasap.svg
 import { ReactComponent as TelegramIcon } from '../../../assets/image/telegram.svg';
 import { ReactComponent as FaceIcon } from '../../../assets/image/facebook.svg';
 import logo from '../../../assets/image/logo.png';
-import ItemComponent from "../../../components/MainComponent/itemComponent";
+import textImage from '../../../assets/image/banner.jpg';
 
-export const MenuMobile = () => {
+
+export const MenuMobile = ({menu}) => {
 
     const [menuOption, setMenuOption] = useState(0);
     const [toggleReferences, setToggleReferences] = useState(false);
     const [toggleMedia, setToogleMedia] = useState (false);
+    const [menuMediaOption, setMenuMediaOption] = useState(0);
+
 
     const handleMediaMenu = (value) => {
         if(value===3){
@@ -27,6 +31,14 @@ export const MenuMobile = () => {
     }
 
     const classes = useStyles();
+
+    const handleClickScroll = (slug) => {
+        const element = document.getElementById(slug);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block:'center'});
+        }
+    };
+
 
     return (
         <Grid item container direction='column' className={classes.container}>
@@ -48,7 +60,7 @@ export const MenuMobile = () => {
                     <Grid item xs className={menuOption===3?'active':''} onClick={()=>{handleMediaMenu(3)}}>
                         <ImageIcon/>
                     </Grid>
-                    <Grid item xs className={menuOption===4?'active':''} onClick={()=>{handleMediaMenu(4)}}>
+                    <Grid item xs className={menuOption===4?'active':''} onClick={()=>{handleClickScroll('referencesArea')}}>
                         <ImageIcon/>
                     </Grid>
                 </Grid>
@@ -93,10 +105,10 @@ export const MenuMobile = () => {
                                     <img src={logo} style={{height:'100%'}}></img>
                                 </Grid>
                                 <Grid item>
-                                    <ul style={{paddingLeft:'30px'}}>
-                                        <li>first</li>
-                                        <li>second</li>
-                                        <li>third</li>
+                                    <ul>
+                                        {menu?.data && menu?.data.map(item => {
+                                            return <li><Link onClick={()=>{handleClickScroll(item.attributes.slug.trim())}}>{item.attributes.title}</Link></li>
+                                        })}
                                     </ul>
                                 </Grid>
                             </Grid>
@@ -108,14 +120,41 @@ export const MenuMobile = () => {
                         <Grid contaner direction="column" className={classes.menuMedia}>
                             <Grid item container justifyContent="center">
                                 <Grid item xs={4} className={classes.optionMenuMedia}>
-                                    <label >Figura</label>
+                                    <Button onClick={()=>setMenuMediaOption(1)}>
+                                        FIGURA
+                                    </Button>
                                 </Grid>
                                 <Grid item xs={4} className={classes.optionMenuMedia} style={{borderLeft:'1px solid #01461D', borderRight:'1px solid #01461D'}}>
-                                    <label>Tabla</label>
+                                    <Button onClick={()=>setMenuMediaOption(2)}>
+                                        TABLA
+                                    </Button>
                                 </Grid>
                                 <Grid item xs={4} className={classes.optionMenuMedia}>
-                                    <label>Otros</label>
+                                    <Button onClick={()=>setMenuMediaOption(3)}>
+                                        OTROS
+                                    </Button>
                                 </Grid>
+                            </Grid>
+                            <Grid item className={classes.bodyPanelMedia}>
+                                <Collapse in={menuMediaOption===1}>
+                                    <Grid container direction='column' className={classes.figureMedia}>
+                                        <Grid item style={{display:'flex', placeContent:'center', }}>
+                                            <img src={textImage}></img>
+                                        </Grid>
+                                        <Grid item>
+                                            <Button>ABRIR IMAGEN</Button>
+                                        </Grid>
+                                        <Grid item>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem error expedita voluptatibus excepturi officia hic perferendis omnis doloribus animi eius labore praesentium obcaecati repellat quos ad assumenda debitis, nemo aspernatur.</p>
+                                        </Grid>
+                                    </Grid>
+                                </Collapse>
+                                <Collapse in={menuMediaOption===2}>
+                                    <h1 style={{textAlign:'center'}}>TABLE AREA</h1>
+                                </Collapse>
+                                <Collapse in={menuMediaOption===3}>
+                                    <h1 style={{textAlign:'center'}}>OTHER AREA</h1>
+                                </Collapse>
                             </Grid>
                         </Grid>
                     </Collapse>

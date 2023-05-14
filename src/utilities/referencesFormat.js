@@ -1,15 +1,6 @@
 export const referencesFormat = ({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear}) => {
     let referencesFinal = '';
-    ///---Clean White Space
-    /*
-   
-    
-    
-    editorInitials = editorInitials.trim();
-    editorLastName = editorLastName.trim();
-    volume = volume.trim();
-    pages = pages.trim();
-    publicationYear = publicationYear.trim();*/
+
 
     ///---Control authorFirstName
     if(authorInitial){
@@ -20,11 +11,13 @@ export const referencesFormat = ({authorInitial, authorLastName, publicationTitl
         referencesFinal += authorInitial + ' ';
     }
 
+
     ///---Control authorLastName
     if(authorLastName){
         authorLastName = authorLastName.trim();
         referencesFinal += authorLastName;
     }
+
 
     ///---Control title
     publicationTitle = publicationTitle.trim();
@@ -32,6 +25,7 @@ export const referencesFormat = ({authorInitial, authorLastName, publicationTitl
         publicationTitle += '.'
     }
     referencesFinal += ', ' + publicationTitle + ' ';
+
 
     ///---Control editorialInitials
     if(editorInitials){
@@ -43,6 +37,7 @@ export const referencesFormat = ({authorInitial, authorLastName, publicationTitl
 
     }
 
+
     ///---Control editorLastName
     if(editorLastName){
         editorLastName = editorLastName.trim();
@@ -53,11 +48,13 @@ export const referencesFormat = ({authorInitial, authorLastName, publicationTitl
 
     }
 
+
     ///---Control volume
     if(volume){
         volume = volume.trim();
         referencesFinal += volume;
     }
+
 
     ///---Control pages
     if(pages){
@@ -65,6 +62,7 @@ export const referencesFormat = ({authorInitial, authorLastName, publicationTitl
         referencesFinal += ', ' + pages
     }
 
+    
     ///---Control publicationYear
     if(publicationYear){
         publicationYear = String(publicationYear);

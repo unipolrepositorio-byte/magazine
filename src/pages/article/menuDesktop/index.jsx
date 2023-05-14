@@ -1,7 +1,7 @@
 import { Button, Collapse, Grid } from "@material-ui/core";
 import { useStyles } from "./menuDesktop.styles";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 import { ReactComponent as HamburgerIcon } from '../../../assets/image/hamburger.svg';
 import { ReactComponent as PdfIcon } from '../../../assets/image/PDF.svg';
 import { ReactComponent as LinkIcon } from '../../../assets/image/link2.svg';
@@ -10,17 +10,25 @@ import { ReactComponent as WhatsappIcon } from '../../../assets/image/whasap.svg
 import { ReactComponent as TelegramIcon } from '../../../assets/image/telegram.svg';
 import { ReactComponent as FaceIcon } from '../../../assets/image/facebook.svg';
 import logo from '../../../assets/image/logo.png';
-import { Link } from "react-router-dom";
 import { referencesFormat } from "../../../utilities/referencesFormat";
-
 import textImage from '../../../assets/image/banner.jpg';
 
-export const MenuDesktop = ({references}) => {
+export const MenuDesktop = ({references, menu}) => {
 
-    const Reference = ({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear, index}) => {
+    const Reference = ({
+        authorInitial, 
+        authorLastName, 
+        publicationTitle, 
+        editorInitials, 
+        editorLastName, 
+        volume, 
+        pages, 
+        publicationYear, 
+        index, 
+        electronicAddress}) => {
         const final = referencesFormat({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear});
         return(
-        <Grid container direction="column" spacing={1} className={classes.referenceContainer}>
+        <Grid container direction="column" className={classes.referenceContainer}>
             <Grid item style={{position:'relative'}} >
                 <div className={classes.indexReferences}>
                     <label>{index+1}</label>
@@ -33,7 +41,7 @@ export const MenuDesktop = ({references}) => {
                         <Link item><label>Go to reference </label></Link>
                     </Grid>
                     <Grid item>
-                        <Link item><label>Crossref </label></Link>
+                        <Link item to={electronicAddress}><label>Crossref </label></Link>
                     </Grid>
                     <Grid item>
                         <Link item><label>PubMed</label></Link>
@@ -47,8 +55,14 @@ export const MenuDesktop = ({references}) => {
         )
     }
 
+    const handleClickScroll = (slug) => {
+        const element = document.getElementById(slug);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
-    const [menuOption, setMenuOption] = useState(0);
+    const [menuOption, setMenuOption] = useState(1);
     const [menuMediaOption, setMenuMediaOption] = useState(0);
 
     const classes = useStyles();
@@ -82,7 +96,7 @@ export const MenuDesktop = ({references}) => {
                     </Button>
                 </Grid>
             </Grid>
-            <Grid item xs='auto' >
+            <Grid item xs='auto' className={classes.subMenu}>
                 <Collapse in={menuOption===1}>
                     <Grid container direction="column" className={classes.referencesContainer}>
                         <Grid item className={classes.referencesContainerLogo}>
@@ -90,12 +104,11 @@ export const MenuDesktop = ({references}) => {
                         </Grid>
                         <Grid item>
                             <ul style={{paddingLeft:'50px'}}>
-                                <li><Link>First</Link></li>
-                                <li><Link>Second</Link></li>
-                                <li><Link>Third</Link></li>
+                                {menu?.data && menu?.data.map(item => {
+                                            return <li><Link onClick={()=>{handleClickScroll(item.attributes.slug.trim())}}>{item.attributes.title}</Link></li>
+                                        })}
                             </ul>
                         </Grid>
-
                     </Grid>
                 </Collapse>
                 <Collapse in={menuOption===2} >
@@ -138,17 +151,17 @@ export const MenuDesktop = ({references}) => {
                         </Grid>
                     </Grid>
                     <Grid container className={classes.menuPanelMedia}>
-                        <Grid item xs>
+                        <Grid item xs={4}>
                             <Button onClick={()=>setMenuMediaOption(1)}>
                                 FIGURA
                             </Button>
                         </Grid>
-                        <Grid item xs style={{borderLeft:'1px solid #01461D', borderRight:'1px solid #01461D'}}>
+                        <Grid item xs={4} style={{borderLeft:'1px solid #01461D', borderRight:'1px solid #01461D'}}>
                             <Button onClick={()=>setMenuMediaOption(2)}>
                                 TABLA
                             </Button>
                         </Grid>
-                        <Grid item xs>
+                        <Grid item xs={4}>
                             <Button onClick={()=>setMenuMediaOption(3)}>
                                 OTROS
                             </Button>
@@ -182,9 +195,10 @@ export const MenuDesktop = ({references}) => {
                             <label><LinkIcon/>Referencias</label>
                         </Grid>
                         <Grid item container>
-                            {references.map((item, index) => {
+                            {references && references.map((item, index) => {
                                 return (
-                                    <Reference 
+                                    <Reference
+                                        key={index}
                                         authorInitial={item.attributes.authorInitials}
                                         authorLastName={item.attributes.authorLastName}
                                         publicationTitle={item.attributes.publicationTitle}
@@ -194,6 +208,7 @@ export const MenuDesktop = ({references}) => {
                                         pages={item.attributes.pages}
                                         publicationYear={item.attributes.publicationYear}
                                         index={index}
+                                        electronicAddress={item.attributes.electronicAddress}
                                     />)
                             })}
                         </Grid>
