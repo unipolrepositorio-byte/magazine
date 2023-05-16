@@ -11,56 +11,66 @@ import { ReactComponent as TelegramIcon } from '../../../assets/image/telegram.s
 import { ReactComponent as FaceIcon } from '../../../assets/image/facebook.svg';
 import logo from '../../../assets/image/logo.png';
 import { referencesFormat } from "../../../utilities/referencesFormat";
-import textImage from '../../../assets/image/banner.jpg';
 
-export const MenuDesktop = ({references, menu}) => {
+const handleClickScroll = (slug) => {
+    const element = document.getElementById(slug);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+};
 
-    const Reference = ({
-        authorInitial, 
-        authorLastName, 
-        publicationTitle, 
-        editorInitials, 
-        editorLastName, 
-        volume, 
-        pages, 
-        publicationYear, 
-        index, 
-        electronicAddress}) => {
-        const final = referencesFormat({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear});
-        return(
-        <Grid container direction="column" className={classes.referenceContainer}>
-            <Grid item style={{position:'relative'}} >
-                <div className={classes.indexReferences}>
-                    <label>{index+1}</label>
-                </div>
-                <label>{final}</label><br/>
-            </Grid>
-            <Grid item>
-                <Grid container className={classes.linkReferences}>
-                    <Grid item>
-                        <Link item><label>Go to reference </label></Link>
-                    </Grid>
-                    <Grid item>
-                        <Link item to={electronicAddress}><label>Crossref </label></Link>
-                    </Grid>
-                    <Grid item>
-                        <Link item><label>PubMed</label></Link>
-                    </Grid>
-                    <Grid item>
-                        <Link item><label>Google Scholar</label></Link>
-                    </Grid>
+
+const Reference = ({
+    authorInitial, 
+    authorLastName, 
+    publicationTitle, 
+    editorInitials, 
+    editorLastName, 
+    volume, 
+    pages, 
+    publicationYear, 
+    index, 
+    electronicAddress}) => {
+
+    const classes = useStyles();
+    const [currentIndex, setCurrentIndex] = useState(1);
+
+    const goToNextReference = (idReference) => {
+        const element = document.getElementById(`r${idReference}-${(currentIndex+1)}`);
+        if(element!==null){
+            handleClickScroll(`r${idReference}-${currentIndex}`);
+            setCurrentIndex(prev => prev+1);
+        }else{
+            handleClickScroll(`r${idReference}-${currentIndex}`);
+            setCurrentIndex(1);
+        }
+    }
+    const final = referencesFormat({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear});
+    return(
+    <Grid container direction="column" className={classes.referenceContainer}>
+        <Grid item style={{position:'relative'}} >
+            <div className={classes.indexReferences}>
+                <label>{index+1}</label>
+            </div>
+            <label>{final}</label><br/>
+        </Grid>
+        <Grid item>
+            <Grid container className={classes.linkReferences}>
+                <Grid item>
+                    <Link item onClick={()=>{goToNextReference(index+1)}}><label>Go to reference </label></Link>
+                </Grid>
+                <Grid item>
+                    <Link item to={electronicAddress}><label>Crossref </label></Link>
                 </Grid>
             </Grid>
         </Grid>
-        )
-    }
+    </Grid>
+    )
+}
 
-    const handleClickScroll = (slug) => {
-        const element = document.getElementById(slug);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+
+
+export const MenuDesktop = ({references, menu, images, tables}) => {
 
     const [menuOption, setMenuOption] = useState(1);
     const [menuMediaOption, setMenuMediaOption] = useState(0);
@@ -68,7 +78,7 @@ export const MenuDesktop = ({references, menu}) => {
     const classes = useStyles();
 
     return(
-        <Grid container style={{position:'sticky', top:'0px'}} className={classes.menuDesktop}>
+        <Grid container style={{position:'sticky', top:'0px', flexWrap:'nowrap'}} className={classes.menuDesktop}>
             <Grid item xs='auto' container direction="column" className={classes.menuContainer}>
                 <Grid item className={classes.hamburguerIcon}>
                     <Button onClick={()=>{setMenuOption(1)}}>
@@ -104,8 +114,8 @@ export const MenuDesktop = ({references, menu}) => {
                         </Grid>
                         <Grid item>
                             <ul style={{paddingLeft:'50px'}}>
-                                {menu?.data && menu?.data.map(item => {
-                                            return <li><Link onClick={()=>{handleClickScroll(item.attributes.slug.trim())}}>{item.attributes.title}</Link></li>
+                                {menu?.data && menu?.data.map((item, index) => {
+                                            return <li key={index}><Link onClick={()=>{handleClickScroll(item.attributes.slug.trim())}}>{item.attributes.title}</Link></li>
                                         })}
                             </ul>
                         </Grid>
@@ -169,23 +179,45 @@ export const MenuDesktop = ({references, menu}) => {
                     </Grid>
                     <Grid item className={classes.bodyPanelMedia}>
                         <Collapse in={menuMediaOption===1}>
-                            <Grid container direction='column' className={classes.figureMedia}>
-                                <Grid item>
-                                    <img src={textImage}></img>
-                                </Grid>
-                                <Grid item>
-                                    <Button>ABRIR IMAGEN</Button>
-                                </Grid>
-                                <Grid item>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem error expedita voluptatibus excepturi officia hic perferendis omnis doloribus animi eius labore praesentium obcaecati repellat quos ad assumenda debitis, nemo aspernatur.</p>
-                                </Grid>
+                            <Grid container direction='column'>
+                                {
+                                    images.data.map((item,index)=>{
+                                        return <Grid key={index} item container direction="column" className={classes.figureMedia}>
+                                            <Grid item>
+                                                <img src={item.attributes.source}></img>
+                                            </Grid>
+                                            <Grid item>
+                                                <Button>ABRIR IMAGEN</Button>
+                                            </Grid>
+                                            <Grid item>
+                                                <p>{item.attributes.description}</p>
+                                            </Grid>
+                                        </Grid>
+                                    })
+                                }
                             </Grid>
                         </Collapse>
                         <Collapse in={menuMediaOption===2}>
-                            <h1 style={{textAlign:'center'}}>TABLE AREA</h1>
+                            <Grid container direction="column">
+                                {
+                                    tables.data.map((item, index)=>{
+                                        return <Grid key={index} item container direction='column' className={classes.tableMedia}>
+                                            <Grid item>
+                                                <h2>{`${index+1}. ${item.attributes.title}`}</h2>
+                                            </Grid>
+                                            <Grid item>
+                                                <label>{item.attributes.legend}</label>
+                                            </Grid>
+                                        </Grid>
+                                        
+                                    })
+                                }
+                            </Grid>
                         </Collapse>
                         <Collapse in={menuMediaOption===3}>
-                            <h1 style={{textAlign:'center'}}>OTHER AREA</h1>
+                            {/*
+                                Other Area
+                            */}
                         </Collapse>
                     </Grid>
                 </Collapse>

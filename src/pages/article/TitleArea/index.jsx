@@ -6,8 +6,6 @@ import { useStyles } from "./titleArea.styles";
 
 export const TitleArea = ({date, title, autors, volume}) => {
 
-    console.log(autors);
-    
     const autorNames=[];
     autors.map(item=>{
         autorNames.push(item.attributes.fullName)

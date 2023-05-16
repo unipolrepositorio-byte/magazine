@@ -13,7 +13,7 @@ import logo from '../../../assets/image/logo.png';
 import textImage from '../../../assets/image/banner.jpg';
 
 
-export const MenuMobile = ({menu}) => {
+export const MenuMobile = ({menu, images, tables}) => {
 
     const [menuOption, setMenuOption] = useState(0);
     const [toggleReferences, setToggleReferences] = useState(false);
@@ -99,16 +99,24 @@ export const MenuMobile = ({menu}) => {
 
             <Grid item container>
                 <Grid item xs={3}>
-                    <Collapse xs={3} in={toggleReferences} style={{position:'absolute',top:'41px'}}>
+                    <Collapse xs={3} in={toggleReferences} style={{position:'absolute',top:'41px',}}>
                             <Grid container direction="column" className={classes.menuReferences}>
-                                <Grid item style={{height:'25px', background:'white'}}>
+                                <Grid item style={{height:'25px'}}>
                                     <img src={logo} style={{height:'100%'}}></img>
                                 </Grid>
                                 <Grid item>
                                     <ul>
-                                        {menu?.data && menu?.data.map(item => {
-                                            return <li><Link onClick={()=>{handleClickScroll(item.attributes.slug.trim())}}>{item.attributes.title}</Link></li>
-                                        })}
+                                        <Grid container direction='column' className={classes.menuReferencesList}>
+                                            {menu?.data && menu?.data.map(item => {
+                                                return <Grid item>
+                                                    <li>
+                                                        <Link onClick={()=>{handleClickScroll(item.attributes.slug.trim())}}>
+                                                            {item.attributes.title}
+                                                        </Link>
+                                                    </li>
+                                                </Grid>
+                                            })}
+                                        </Grid>
                                     </ul>
                                 </Grid>
                             </Grid>
@@ -137,23 +145,45 @@ export const MenuMobile = ({menu}) => {
                             </Grid>
                             <Grid item className={classes.bodyPanelMedia}>
                                 <Collapse in={menuMediaOption===1}>
-                                    <Grid container direction='column' className={classes.figureMedia}>
-                                        <Grid item style={{display:'flex', placeContent:'center', }}>
-                                            <img src={textImage}></img>
-                                        </Grid>
-                                        <Grid item>
-                                            <Button>ABRIR IMAGEN</Button>
-                                        </Grid>
-                                        <Grid item>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem error expedita voluptatibus excepturi officia hic perferendis omnis doloribus animi eius labore praesentium obcaecati repellat quos ad assumenda debitis, nemo aspernatur.</p>
-                                        </Grid>
+                                    <Grid container direction='column'>
+                                        {
+                                            images.data.map(item=>{
+                                                return <Grid item container direction="column" className={classes.figureMedia}>
+                                                    <Grid item>
+                                                        <img src={item.attributes.source}></img>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <Button>ABRIR IMAGEN</Button>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <p>{item.attributes.description}</p>
+                                                    </Grid>
+                                                </Grid>
+                                            })
+                                        }
                                     </Grid>
                                 </Collapse>
                                 <Collapse in={menuMediaOption===2}>
-                                    <h1 style={{textAlign:'center'}}>TABLE AREA</h1>
+                                <Grid container direction="column">
+                                    {
+                                        tables.data.map((item, index)=>{
+                                            return <Grid item container direction='column' className={classes.tableMedia}>
+                                                <Grid item>
+                                                    <h3>{`${index+1}. ${item.attributes.title}`}</h3>
+                                                </Grid>
+                                                <Grid item>
+                                                    <label>{item.attributes.legend}</label>
+                                                </Grid>
+                                            </Grid>
+                                            
+                                        })
+                                    }
+                                </Grid>
                                 </Collapse>
                                 <Collapse in={menuMediaOption===3}>
-                                    <h1 style={{textAlign:'center'}}>OTHER AREA</h1>
+                                    {/*
+                                        Other Area
+                                    */}
                                 </Collapse>
                             </Grid>
                         </Grid>

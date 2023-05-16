@@ -48,8 +48,8 @@ export const useStyles = makeStyles(theme => ({
         [mq('sm')]:{
             border:`2px solid ${theme.palette.primary.main}`,
             fontSize:'1.5rem',
-            width:'68px',
-            height:'68px',
+            width:'50px',
+            height:'50px',
             fontSize:'2rem',
             left:'-4.3rem',
         },

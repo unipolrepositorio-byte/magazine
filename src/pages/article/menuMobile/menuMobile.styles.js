@@ -63,7 +63,8 @@ export const useStyles = makeStyles(theme => ({
         }
     },
     menuReferences:{
-        background:'white',
+        background:'#EEEEEE',
+        width:'50vw',
         '& ul':{
             
             fontSize:'0.8rem',
@@ -73,6 +74,9 @@ export const useStyles = makeStyles(theme => ({
                 color:theme.palette.primary.main,
             }
         }
+    },
+    menuReferencesList:{
+        gap:'5px'
     },
     menuMedia:{
         background:theme.palette.primary.main,
@@ -87,12 +91,19 @@ export const useStyles = makeStyles(theme => ({
             height:'20px'
         }
     },
+    bodyPanelMedia:{
+        overflowY:'auto',
+        overflowX:'hidden',
+        height:'auto',
+        maxHeight:'calc(100vh - 106px)',
+        background:theme.palette.primary.main,
+
+    },
     figureMedia:{
+        marginBottom:'2.5rem',
         gap:'10px',
-        alignItems:'center',
         '& img':{
-            marginTop:'1rem',
-            width:'80%',
+            width:'100%'
         },
         '& .MuiButtonBase-root':{
             background:theme.palette.neutro1.main,
@@ -101,12 +112,26 @@ export const useStyles = makeStyles(theme => ({
             color:theme.palette.primary.main,
             borderRadius:'20px',
             height:'25px',
+            display:'block',
+            margin:'0 auto',
+            display:'grid',
+            placeContent:'center'
         },
         '& p':{
             color: theme.palette.neutro1.main,
             fontFamily:'Lato-ligth',
-            fontSize:'0.8rem',
+            fontSize:'0.875rem',
             paddingLeft:'1rem'
+        }
+    },
+    tableMedia:{
+        marginBottom:'2.5rem',
+        gap:'10px',
+        padding:'1rem',
+        color:theme.palette.neutro1.main,
+        fontFamily:'Lato-ligth',
+        '& label':{
+            fontSize:'0.875rem',
         }
     },
 }))

@@ -128,17 +128,18 @@ export const useStyles = makeStyles(theme=>({
         }
     },
     bodyPanelMedia:{
+        overflowY:'auto',
+        overflowX:'hidden',
         height:'calc(100vh - 3.5rem)',
         background:theme.palette.primary.main,
 
     },
 
     figureMedia:{
+        marginBottom:'5rem',
         gap:'10px',
-        alignItems:'center',
-        
         '& img':{
-            width:'250px'
+            width:'100%'
         },
         '& .MuiButtonBase-root':{
             background:theme.palette.neutro1.main,
@@ -147,12 +148,24 @@ export const useStyles = makeStyles(theme=>({
             color:theme.palette.primary.main,
             borderRadius:'20px',
             height:'35px',
+            display:'block',
+            margin:'0 auto'
         },
         '& p':{
             color: theme.palette.neutro1.main,
             fontFamily:'Lato-ligth',
             fontSize:'1.2rem',
             paddingLeft:'1rem'
+        }
+    },
+    tableMedia:{
+        marginBottom:'5rem',
+        gap:'10px',
+        padding:'1rem',
+        color:theme.palette.neutro1.main,
+        fontFamily:'Lato-ligth',
+        '& label':{
+            fontSize:'1.2rem',
         }
     },
 

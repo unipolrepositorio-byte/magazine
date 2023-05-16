@@ -28,16 +28,20 @@ export const Article = () => {
     data&&<Grid container direction='column' className={classes.articleContainer}>
         <Grid item>
             <TitleArea
-                date={data?.data?.attributes?.date} 
+                date={data.data.attributes.date} 
                 title={data?.data?.attributes?.title} 
                 autors={data?.data?.attributes?.autors?.data}
                 volume={data?.data?.attributes?.volume?.data}
             />
         </Grid>
 
-        <MenuMobile menu={data?.data?.attributes?.menus}/>
+        <MenuMobile 
+            menu={data?.data?.attributes?.menus} 
+            images={data?.data?.attributes?.images}
+            tables={data?.data?.attributes?.tables}
+        />
 
-        <Grid item container>
+        <Grid item container style={{flexWrap:'nowrap'}}>
             <Grid item xs container direction="column" className={`${classes.textArea}`}>
                 <Grid item>
                     <TextArea text={data?.data?.attributes?.completeText}/>
@@ -47,7 +51,12 @@ export const Article = () => {
                 </Grid>
             </Grid>
             <Grid item xs='auto'>
-                <MenuDesktop references={data?.data?.attributes?.bibliographies.data} menu={data?.data?.attributes?.menus}/>
+                <MenuDesktop 
+                    references={data?.data?.attributes?.bibliographies.data} 
+                    menu={data?.data?.attributes?.menus} 
+                    images={data?.data?.attributes?.images}
+                    tables={data?.data?.attributes?.tables}
+                />
             </Grid>
         </Grid>
     </Grid>

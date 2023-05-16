@@ -20,20 +20,38 @@ const useStyles = makeStyles(theme=>({
     textArea:{
         [mq('xxs')]:{
             fontSize: '0.875rem',
-            margin:'15px 30px',
+            margin:'0px 30px 15px 30px',
         },
         [mq('sm')]:{
             fontSize:'1.5rem',
             borderTop:`4px solid ${theme.palette.primary.main}`,
-            margin:'15px 0px',
+            margin:'0 0 15px 0px',
         },
-        
-        marginTop:'0',
         fontFamily: 'Lato-Ligth',
         fontStyle: 'normal',
         fontWeight: '400',
-        
         lineHeight: '152%',
+        '& img':{
+            width: 'auto',
+            maxWidth: '50%',
+            display:'block',
+            margin: 'auto'
+        },
+        '& table':{
+            margin:'0 auto',
+            borderCollapse: 'collapse',
+            '& thead':{
+                background:'#EAEAEF'
+            },
+            '& th': {
+                border: '1px solid #DCDCE4',
+                padding:'5px'
+            },
+            '& td': {
+                border: '1px solid #DCDCE4',
+                padding:'5px'
+            },
+        }
     }
 }))
 
