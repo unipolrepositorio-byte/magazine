@@ -6,13 +6,12 @@ import PopperContainer from './PopperContainer';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { dateFormat } from '../../../utilities/dateFormat';
 
-
 const ItemComponent = ({ props, id }) => {
   const { title, date, brief, pdf, autors } = props;
   const location = useLocation();
+  const URI_ARTICLE = `http://revista.repositoriounipol.com/articles/${id}`;
   const classes = useStyles();
   const navigator = useNavigate();
-
   return (
     <Box className={classes.wrapper} >
       <Box className={classes.content}>
@@ -25,18 +24,16 @@ const ItemComponent = ({ props, id }) => {
         <Typography variant="h5">
           {brief}
         </Typography>
-        {autors && <>
-          {autors.data && autors.data.length > 1 ? <Typography>
-            {autors.data && autors.data.map(autor => (
-              autor.attributes.fullName + ' / '
-            ))}
-          </Typography> : <Typography>
-            {autors.data && autors.data.map(autor => (
-              autor.attributes.fullName
-            ))}
-          </Typography>}
-        </>}
-        <PopperContainer />
+        {autors.data && autors.data.length > 1 ? <Typography>
+          {autors.data && autors.data.map(autor => (
+            autor.attributes.fullName + ' / '
+          ))}
+        </Typography> : <Typography>
+          {autors.data && autors.data.map(autor => (
+            autor.attributes.fullName
+          ))}
+        </Typography>}
+        <PopperContainer uriArticle={URI_ARTICLE} title={title} />
         <hr />
       </Box>
     </Box>

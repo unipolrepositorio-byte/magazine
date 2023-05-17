@@ -11,7 +11,12 @@ import link from '../../../../assets/icons/link.svg';
 import pdfIcon from '../../../../assets/icons/pdf.svg'
 import useStyles from './PopperComponent.styles';
 
-export default function PopperContainer() {
+
+const FACEBOOK_URI = 'https://www.facebook.com/dialog/share?app_id=123456&href=';
+const WATHSAPP_URI = 'https://api.whatsapp.com/send?text=';
+const TELEGRAM_URI = 'https://t.me/share/url?url=$';
+
+export default function PopperContainer({ uriArticle, title }) {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -23,6 +28,15 @@ export default function PopperContainer() {
     setOpen((prev) => placement !== newPlacement || !prev);
     setPlacement(newPlacement);
   };
+  const searchFacebook = (uri) => {
+    window.open(`${FACEBOOK_URI}${encodeURIComponent(uri)}&quote=${encodeURIComponent(title)}`, '_blank');
+  }
+  const searchWpp = (uri) => {
+    window.open(`${WATHSAPP_URI}${encodeURIComponent(`${title} ${uri}`)}`, '_blank');
+  }
+  const searchTelegram = (uri) => {
+    window.open(`${TELEGRAM_URI}${encodeURIComponent(uri)}&text=${encodeURIComponent(title)}`, '_blank');
+  }
 
   return (
     <Box>
@@ -45,14 +59,14 @@ export default function PopperContainer() {
       >
         {({ TransitionProps }) => (
           <Box className={classes.box} >
-            <Fade {...TransitionProps} timeout={1050} >
-              <img src={wpp} alt="whatsapp icon" />
+            <Fade {...TransitionProps} timeout={1050}>
+              <img src={wpp} alt="whatsapp icon" onClick={() => searchWpp(uriArticle)} />
             </Fade>
             <Fade {...TransitionProps} timeout={700}>
-              <img src={tele} alt="telegram icon" />
+              <img src={tele} alt="telegram icon" onClick={() => searchTelegram(uriArticle)} />
             </Fade>
             <Fade {...TransitionProps} timeout={350}>
-              <img src={face} alt="facebook icon" />
+              <img src={face} alt="facebook icon" onClick={() => searchFacebook(uriArticle)} />
             </Fade>
           </Box >
 
