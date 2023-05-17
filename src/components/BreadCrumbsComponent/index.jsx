@@ -1,6 +1,5 @@
 import { useContext, useEffect } from 'react';
 import useStyles from './breadCrumbComponent.styles';
-import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { BanerContext } from '../../context/BanerContext';
 import { Link, useLocation, useParams } from 'react-router-dom';
@@ -50,7 +49,6 @@ const BreadCrumbComponent = () => {
                     state={{ dateVolume: initialDate, volume: initialVolume }}>
                     {id && state ? state.volume : initialVolume}
                 </Link>
-                <Typography>Nu.1</Typography>
             </Breadcrumbs>}
 
         </div>
