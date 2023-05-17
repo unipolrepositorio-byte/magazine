@@ -3,34 +3,26 @@ import logo from '../../../assets/image/portada.png';
 import { dateFormat } from '../../../utilities/dateFormat';
 
 import { Grid } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 
 
-<<<<<<< HEAD
-const ItemCarrousel = ({item}) => {
-
-=======
-const ItemCarrousel = ({ item }) => {
-    const dateFormat = (dateString) => {
-        var date = new Date(dateString);
-        var optionMonth = { month: 'long' };
-        var optionDay = { day: 'numeric' };
-        var optionYear = { year: 'numeric' };
-
-        var month = date.toLocaleDateString('es-Es', optionMonth);
-        month = month[0].toUpperCase() + month.slice(1);
-        var day = date.toLocaleDateString('es-Es', optionDay);
-        var year = date.toLocaleDateString('es-Es', optionYear).slice(2);
-
-        const finalDate = `${month} ${day} | ${year}`;
-        return finalDate
+const ItemCarrousel = ({ item, idVolume }) => {
+    const URL_IMAGE = `http://revista.repositoriounipol.com:1337${item.portrait.data.attributes.url}`
+    const navigate = useNavigate();
+    const goToVolume = (id, volume, date) => {
+        const dateVolume = new Date(`${date}T00:00:00`).toLocaleDateString('en-us',
+            {
+                year: "numeric",
+                month: "short",
+                day: 'numeric',
+            })
+        navigate(`/volumes/volume/${id}`, { state: { dateVolume, volume } });
     }
->>>>>>> ad0063f (feat(common): was connect strapi endpoints [WEBSITES-35])
-
     const classes = useStyles();
     return (
-        <Grid container direction="column" alignItems="center" className={classes.itemContainer}>
+        <Grid container direction="column" alignItems="center" className={classes.itemContainer} onClick={() => goToVolume(idVolume, item.title, item.date)} >
             <Grid item className={classes.imageContainer}>
-                <img src={logo} alt='alt' />
+                <img src={URL_IMAGE} alt='alt' />
             </Grid>
             <Grid item>
                 <label item className={classes.labelDate}>{dateFormat(item.date)}</label>

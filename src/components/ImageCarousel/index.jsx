@@ -8,7 +8,7 @@ import volumesService from '../../async/services/volumesService';
 import { useQuery } from 'react-query';
 
 const ImageCarousel = ({ children }) => {
-    const { data, isLoading, error } = useQuery('volumes', () => volumesService());
+    const { data, isLoading, error } = useQuery('volumesCarrusel', () => volumesService());
     const classes = useStyles();
     return (
         <div className={classes.containerGlider}>
@@ -21,9 +21,9 @@ const ImageCarousel = ({ children }) => {
                 slidesToShow={3}
                 slidesToScroll={1}
             >
-                {isLoading ? <p>..loading</p> : data.data.map(({ attributes }) => (
+                {isLoading ? <p>..loading</p> : data.data.map(({ attributes, id }) => (
                     <>
-                        <ItemCarrousel item={attributes} />
+                        <ItemCarrousel item={attributes} idVolume={id} />
                     </>
 
                 ))}

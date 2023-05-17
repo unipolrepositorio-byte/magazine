@@ -3,27 +3,28 @@ import { useParams } from 'react-router-dom';
 import VolumeItemComponent from './VolumeItemComponent';
 import useStyles from './volumesComponent.styles';
 import Typography from '@mui/material/Typography';
-import useFetch from '../../hooks/useFetch';
-import volumes from '../../__mock__/volumes'
+import { useQuery, useQueryClient } from 'react-query';
+import volumesService from '../../async/services/volumesService';
 
 const VolumesComponent = ({ children }) => {
     const { date } = useParams();
-    // if date exists date in params so add param in uri for search
-    //let URI = date ? `${volumes}/${date}` : volumes;
-    const URI = volumes
-
-    const { data, isLoading, getData } = useFetch(true, URI);
+    const { data, isLoading, error, } = useQuery(date ? `${date}` : 'volumes', () => volumesService(date));
     const classes = useStyles();
-    useEffect(() => {
-        getData();
-    }, [isLoading])
 
     return (
         <div className={classes.container}>
-            <Typography variant="h3" >
-                VOLÚMENES
-            </Typography>
-            <VolumeItemComponent data={data} />
+            {date && <>
+                <Typography variant="h3" >
+                    VOLÚMENES
+                </Typography>
+                {isLoading ? <p>...Loading</p> : <VolumeItemComponent data={data.data.attributes.volumes.data} />}
+            </>}
+            {!date && <>
+                <Typography variant="h3" >
+                    VOLÚMENES
+                </Typography>
+                {isLoading ? <p>...Loading</p> : <VolumeItemComponent data={data.data} />}
+            </>}
         </div>
     )
 }

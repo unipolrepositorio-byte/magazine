@@ -1,0 +1,95 @@
+import { makeStyles } from '@material-ui/core';
+import mq from '../../../../config/mq';
+const useStyles = makeStyles((theme) => ({
+  book: {
+    position: 'relative',
+    width: '9rem',
+    height: '12rem',
+    background: theme.palette.secondary.main,
+    perspective: '75rem',
+    marginTop: '1rem',
+    [mq('md')]: {
+    position: 'relative',
+    width: '18rem',
+    height: '24rem',
+    background: theme.palette.secondary.main,
+    perspective: '75rem',
+    marginTop: '3rem',
+    },
+  },
+  cover: {
+    position: 'absolute',
+    width: '95%',
+    height: '100%',
+    background: '#FFFFFF',
+    backgroundImage: props => `url(${props.image})`,
+    backgroundSize: 'cover',
+    transformOrigin: 'left',
+    transform: 'rotateY(-15deg)',
+    display:'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ddd',
+    boxShadow: 'inset 0 0 1.5rem #000',
+    borderRadius: '5px',
+  },
+  container: {
+    marginTop: '1rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent:'center',
+    alignItems:'center',
+    '& h5': {
+      fontSize: '15px',
+      color: theme.palette.neutro2.main,
+      fontFamily: 'Lato-Ligth',
+      fontStyle: 'normal',
+    },
+    '& h4': {
+      fontSize: '20px',
+      color: theme.palette.primary.main,
+      fontFamily: 'Roboto-bold',
+      fontStyle: 'normal',
+    },
+    [mq('md')]: {
+      marginTop: '1rem',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent:'center',
+      alignItems:'center',
+      '& h5': {
+        fontSize: '26px',
+        color: theme.palette.neutro2.main,
+        fontFamily: 'Lato-Ligth',
+        fontStyle: 'normal',
+      },
+      '& h4': {
+        fontSize: '36px',
+        color: theme.palette.primary.main,
+        fontFamily: 'Roboto-bold',
+        fontStyle: 'normal',
+      },
+    },
+    [mq('lg')]: {
+      marginTop: '1rem',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent:'center',
+      alignItems:'center',
+      '& h5': {
+        fontSize: '26px',
+        color: theme.palette.neutro2.main,
+        fontFamily: 'Lato-Ligth',
+        fontStyle: 'normal',
+      },
+      '& h4': {
+        fontSize: '36px',
+        color: theme.palette.primary.main,
+        fontFamily: 'Roboto-bold',
+        fontStyle: 'normal',
+      },
+    },
+  },
+}));
+
+export default useStyles;
