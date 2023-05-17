@@ -2,13 +2,14 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import rehypeSlug from 'rehype-slug';
 import { createElement } from "react";
 import remarkGfm from 'remark-gfm';
+import useStyles from './text.styles';
 
 
 
 
 
 export const TextArea = ({text}) => {
-
+    const classes = useStyles();
     const headingRenderer = ({children}) => {
         const text = Array.isArray(children) ? children[0] : children;
         let slug;
@@ -25,7 +26,7 @@ export const TextArea = ({text}) => {
     ];
 
     const linkRenderer = (props) => {
-        const {children} = props;
+        const { children } = props;
         const text = children[0];
         let slug = '';
         const index = references.findIndex(item=>item.value===text);
@@ -41,9 +42,9 @@ export const TextArea = ({text}) => {
     };
 
     const tableRender = (props) => {
-
+        
         const table = createElement('table', {style:{"white-space":'nowrap'}}, props.children)
-        const tableWraper = <div style={{overflowX:'scroll', width:'80%', margin:'auto'}}>{table}</div>
+        const tableWraper = <div className={classes.wrapper}>{table}</div>
 
         return tableWraper
     }
