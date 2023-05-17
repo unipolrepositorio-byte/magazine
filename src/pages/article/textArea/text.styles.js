@@ -7,14 +7,9 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: '3rem',
-        [mq('xxs')]: {
-            width: '300px',
-            overflow: 'scroll',
-        },
-        [mq('md')]: {
-            width: '100%',
-            overflow: 'hidden',
-        },
+        width:'80%',
+        margin:'auto',
+        overflowX:'auto'
     }
 }));
 export default useStyles;

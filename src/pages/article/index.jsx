@@ -41,9 +41,16 @@ export const Article = () => {
             tables={data?.data?.attributes?.tables}
         />
 
-        <Grid item container style={{flexWrap:'nowrap'}}>
-            <Grid item xs container direction="column" className={`${classes.textArea}`}>
-                <Grid item>
+        <Grid item container style={{}}>
+            <Grid 
+                item 
+                xs 
+                container 
+                direction="column" 
+                className={`${classes.textArea}`}
+                style={{overflow:'auto hidden'}}
+            >
+                <Grid item style={{width:'100%'}}>
                     <TextArea text={data?.data?.attributes?.completeText}/>
                 </Grid>
                 <Grid item>
