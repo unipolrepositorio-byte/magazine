@@ -7,14 +7,14 @@ import ImageVolumeComponent from "./ImageVolumeComponent";
 const VolumeItemComponent = ({ data }) => {
     const navigate = useNavigate();
 
-    const goVolume = (id, volume, date) => {
+    const goVolume = (id, volume, date, imageVolume) => {
         const dateVolume = new Date(`${date}T00:00:00`).toLocaleDateString('en-us',
             {
                 year: "numeric",
                 month: "short",
                 day: 'numeric',
             })
-        navigate(`/volumes/volume/${id}`, { state: { dateVolume, volume } })
+        navigate(`/volumes/volume/${id}`, { state: { dateVolume, volume, imageVolume } })
     }
 
     const classes = useStyles();
@@ -24,7 +24,7 @@ const VolumeItemComponent = ({ data }) => {
                 <ImageList sx={{ margin: 3 }} cols={3} gap={75}>
                     {data.map((item) => (
                         <>
-                            <ImageListItem key={item.id} sx={{ width: '18rem' }} onClick={() => goVolume(item.id, item.attributes.title, item.attributes.date)}>
+                            <ImageListItem key={item.id} sx={{ width: '18rem' }} onClick={() => goVolume(item.id, item.attributes.title, item.attributes.date, item.attributes.portrait.data.attributes.url)}>
                                 <ImageVolumeComponent data={item.attributes} />
                             </ImageListItem>
                         </>
@@ -36,7 +36,7 @@ const VolumeItemComponent = ({ data }) => {
                 <ImageList sx={{ margin: 3 }} cols={2} gap={25}>
                     {data.map((item) => (
                         <>
-                            <ImageListItem key={item.id} onClick={() => goVolume(item.id, item.attributes.title, item.attributes.date)}>
+                            <ImageListItem key={item.id} onClick={() => goVolume(item.id, item.attributes.title, item.attributes.date, item.attributes.portrait.data.attributes.url)}>
                                 <ImageVolumeComponent data={item.attributes} />
                             </ImageListItem>
                         </>

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import useStyles from './breadCrumbComponent.styles';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { BanerContext } from '../../context/BanerContext';
@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import breadCrumbService from '../../async/services/breadCrumbService';
 
 const BreadCrumbComponent = () => {
+    const [imageVolume, setImageVolume] = useState('');
     const { data, isLoading, error } = useQuery('bradCrumb', () => breadCrumbService());
     const {
         searchInput,
@@ -20,7 +21,7 @@ const BreadCrumbComponent = () => {
     const { id } = useParams();
     useEffect(() => {
         if (data) {
-            const dateVolume = new Date(`${data.data[0].attributes.volume.data.attributes.date}T00:00:00`);
+            const dateVolume = new Date(`${data.data[0].attributes.date}T00:00:00`);
             const dateVolumeFormat = dateVolume.
                 toLocaleDateString('en-us',
                     {
@@ -28,8 +29,9 @@ const BreadCrumbComponent = () => {
                         day: 'numeric',
                         month: "short"
                     })
-            const titleVolume = data.data[0].attributes.volume.data.attributes.title
-            setInitialId(data.data[0].attributes.volume.data.id);
+            const titleVolume = data.data[0].attributes.title
+            setInitialId(data.data[0].id);
+            setImageVolume(data.data[0].attributes.portrait.data.attributes.url);
             setInitialDate(dateVolumeFormat);
             setInitialVolume(titleVolume);
         }
@@ -46,7 +48,7 @@ const BreadCrumbComponent = () => {
                 </Link>
                 <Link
                     to={`/volumes/volume/${id ? id : initialId}`}
-                    state={{ dateVolume: initialDate, volume: initialVolume }}>
+                    state={{ dateVolume: initialDate, volume: initialVolume, imageVolume }}>
                     {id && state ? state.volume : initialVolume}
                 </Link>
             </Breadcrumbs>}
