@@ -99,7 +99,7 @@ export const MenuMobile = ({menu, images, tables}) => {
 
             <Grid item container>
                 <Grid item xs={3}>
-                    <Collapse xs={3} in={toggleReferences} style={{position:'absolute',top:'41px',}}>
+                    <Collapse xs={3} in={toggleReferences} style={{position:'absolute',top:'41px', zIndex:'1'}}>
                             <Grid container direction="column" className={classes.menuReferences}>
                                 <Grid item style={{height:'25px'}}>
                                     <img src={logo} style={{height:'100%'}}></img>
@@ -123,7 +123,7 @@ export const MenuMobile = ({menu, images, tables}) => {
                     </Collapse>
                 </Grid>
                 <Grid item xs></Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12}>
                     <Collapse in={toggleMedia} style={{position:'absolute',top:'41px'}}>
                         <Grid contaner direction="column" className={classes.menuMedia}>
                             <Grid item container justifyContent="center">

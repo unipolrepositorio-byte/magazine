@@ -41,7 +41,7 @@ const goToNextReference = (idReference) => {
 const final = referencesFormat({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear});
 return(
 <Grid container direction="column" spacing={1} className={classes.container}>
-    <Grid item style={{position:'relative'}}>
+    <Grid item style={{position:'relative', zIndex:'-1'}}>
         <div className={classes.indexReference}>
             <label id={`r${index+1}`}>{index+1}</label>
         </div>

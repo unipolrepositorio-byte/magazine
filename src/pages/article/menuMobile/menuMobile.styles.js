@@ -80,9 +80,10 @@ export const useStyles = makeStyles(theme => ({
     },
     menuMedia:{
         background:theme.palette.primary.main,
-        width:'calc(calc(100vw / 12) * 6)'
+        width:'100vw'
     },
     optionMenuMedia:{
+        borderBottom:`1px solid ${theme.palette.primary.main}`,
         display:'flex',
         justifyContent:'center',
         background:'white',

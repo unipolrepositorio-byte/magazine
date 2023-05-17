@@ -53,15 +53,14 @@ export const useStyles = makeStyles(theme=>({
     },
     subMenu:{
         [mq('sm')]:{
-            width:'190px'
+            width:'290px'
         },
         [mq('md')]:{
-            width:'250px'
+            width:'350px'
         }
     },
     referencesContainer:{
         background:'#EEEEEE',
-        
         height:'100vh',
         fontFamily: 'Lato-ligth',
         fontWeight: '400',

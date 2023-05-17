@@ -11,6 +11,12 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.neutro2.main,
       textTransform: 'uppercase',
       fontFamily: 'Roboto-Bold',
+      cursor:'pointer',
+      transition:'.5s all ease',
+      '&:hover':{
+        background:'#EEEEEE',
+        transition:'.5s all ease'
+      }
     },
     '& h5': {
       fontSize: '12px',
