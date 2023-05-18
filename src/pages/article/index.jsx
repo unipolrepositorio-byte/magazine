@@ -48,7 +48,7 @@ export const Article = () => {
                 container 
                 direction="column" 
                 className={`${classes.textArea}`}
-                style={{overflow:'auto hidden'}}
+                style={{overflow:'hidden'}}
             >
                 <Grid item style={{width:'100%'}}>
                     <TextArea text={data?.data?.attributes?.completeText}/>

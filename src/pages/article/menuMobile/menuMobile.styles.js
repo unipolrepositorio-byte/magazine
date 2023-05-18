@@ -41,6 +41,10 @@ export const useStyles = makeStyles(theme => ({
             height:'23px',
             width:'23px',
             fill: theme.palette.secondary.main,
+            '& text':{
+                stroke:theme.palette.secondary.main, 
+                strokeWidth:'2' 
+            }
         }
     },
     menuPanel:{
@@ -104,7 +108,10 @@ export const useStyles = makeStyles(theme => ({
         marginBottom:'2.5rem',
         gap:'10px',
         '& img':{
-            width:'100%'
+            width:'auto',
+            maxWidth:'100%',
+            display:'block',
+            margin:'auto'
         },
         '& .MuiButtonBase-root':{
             background:theme.palette.neutro1.main,

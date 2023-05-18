@@ -25,7 +25,7 @@ export const useStyles = makeStyles(theme=>({
         '& svg':{
             fill: theme.palette.primary.main,
             height:'50px',
-            width:'50px'
+            width:'50px',
         },
         '& button':{
             height:'50px',
@@ -48,7 +48,11 @@ export const useStyles = makeStyles(theme=>({
         '& svg':{
             fill: theme.palette.neutro1.main,
             height:'30px',
-            width:'30px'
+            width:'30px',
+            '& text':{
+                stroke:theme.palette.neutro1.main, 
+                strokeWidth:'2' 
+            }
         }
     },
     subMenu:{
@@ -138,7 +142,10 @@ export const useStyles = makeStyles(theme=>({
         marginBottom:'5rem',
         gap:'10px',
         '& img':{
-            width:'100%'
+            width:'auto',
+            maxWidth:'100%',
+            display:'block',
+            margin:'auto'
         },
         '& .MuiButtonBase-root':{
             background:theme.palette.neutro1.main,

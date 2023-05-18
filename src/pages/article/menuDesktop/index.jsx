@@ -9,6 +9,8 @@ import { ReactComponent as ImageIcon } from '../../../assets/image/imagen.svg';
 import { ReactComponent as WhatsappIcon } from '../../../assets/image/whasap.svg';
 import { ReactComponent as TelegramIcon } from '../../../assets/image/telegram.svg';
 import { ReactComponent as FaceIcon } from '../../../assets/image/facebook.svg';
+import { ReactComponent as ReferencesIcon } from '../../../assets/image/R.svg';
+
 import logo from '../../../assets/image/logo.png';
 import { referencesFormat } from "../../../utilities/referencesFormat";
 import { PopUp } from "../../../components/popup";
@@ -105,7 +107,7 @@ export const MenuDesktop = ({references, menu, images, tables}) => {
                 </Grid>
                 <Grid item className={classes.itemMenu}>
                     <Button onClick={()=>{setMenuOption(5)}}>
-                        <ImageIcon/>
+                        <ReferencesIcon/>
                     </Button>
                 </Grid>
             </Grid>

@@ -16,6 +16,7 @@ import VolumeDetailComponent from './components/VolumesComponent/VolumeDetailCom
 import { Volume } from './pages/Volume';
 import MenuComponent from './components/MenuComponent';
 import { Article } from './pages/article';
+import FooterComponent from './components/Footer';
 
 function App() {
   const queryClient = new QueryClient();
@@ -34,7 +35,7 @@ function App() {
                 </BanerContextProvider>
                 <MainComponent />
                 <ImageCarousel />
-                <NavbarComponent />
+                <FooterComponent/>
               </>} />
               <Route path="/articles">
                 <Route path='' element={<>
@@ -45,6 +46,7 @@ function App() {
                   <ArticlesComponent />
                   <ImageCarousel />
                   <NavbarComponent />
+                  <FooterComponent/>
                 </>}/>
                 <Route path=':id' element={<>
                   <BanerContextProvider>
@@ -52,6 +54,7 @@ function App() {
                     <BannerStaticComponent />
                   </BanerContextProvider>
                   <Article/>
+                  <FooterComponent/>
                 </>}/>
               </Route>
               <Route path="/volumes">
@@ -62,6 +65,7 @@ function App() {
                       <BannerStaticComponent />
                       <VolumesComponent />
                     </BanerContextProvider>
+                    <FooterComponent/>
                   </>} />
                 <Route path=":date" element={<>
                   <BanerContextProvider>
@@ -69,6 +73,7 @@ function App() {
                     <BannerStaticComponent />
                     <VolumesComponent />
                   </BanerContextProvider>
+                  <FooterComponent/>
                 </>} />
                 <Route path="volume/:id" element={
                   <>
@@ -78,6 +83,7 @@ function App() {
                       <BreadCrumbsComponent />
                       <Volume />
                     </BanerContextProvider>
+                    <FooterComponent/>
                   </>}
                 />
               </Route>

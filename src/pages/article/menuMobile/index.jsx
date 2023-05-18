@@ -9,10 +9,10 @@ import { ReactComponent as ImageIcon } from '../../../assets/image/imagen.svg';
 import { ReactComponent as WhatsappIcon } from '../../../assets/image/whasap.svg';
 import { ReactComponent as TelegramIcon } from '../../../assets/image/telegram.svg';
 import { ReactComponent as FaceIcon } from '../../../assets/image/facebook.svg';
+import { ReactComponent as ReferencesIcon } from '../../../assets/image/R.svg';
 import logo from '../../../assets/image/logo.png';
 import textImage from '../../../assets/image/banner.jpg';
 import { PopUp } from "../../../components/popup";
-
 
 export const MenuMobile = ({menu, images, tables}) => {
 
@@ -65,7 +65,7 @@ export const MenuMobile = ({menu, images, tables}) => {
                         <ImageIcon/>
                     </Grid>
                     <Grid item xs className={menuOption===4?'active':''} onClick={()=>{handleClickScroll('referencesArea')}}>
-                        <ImageIcon/>
+                        <ReferencesIcon/>
                     </Grid>
                 </Grid>
 
