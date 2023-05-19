@@ -11,6 +11,7 @@ import { ReactComponent as TelegramIcon } from '../../../assets/image/telegram.s
 import { ReactComponent as FaceIcon } from '../../../assets/image/facebook.svg';
 import logo from '../../../assets/image/logo.png';
 import textImage from '../../../assets/image/banner.jpg';
+import { PopUp } from "../../../components/popup";
 
 
 export const MenuMobile = ({menu, images, tables}) => {
@@ -19,6 +20,9 @@ export const MenuMobile = ({menu, images, tables}) => {
     const [toggleReferences, setToggleReferences] = useState(false);
     const [toggleMedia, setToogleMedia] = useState (false);
     const [menuMediaOption, setMenuMediaOption] = useState(0);
+    const [popup, setPopup] = useState(false);
+    const [popupSource, setPopupSource] = useState('');
+
 
 
     const handleMediaMenu = (value) => {
@@ -153,7 +157,13 @@ export const MenuMobile = ({menu, images, tables}) => {
                                                         <img src={item.attributes.source}></img>
                                                     </Grid>
                                                     <Grid item>
-                                                        <Button>ABRIR IMAGEN</Button>
+                                                        <Button onClick={()=>{
+                                                            setPopup(prev=>!prev);
+                                                            setPopupSource(item.attributes.source);
+                                                        }}>
+                                                            ABRIR IMAGEN
+                                                        </Button>
+                                                        <PopUp open={popup} close={()=>{setPopup(false)}} src={popupSource}/>
                                                     </Grid>
                                                     <Grid item>
                                                         <p>{item.attributes.description}</p>

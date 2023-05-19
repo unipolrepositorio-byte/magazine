@@ -10,7 +10,6 @@ import ItemMenuMobile from "./itemMenuMobile";
 import { ReactComponent as Hamburger } from '../../assets/image/hamburger.svg';
 import { ReactComponent as SearchIcon } from '../../assets/image/buscador.svg';
 import { useLocation, useParams } from 'react-router-dom';
-
 import { BanerContext } from '../../context/BanerContext';
 import { useQuery } from 'react-query';
 import yearsVolumeService from '../../async/services/yaersVolumeService';
