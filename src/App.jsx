@@ -17,6 +17,7 @@ import VolumesComponent from './components/VolumesComponent';
 import VolumeDetailComponent from './components/VolumesComponent/VolumeDetailComponent';
 import { Volume } from './pages/Volume';
 import MenuComponent from './components/MenuComponent';
+import { Article } from './pages/article';
 
 function App() {
   const queryClient = new QueryClient();
@@ -40,15 +41,24 @@ function App() {
                 <ImageCarousel />
                 <NavbarComponent />
               </>} />
-              <Route path="/articles" element={<>
-                <BanerContextProvider>
-                  <Header />
-                  <BannerStaticComponent />
-                </BanerContextProvider>
-                <ArticlesComponent />
-                <ImageCarousel />
-                <NavbarComponent />
-              </>} />
+              <Route path="/articles">
+                <Route path='' element={<>
+                  <BanerContextProvider>
+                    <Header />
+                    <BannerStaticComponent />
+                  </BanerContextProvider>
+                  <ArticlesComponent />
+                  <ImageCarousel />
+                  <NavbarComponent />
+                </>}/>
+                <Route path=':id' element={<>
+                  <BanerContextProvider>
+                    <Header />
+                    <BannerStaticComponent />
+                  </BanerContextProvider>
+                  <Article/>
+                </>}/>
+              </Route>
               <Route path="/volumes">
                 <Route path='' element={
                   <>

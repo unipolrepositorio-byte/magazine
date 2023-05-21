@@ -14,6 +14,7 @@ const MainComponent = ({ children }) => {
     }, [isLoading])
 
     const classes = useStyles();
+    console.log(data);
     return <div className={classes.container}>
         {children}
 

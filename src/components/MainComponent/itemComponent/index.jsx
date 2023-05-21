@@ -2,12 +2,14 @@ import { IconButton, Box } from '@material-ui/core';
 import Typography from '@mui/material/Typography';
 import useStyles from './ItemComponent.styles';
 import PopperContainer from './PopperContainer';
+import { useNavigate } from 'react-router-dom';
 
 
-const ItemComponent = ({ props }) => {
+const ItemComponent = ({ props, id }) => {
 
-  const { id, title, date, brief, pdf, autors } = props;
+  const { title, date, brief, pdf, autors } = props;
   const classes = useStyles();
+  const navigator = useNavigate();
 
   return (
     <Box className={classes.wrapper} >
@@ -15,7 +17,7 @@ const ItemComponent = ({ props }) => {
         <Typography>
           {date}
         </Typography>
-        <Typography variant="h4" >
+        <Typography variant="h4" onClick={()=>{navigator(`${id}`)}}>
           {title}
         </Typography>
         <Typography variant="h5">

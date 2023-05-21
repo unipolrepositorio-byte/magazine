@@ -17,8 +17,8 @@ const MainComponent = () => {
                 <h3 variant="h3" paragraph>
                     ARTÍCULOS
                 </h3>
-                {isLoading ? <p>..loading</p> : data.data.map(({attributes}) => (
-                    <ItemComponent props={attributes} />
+                {isLoading ? <p>..loading</p> : data.data.map(({id,attributes}) => (
+                    <ItemComponent props={attributes} id={id}/>
                 ))}
             </div>
         </div>
