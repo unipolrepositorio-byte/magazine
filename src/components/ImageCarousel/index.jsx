@@ -8,8 +8,11 @@ import volumesService from '../../async/services/volumesService';
 import { useQuery } from 'react-query';
 
 const ImageCarousel = ({ children }) => {
-    const { data, isLoading, error } = useQuery('volumesCarrusel', () => volumesService());
+    const { data, isLoading, isError, error } = useQuery('volumesCarrusel', () => volumesService());
     const classes = useStyles();
+    if (isError) {
+        return <div>Error al obtener los datos: {error.message}</div>;
+    }
     return (
         <div className={classes.containerGlider}>
             <p className={classes.titleCarrousel}>VOLÚMENES</p>

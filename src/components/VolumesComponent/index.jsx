@@ -3,14 +3,17 @@ import { useParams } from 'react-router-dom';
 import VolumeItemComponent from './VolumeItemComponent';
 import useStyles from './volumesComponent.styles';
 import Typography from '@mui/material/Typography';
-import { useQuery, useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import volumesService from '../../async/services/volumesService';
 
 const VolumesComponent = ({ children }) => {
     const { date } = useParams();
-    const { data, isLoading, error, } = useQuery(date ? `${date}` : 'volumes', () => volumesService(date));
+    const { data, isLoading, isError, error } = useQuery(date ? `${date}` : 'volumes', () => volumesService(date));
     const classes = useStyles();
 
+    if (isError) {
+        return <div>Error al obtener los datos: {error.message}</div>;
+    }
     return (
         <div className={classes.container}>
             {date && <>

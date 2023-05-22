@@ -8,7 +8,7 @@ import breadCrumbService from '../../async/services/breadCrumbService';
 
 const BreadCrumbComponent = () => {
     const [imageVolume, setImageVolume] = useState('');
-    const { data, isLoading, error } = useQuery('bradCrumb', () => breadCrumbService());
+    const { data, isLoading, isError, error } = useQuery('bradCrumb', () => breadCrumbService());
     const {
         searchInput,
         initialDate,
@@ -38,6 +38,9 @@ const BreadCrumbComponent = () => {
     }, [isLoading])
     const { state } = useLocation();
 
+    if (isError) {
+        return <div>Error al obtener los datos: {error.message}</div>;
+    }
     return (
         <div className={classes.container}>
             {!searchInput && <Breadcrumbs separator="|" aria-label="breadcrumb"

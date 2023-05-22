@@ -8,9 +8,13 @@ import { useLocation } from 'react-router-dom';
 
 const MainComponent = () => {
     const { state } = useLocation();
-    const { data, isLoading, error } = useQuery(state ? `search${state}` : 'articles', state ? () => searchService(state) : () => articlesService());
+    const { data, isLoading, isError, error } = useQuery(state ? `search${state}` : 'articles', state ? () => searchService(state) : () => articlesService());
 
     const classes = useStyles();
+
+    if (isError) {
+        return <div>Error al obtener los datos: {error.message}</div>;
+    }
     return (
         <div className={classes.wrapper}>
             <div className={classes.container}>
@@ -27,8 +31,8 @@ const MainComponent = () => {
                         ARTÍCULOS
                     </h3>
 
-                    {isLoading ? <p>..loading</p> : data.map(item => (
-                        <ItemComponent key={item.id} props={item} id={item.id} />
+                    {isLoading ? <p>..loading</p> : data.data.map(item => (
+                        <ItemComponent key={item.id} props={item.attributes} id={item.id} />
                     ))}
                 </>}
             </div>

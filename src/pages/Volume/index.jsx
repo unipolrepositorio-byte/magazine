@@ -9,8 +9,12 @@ export const Volume = () => {
     const { state } = useLocation();
     const { imageVolume } = state;
     const { id } = useParams();
-    const { data, isLoading, error } = useQuery('filterArticle', () => articlesVolumeService(id));
+    const { data, isLoading, isError, error } = useQuery('filterArticle', () => articlesVolumeService(id));
     const classes = useStyles();
+
+    if (isError) {
+        return <div>Error al obtener los datos: {error.message}</div>;
+    }
 
     return (
         <Grid container className={classes.volumeCotainer}>

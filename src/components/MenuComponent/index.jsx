@@ -12,12 +12,11 @@ import { ReactComponent as SearchIcon } from '../../assets/image/buscador.svg';
 import { useLocation, useParams } from 'react-router-dom';
 
 import { BanerContext } from '../../context/BanerContext';
-import { useQuery, useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import yearsVolumeService from '../../async/services/yaersVolumeService';
-import { useEffect } from 'react';
 
 const MenuComponent = ({ items }) => {
-    const { data, isLoading, error } = useQuery('yars', () => yearsVolumeService());
+    const { data, isLoading, isError, error } = useQuery('yars', () => yearsVolumeService());
     const { searchInput, setSearchInput } = useContext(BanerContext);
     const { date } = useParams();
     const navigate = useNavigate();
@@ -33,6 +32,9 @@ const MenuComponent = ({ items }) => {
         setSearchInput(!searchInput)
     }
 
+    if (isError) {
+        return <div>Error al obtener los datos: {error.message}</div>;
+    }
     return (
         <>
             <div className={classes.menuDesktop}>
