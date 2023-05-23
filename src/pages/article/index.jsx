@@ -21,51 +21,51 @@ export const Article = () => {
         const response = await articleService(id);
         setData(response);
     }
-    useEffect(()=>{loadData()},[])
-    
+    useEffect(() => { loadData() }, [])
 
-    return ( 
-    data&&<Grid container direction='column' className={classes.articleContainer}>
-        <Grid item>
-            <TitleArea
-                date={data.data.attributes.date} 
-                title={data?.data?.attributes?.title} 
-                autors={data?.data?.attributes?.autors?.data}
-                volume={data?.data?.attributes?.volume?.data}
-            />
-        </Grid>
 
-        <MenuMobile 
-            menu={data?.data?.attributes?.menus} 
-            images={data?.data?.attributes?.images}
-            tables={data?.data?.attributes?.tables}
-        />
-
-        <Grid item container style={{}}>
-            <Grid 
-                item 
-                xs 
-                container 
-                direction="column" 
-                className={`${classes.textArea}`}
-                style={{overflow:'hidden'}}
-            >
-                <Grid item style={{width:'100%'}}>
-                    <TextArea text={data?.data?.attributes?.completeText}/>
-                </Grid>
-                <Grid item>
-                    <ReferencesArea references={data?.data?.attributes?.bibliographies.data}/>
-                </Grid>
-            </Grid>
-            <Grid item xs='auto'>
-                <MenuDesktop 
-                    references={data?.data?.attributes?.bibliographies.data} 
-                    menu={data?.data?.attributes?.menus} 
-                    images={data?.data?.attributes?.images}
-                    tables={data?.data?.attributes?.tables}
+    return (
+        data && <Grid container direction='column' className={classes.articleContainer}>
+            <Grid item>
+                <TitleArea
+                    date={data.data.attributes.date}
+                    title={data?.data?.attributes?.title}
+                    autors={data?.data?.attributes?.autors?.data}
+                    volume={data?.data?.attributes?.volume?.data}
                 />
             </Grid>
+
+            <MenuMobile
+                menu={data?.data?.attributes?.menus}
+                images={data?.data?.attributes?.images}
+                tables={data?.data?.attributes?.tables}
+            />
+
+            <Grid item container style={{}}>
+                <Grid
+                    item
+                    xs
+                    container
+                    direction="column"
+                    className={`${classes.textArea}`}
+                    style={{ overflow: 'hidden' }}
+                >
+                    <Grid item style={{ width: '100%' }}>
+                        <TextArea text={data?.data?.attributes?.completeText} />
+                    </Grid>
+                    <Grid item>
+                        <ReferencesArea references={data?.data?.attributes?.bibliographies.data} />
+                    </Grid>
+                </Grid>
+                <Grid item xs='auto'>
+                    <MenuDesktop
+                        references={data?.data?.attributes?.bibliographies.data}
+                        menu={data?.data?.attributes?.menus}
+                        images={data?.data?.attributes?.images}
+                        tables={data?.data?.attributes?.tables}
+                    />
+                </Grid>
+            </Grid>
         </Grid>
-    </Grid>
     )
 }
