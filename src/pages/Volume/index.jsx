@@ -23,7 +23,7 @@ export const Volume = () => {
             </Grid>
             <Grid item xs container direction="column" alignContent='center' className={classes.bodyContainer}>
                 {!isLoading ? data.data.attributes.articles.data.map(item => (
-                    <Grid item key={item.id}><ItemComponent props={item.attributes} /></Grid>
+                    <Grid item key={item.id}><ItemComponent props={item.attributes} id={item.id} /></Grid>
                 )) : <Grid item><p>...Loading</p></Grid>}
             </Grid>
             <Grid item xs={4} lg={3} className={classes.imageDesktopContainer}>

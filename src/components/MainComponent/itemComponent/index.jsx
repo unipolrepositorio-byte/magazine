@@ -3,12 +3,13 @@ import { IconButton, Box } from '@material-ui/core';
 import Typography from '@mui/material/Typography';
 import useStyles from './ItemComponent.styles';
 import PopperContainer from './PopperContainer';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { dateFormat } from '../../../utilities/dateFormat';
 
 
 const ItemComponent = ({ props, id }) => {
   const { title, date, brief, pdf, autors } = props;
+  const location = useLocation();
   const classes = useStyles();
   const navigator = useNavigate();
 
@@ -18,7 +19,7 @@ const ItemComponent = ({ props, id }) => {
         <Typography>
           {dateFormat(date)}
         </Typography>
-        <Typography variant="h4" onClick={() => { navigator(`${id}`) }}>
+        <Typography variant="h4" onClick={() => { location.pathname === '/articles' ? navigator(`${id}`) : navigator(`/articles/${id}`) }}>
           {title}
         </Typography>
         <Typography variant="h5">

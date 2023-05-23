@@ -15,12 +15,12 @@ const MainComponent = ({ children }) => {
     }
     return <div className={classes.container}>
         <div className={classes.section}>
-            {isLoading ? <p>..loading</p> : data.data.map(({ attributes }) => (
+            {isLoading ? <p>..loading</p> : data.data.map(({ id, attributes }) => (
                 <>
                     <Typography variant="h3" >
                         ARTÍCULOS MAS RECIENTES
                     </Typography>
-                    <ItemComponent props={attributes} />
+                    <ItemComponent props={attributes} id={id} />
                     <div className={classes.separator}>
                         <div className={classes.circle}></div>
                         <div className={classes.circle}></div>
