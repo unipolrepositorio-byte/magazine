@@ -1,32 +1,59 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import useStyles from './breadCrumbComponent.styles';
-import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { BanerContext } from '../../context/BanerContext';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { useQuery } from "react-query";
+import breadCrumbService from '../../async/services/breadCrumbService';
 
 const BreadCrumbComponent = () => {
+    const [imageVolume, setImageVolume] = useState('');
+    const { data, isLoading, isError, error } = useQuery('bradCrumb', () => breadCrumbService());
     const {
-        date,
-        volume,
         searchInput,
-        initialDate, } = useContext(BanerContext);
+        initialDate,
+        setInitialDate,
+        initialVolume,
+        setInitialVolume,
+        initialId,
+        setInitialId } = useContext(BanerContext);
     const classes = useStyles();
     const { id } = useParams();
+    useEffect(() => {
+        if (data) {
+            const dateVolume = new Date(`${data.data[0].attributes.date}T00:00:00`);
+            const dateVolumeFormat = dateVolume.
+                toLocaleDateString('en-us',
+                    {
+                        year: "numeric",
+                        day: 'numeric',
+                        month: "short"
+                    })
+            const titleVolume = data.data[0].attributes.title
+            setInitialId(data.data[0].id);
+            setImageVolume(data.data[0].attributes.portrait.data.attributes.url);
+            setInitialDate(dateVolumeFormat);
+            setInitialVolume(titleVolume);
+        }
+    }, [isLoading])
+    const { state } = useLocation();
 
+    if (isError) {
+        return <div>Error al obtener los datos: {error.message}</div>;
+    }
     return (
         <div className={classes.container}>
             {!searchInput && <Breadcrumbs separator="|" aria-label="breadcrumb"
                 className={classes.content}>
                 <Link
-                    to={`/volumes/${id ? date : initialDate}`}>
-                    {id ? date : initialDate}
+                    to={`/volumes/${id ? id : initialId}`}>
+                    {id && state ? state.dateVolume : initialDate}
                 </Link>
                 <Link
-                    to={`/volumes/volume/${id ? id : volume}`}>
-                    Vol. {id ? id : volume}
+                    to={`/volumes/volume/${id ? id : initialId}`}
+                    state={{ dateVolume: initialDate, volume: initialVolume, imageVolume }}>
+                    {id && state ? state.volume : initialVolume}
                 </Link>
-                <Typography>Nu.1</Typography>
             </Breadcrumbs>}
 
         </div>

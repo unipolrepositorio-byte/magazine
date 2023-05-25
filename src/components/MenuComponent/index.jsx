@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SvgIcon } from '@material-ui/core';
 import { Button, Grid, IconButton, Slide, Collapse } from '@mui/material';
 import { useState, useContext, React } from 'react';
@@ -12,22 +12,29 @@ import { ReactComponent as SearchIcon } from '../../assets/image/buscador.svg';
 import { useLocation, useParams } from 'react-router-dom';
 
 import { BanerContext } from '../../context/BanerContext';
+import { useQuery } from 'react-query';
+import yearsVolumeService from '../../async/services/yaersVolumeService';
 
 const MenuComponent = ({ items }) => {
+    const { data, isLoading, isError, error } = useQuery('yars', () => yearsVolumeService());
     const { searchInput, setSearchInput } = useContext(BanerContext);
     const { date } = useParams();
+    const navigate = useNavigate();
     const classes = useStyles(searchInput);
     const [open, setOpen] = useState(true);
     const [volumeButton, setVolumeButton] = useState(false);
-    const volumes = [];
-    for (let i = 0; i <= 21; i++) {
-        volumes.push(<Button variant='text'>{2023 + i}</Button>)
+    const goToVolume = (idYear) => {
+        navigate(`/volumes/${idYear}`);
     }
+
     const location = useLocation().pathname;
     const handleSearchInput = () => {
         setSearchInput(!searchInput)
     }
 
+    if (isError) {
+        return <div>Error al obtener los datos: {error.message}</div>;
+    }
     return (
         <>
             <div className={classes.menuDesktop}>
@@ -68,13 +75,13 @@ const MenuComponent = ({ items }) => {
                             <Grid item container direction='column' alignItems='center' className={classes.buttonVolumes} rowGap={2}>
                                 <Button variant='contained' onClick={() => { setVolumeButton(prev => !prev) }}>{volumeButton ? 'BOTON' : 'AÑO'}</Button>
                                 {volumeButton && <Grid container rowGap={1}>
-                                    {volumes.map(item => {
-                                        return (
-                                            <Grid item >
-                                                {item}
-                                            </Grid>
-                                        )
-                                    })}
+                                    {!isLoading ? data.data.map(year => (
+
+                                        <Grid item >
+                                            <Button variant='text' onClick={() => goToVolume(year.id)}>{year.attributes.year}</Button>
+                                        </Grid>
+
+                                    )) : null}
                                 </Grid>}
                             </Grid>
                         </Collapse>
@@ -109,13 +116,13 @@ const MenuComponent = ({ items }) => {
                             <Grid container direction='column' alignItems='flex-start' className={classes.buttonVolumes} rowGap={2}>
                                 <Button variant='contained' onClick={() => { setVolumeButton(prev => !prev) }}>{volumeButton ? 'BOTON' : 'AÑO'}</Button>
                                 {volumeButton && <Grid container columns={{ xs: 14 }} rowGap={1} justifyContent='space-around'>
-                                    {volumes.map(item => {
-                                        return (
-                                            <Grid item xs>
-                                                {item}
-                                            </Grid>
-                                        )
-                                    })}
+                                    {!isLoading ? data.data.map(year => (
+
+                                        <Grid item xs>
+                                            <Button variant='text' onClick={() => goToVolume(year.id)}>{year.attributes.year}</Button>
+                                        </Grid>
+
+                                    )) : null}
                                 </Grid>}
                             </Grid>
                         </> : null}

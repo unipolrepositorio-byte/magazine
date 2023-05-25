@@ -1,9 +1,7 @@
-import { post } from "../api";
+import { get } from "../api";
+import buildApiUri from "../utils/buildApiUri";
 
-const apiUri = process.env.REACT_APP_API_URL;
 const search = async(criteria) => {
-    return await post(`${apiUri}/server/search?apiMode=true`, {
-        searchcriterion: criteria
-    });
+    return await get(`${buildApiUri()}/articles/search?search=${criteria}`);
 }
 export default search;

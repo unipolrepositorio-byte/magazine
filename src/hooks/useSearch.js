@@ -2,19 +2,19 @@ import { useState } from "react"
 
 const useSearch = () => {
     const [searchInput, setSearchInput] = useState(false);
-    const [date, setDate] = useState('ABRIL 16. 2023');
-    const [initialDate, setInitialDate] = useState('ABRIL 16. 2023');
-    const [volume, setVolume] = useState(1);
+    const [initialDate, setInitialDate] = useState('...');
+    const [initialVolume, setInitialVolume] = useState('...');
+    const [initialId, setInitialId] = useState();
 
     return {
         searchInput, 
         setSearchInput, 
-        date, 
-        setDate, 
-        volume, 
-        setVolume,
         initialDate, 
-        setInitialDate
+        setInitialDate,
+        initialVolume, 
+        setInitialVolume,
+        initialId, 
+        setInitialId
     }
 }
 export default useSearch;

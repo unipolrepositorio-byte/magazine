@@ -34,12 +34,6 @@ const useStyles = makeStyles(theme => ({
             fontSize: '0.8rem',
             fontFamily: 'Roboto-Bold',
         },
-        '& p': {
-            color: theme.palette.primary.main,
-            textDecoration: 'none',
-            fontSize: '0.8rem', 
-            fontFamily: 'Roboto-Bold',              
-        },
         '& .MuiBreadcrumbs-separator': {
             color: theme.palette.primary.main,
             fontFamily: 'Roboto-Bold',              
@@ -61,12 +55,6 @@ const useStyles = makeStyles(theme => ({
                 textDecoration: 'none',
                 fontSize: '1.5rem',
                 fontFamily: 'Roboto-Bold',
-            },
-            '& p': {
-                color: theme.palette.primary.main,
-                textDecoration: 'none',
-                fontSize: '1.5rem', 
-                fontFamily: 'Roboto-Bold',              
             },
             '& .MuiBreadcrumbs-separator': {
                 color: theme.palette.primary.main,

@@ -38,7 +38,8 @@ const useStyles = makeStyles(theme=>({
             display:'flex', 
         },
         [mq('lg')]:{
-            justifyContent:'flex-start', 
+            justifyContent:'flex-start',
+            marginTop: '1.5rem',
         },
         
         '& img':{

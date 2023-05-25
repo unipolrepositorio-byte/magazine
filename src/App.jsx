@@ -2,8 +2,6 @@ import Theme from './theme/theme';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import BannerComponent from './components/BannerComponent';
 import MainContextProvider from './context/MainContextProvider';
-import SectionComponent from './components/SectionComponent';
-import AsideComponent from './components/AsideComponent';
 import MainComponent from './components/MainComponent';
 import ImageCarousel from './components/ImageCarousel';
 import NavbarComponent from './components/NavbarComponent';
@@ -34,10 +32,7 @@ function App() {
                   <BannerComponent />
                   <BreadCrumbsComponent />
                 </BanerContextProvider>
-                <SectionComponent >
-                  <MainComponent />
-                  <AsideComponent />
-                </SectionComponent>
+                <MainComponent />
                 <ImageCarousel />
                 <NavbarComponent />
               </>} />
