@@ -8,6 +8,7 @@ import { MenuMobile } from "./menuMobile";
 import { MenuDesktop } from "./menuDesktop";
 import articleService from "../../async/services/articleService";
 import { TextArea } from "./textArea";
+import { Helmet } from "react-helmet";
 
 export const Article = () => {
 
@@ -26,6 +27,14 @@ export const Article = () => {
 
     return (
         data && <Grid container direction='column' className={classes.articleContainer}>
+            <Helmet>
+                <title>{data?.data?.attributes?.title}</title>
+                <meta property="og:title" content={data?.data?.attributes?.title} />
+                <meta property="og:description" content={data?.data?.attributes?.completeText} />
+                <meta property="og:image" content={data?.data?.attributes?.images} />
+                <meta property="og:url" content={URI} />
+                <meta property="og:type" content="article" />
+            </Helmet>
             <Grid item>
                 <TitleArea
                     date={data.data.attributes.date}
