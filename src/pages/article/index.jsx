@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core";
 import { useState, useEffect, React } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import useStyles from "./article.styles";
 import { TitleArea } from "./TitleArea";
 import { ReferencesArea } from "./ReferencesArea";
@@ -17,7 +17,8 @@ export const Article = () => {
     const { id } = useParams();
     const classes = useStyles();
     const [data, setData] = useState();
-
+    const location = useLocation();
+    const URI = `${process.env.REACT_APP_STRAPI_SERVER}${location.pathname}`;
     const loadData = async () => {
         const response = await articleService(id);
         setData(response);

@@ -9,7 +9,7 @@ const ImageVolumeComponent = (props) => {
             month: "short",
             day: 'numeric',
         })
-    const classes = useStyles({ image: portrait ? `http://revista.repositoriounipol.com:1337${portrait.data.attributes.url}` : 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Escudo_de_la_Polic%C3%ADa_Boliviana.jpg' });
+    const classes = useStyles({ image: portrait ? `${process.env.REACT_APP_STRAPI_SERVER}:1337${portrait.data.attributes.url}` : 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Escudo_de_la_Polic%C3%ADa_Boliviana.jpg' });
     return (
         <>
             <div className={classes.book}>

@@ -9,7 +9,7 @@ import { dateFormat } from '../../../utilities/dateFormat';
 const ItemComponent = ({ props, id }) => {
   const { title, date, brief, pdf, autors } = props;
   const location = useLocation();
-  const URI_ARTICLE = `http://revista.repositoriounipol.com/articles/${id}`;
+  const URI_ARTICLE = `${process.env.REACT_APP_STRAPI_SERVER}/articles/${id}`;
   const classes = useStyles();
   const navigator = useNavigate();
   return (

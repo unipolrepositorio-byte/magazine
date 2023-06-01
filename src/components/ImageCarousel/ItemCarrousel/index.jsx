@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ItemCarrousel = ({ item, idVolume }) => {
-    const URL_IMAGE = `http://revista.repositoriounipol.com:1337${item.portrait.data.attributes.url}`
+    const URL_IMAGE = `${process.env.REACT_APP_STRAPI_SERVER}:1337${item.portrait.data.attributes.url}`
     const navigate = useNavigate();
     const goToVolume = (id, volume, date, imageVolume) => {
         const dateVolume = new Date(`${date}T00:00:00`).toLocaleDateString('en-us',
