@@ -11,6 +11,7 @@ import { ReactComponent as TelegramIcon } from '../../../assets/image/telegram.s
 import { ReactComponent as FaceIcon } from '../../../assets/image/facebook.svg';
 import logo from '../../../assets/image/logo.png';
 import { referencesFormat } from "../../../utilities/referencesFormat";
+import { PopUp } from "../../../components/popup";
 
 const handleClickScroll = (slug) => {
     const element = document.getElementById(slug);
@@ -74,6 +75,8 @@ export const MenuDesktop = ({references, menu, images, tables}) => {
 
     const [menuOption, setMenuOption] = useState(1);
     const [menuMediaOption, setMenuMediaOption] = useState(0);
+    const [popup, setPopup] = useState(false);
+    const [popupSource, setPopupSource] = useState('');
 
     const classes = useStyles();
 
@@ -187,8 +190,14 @@ export const MenuDesktop = ({references, menu, images, tables}) => {
                                                 <img src={item.attributes.source}></img>
                                             </Grid>
                                             <Grid item>
-                                                <Button>ABRIR IMAGEN</Button>
+                                                <Button onClick={()=>{
+                                                    setPopup(prev=>!prev);
+                                                    setPopupSource(item.attributes.source);
+                                                }}>
+                                                    ABRIR IMAGEN
+                                                </Button>
                                             </Grid>
+                                            <PopUp open={popup} close={()=>{setPopup(false)}} src={popupSource}/>
                                             <Grid item>
                                                 <p>{item.attributes.description}</p>
                                             </Grid>
