@@ -48,6 +48,7 @@ export const Article = () => {
                 menu={data?.data?.attributes?.menus}
                 images={data?.data?.attributes?.images}
                 tables={data?.data?.attributes?.tables}
+                uri={URI}
             />
 
             <Grid item container style={{}}>
@@ -72,6 +73,7 @@ export const Article = () => {
                         menu={data?.data?.attributes?.menus}
                         images={data?.data?.attributes?.images}
                         tables={data?.data?.attributes?.tables}
+                        uri={URI}
                     />
                 </Grid>
             </Grid>
