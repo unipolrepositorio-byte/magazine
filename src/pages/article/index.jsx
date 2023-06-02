@@ -9,16 +9,17 @@ import { MenuDesktop } from "./menuDesktop";
 import articleService from "../../async/services/articleService";
 import { TextArea } from "./textArea";
 import { Helmet } from "react-helmet";
+import getEnvVariables from "../../config/config";
 
 export const Article = () => {
 
     ///const data = require('../../__mock__/articleExample.json');
-
+    const { strapiServer } = getEnvVariables();
     const { id } = useParams();
     const classes = useStyles();
     const [data, setData] = useState();
     const location = useLocation();
-    const URI = `${process.env.REACT_APP_STRAPI_SERVER}${location.pathname}`;
+    const URI = `${strapiServer}${location.pathname}`;
     const loadData = async () => {
         const response = await articleService(id);
         setData(response);
@@ -29,8 +30,6 @@ export const Article = () => {
     return (
         data && <Grid container direction='column' className={classes.articleContainer}>
             <Helmet>
-                <title>{data?.data?.attributes?.title}</title>
-                <meta property="og:title" content={data?.data?.attributes?.title} />
                 <meta property="og:description" content={data?.data?.attributes?.completeText} />
                 <meta property="og:image" content={data?.data?.attributes?.images} />
                 <meta property="og:url" content={URI} />

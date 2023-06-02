@@ -4,8 +4,10 @@ import useStyles from "./volume.styles";
 import ItemComponent from "../../components/MainComponent/itemComponent";
 import { useQuery } from "react-query";
 import articlesVolumeService from "../../async/services/articlesvolumeService";
+import getEnvVariables from "../../config/config";
 
 export const Volume = () => {
+    const { strapiServer, strapiServerPort, strapiServerService } = getEnvVariables();
     const { state } = useLocation();
     const { imageVolume } = state;
     const { id } = useParams();
