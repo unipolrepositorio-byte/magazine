@@ -48,19 +48,19 @@ const MenuComponent = ({ items }) => {
                             ))}
                         </Grid>
                         {!searchInput && location === '/' ? <Grid item xs={3} container className={classes.menuContainer}>
-                            <Link to={'/content/strapi'} className={classes.link}>
+                            <Link to={'http://revista.repositoriounipol.com:1337/admin/auth/login'} className={classes.link}>
                                 <ItemMenuDesktop label='INICIAR SESION' variant={'outlined'} />
                             </Link>
-                            <Link to={'/register'} className={classes.link}>
+                            {/*<Link to={'/register'} className={classes.link}>
                                 <ItemMenuDesktop label='REGISTRARSE' variant={'contained'} />
-                            </Link>
+                            </Link>*/}
                         </Grid> : <Grid item xs={3} container className={classes.menuContainerHidden}>
-                            <Link to={'/content/strapi'} className={classes.link}>
+                            <Link to={'http://revista.repositoriounipol.com:1337/admin/auth/login'} className={classes.link}>
                                 <ItemMenuDesktop label='INICIAR SESION' variant={'outlined'} />
                             </Link>
-                            <Link to={'/register'} className={classes.link}>
+                            {/*<Link to={'/register'} className={classes.link}>
                                 <ItemMenuDesktop label='REGISTRARSE' variant={'contained'} />
-                            </Link>
+                            </Link>*/}
                         </Grid>}
                         <Grid item xs={1} container className={classes.menuContainer}>
                             <IconButton onClick={handleSearchInput} >
@@ -103,12 +103,12 @@ const MenuComponent = ({ items }) => {
                     <Grid container className={classes.menuLoginMobile}>
                         {location === '/' && !searchInput ? <>
                             <Grid container justifyContent='space-evenly' alignItems='center'>
-                                <Link to={'/content/strapi'} className={classes.link}>
+                                <Link to={'http://revista.repositoriounipol.com:1337/admin/auth/login'} className={classes.link}>
                                     <ItemMenuDesktop label='INICIAR SESION' variant={'outlined'} />
                                 </Link>
-                                <Link to={'/register'} className={classes.link}>
+                                {/*<Link to={'/register'} className={classes.link}>
                                     <ItemMenuDesktop label='REGISTRARSE' variant={'contained'} />
-                                </Link>
+                                </Link>*/}
                             </Grid>
                         </> : null}
                         {location === '/volumes' || date ? <>

@@ -1,8 +1,19 @@
 import { createTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
 import Roboto from '../assets/font/Roboto-Bold.ttf';
 import Montserrat from '../assets/font/Montserrat-ExtraBold.otf';
+import Montserrat_Regular from '../assets/font/Montserrat-Regular.ttf';
 import Lato from '../assets/font/Lato-Light.ttf';
+import Lato_Black from '../assets/font/Lato-Black.ttf';
 
+const LatoBlack = {
+  fontFamily: 'Lato-Black',
+  src: `url(${Lato_Black})`
+}
+
+const MontserratNormal = {
+  fontFamily: 'Montserrat-Ligth',
+  src: `url(${Montserrat_Regular})`
+}
 const RobotoRegular = {
   fontFamily: 'Roboto-Bold',
   src: `url(${Roboto})`
@@ -18,6 +29,8 @@ const LatoRegular = {
 const theme = createTheme({
   typography: {
     fontFamily: [
+      `"${LatoBlack.fontFamily}"`,
+      `"${MontserratNormal.fontFamily}"`,
       `"${MontserratRegular.fontFamily}"`,
       `"${RobotoRegular.fontFamily}"`,
       `"${LatoRegular.fontFamily}"`,
@@ -51,7 +64,10 @@ const theme = createTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': [RobotoRegular, 
+        '@font-face': [
+                      LatoBlack,
+                      MontserratNormal,
+                      RobotoRegular, 
                       MontserratRegular, 
                       LatoRegular],
       },
