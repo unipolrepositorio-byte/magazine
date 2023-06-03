@@ -10,8 +10,9 @@ import tele from '../../../../assets/icons/tele.svg';
 import link from '../../../../assets/icons/link.svg';
 import pdfIcon from '../../../../assets/icons/pdf.svg'
 import useStyles from './PopperComponent.styles';
+import { sendSocialNetworks } from '../../../../utilities/sendSocialNetworks';
 
-export default function PopperContainer() {
+export default function PopperContainer({ uriArticle, title }) {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -45,14 +46,14 @@ export default function PopperContainer() {
       >
         {({ TransitionProps }) => (
           <Box className={classes.box} >
-            <Fade {...TransitionProps} timeout={1050} >
-              <img src={wpp} alt="whatsapp icon" />
+            <Fade {...TransitionProps} timeout={1050}>
+              <img src={wpp} alt="whatsapp icon" onClick={() => sendSocialNetworks(uriArticle, title, 'whatsapp')} />
             </Fade>
             <Fade {...TransitionProps} timeout={700}>
-              <img src={tele} alt="telegram icon" />
+              <img src={tele} alt="telegram icon" onClick={() => sendSocialNetworks(uriArticle, title, 'telegram')} />
             </Fade>
             <Fade {...TransitionProps} timeout={350}>
-              <img src={face} alt="facebook icon" />
+              <img src={face} alt="facebook icon" onClick={() => sendSocialNetworks(uriArticle, title, 'facebook')} />
             </Fade>
           </Box >
 

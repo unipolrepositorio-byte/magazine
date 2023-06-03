@@ -28,6 +28,11 @@ const  getEnvVariables = () => {
     const strapiServer = parseEnvString('REACT_APP_STRAPI_SERVER');
     const nodeEnv = parseEnvString('NODE_ENV');
     const strapiServerService = parseEnvString('REACT_APP_STRAPI_SERVER_SERVICE');
-    return {strapiServerPort, strapiServer, nodeEnv, strapiServerService};
+    const facebookUri = parseEnvString('REACT_APP_FACEBOOK_URI');
+    const whatsappUri = parseEnvString('REACT_APP_WHATSAPP_URI');
+    const telegramUri = parseEnvString('REACT_APP_TELEGRAM_URI');
+    
+    return {strapiServerPort, strapiServer, nodeEnv, strapiServerService, 
+            facebookUri, whatsappUri, telegramUri};
 }
 export default getEnvVariables;

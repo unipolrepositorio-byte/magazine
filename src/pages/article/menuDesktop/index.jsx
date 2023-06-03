@@ -12,68 +12,69 @@ import { ReactComponent as FaceIcon } from '../../../assets/image/facebook.svg';
 import { ReactComponent as ReferencesIcon } from '../../../assets/image/R.svg';
 
 import logo from '../../../assets/image/logo.png';
+import { sendSocialNetworks } from "../../../utilities/sendSocialNetworks";
 import { referencesFormat } from "../../../utilities/referencesFormat";
 import { PopUp } from "../../../components/popup";
 
 const handleClickScroll = (slug) => {
     const element = document.getElementById(slug);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 };
 
 
 const Reference = ({
-    authorInitial, 
-    authorLastName, 
-    publicationTitle, 
-    editorInitials, 
-    editorLastName, 
-    volume, 
-    pages, 
-    publicationYear, 
-    index, 
-    electronicAddress}) => {
+    authorInitial,
+    authorLastName,
+    publicationTitle,
+    editorInitials,
+    editorLastName,
+    volume,
+    pages,
+    publicationYear,
+    index,
+    electronicAddress }) => {
 
     const classes = useStyles();
     const [currentIndex, setCurrentIndex] = useState(1);
 
     const goToNextReference = (idReference) => {
-        const element = document.getElementById(`r${idReference}-${(currentIndex+1)}`);
-        if(element!==null){
+        const element = document.getElementById(`r${idReference}-${(currentIndex + 1)}`);
+        if (element !== null) {
             handleClickScroll(`r${idReference}-${currentIndex}`);
-            setCurrentIndex(prev => prev+1);
-        }else{
+            setCurrentIndex(prev => prev + 1);
+        } else {
             handleClickScroll(`r${idReference}-${currentIndex}`);
             setCurrentIndex(1);
         }
     }
-    const final = referencesFormat({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear});
-    return(
-    <Grid container direction="column" className={classes.referenceContainer}>
-        <Grid item style={{position:'relative'}} >
-            <div className={classes.indexReferences}>
-                <label>{index+1}</label>
-            </div>
-            <label>{final}</label><br/>
-        </Grid>
-        <Grid item>
-            <Grid container className={classes.linkReferences}>
-                <Grid item>
-                    <Link item onClick={()=>{goToNextReference(index+1)}}><label>Go to reference </label></Link>
-                </Grid>
-                <Grid item>
-                    <Link item to={electronicAddress}><label>Crossref </label></Link>
+    const final = referencesFormat({ authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear });
+    return (
+        <Grid container direction="column" className={classes.referenceContainer}>
+            <Grid item style={{ position: 'relative' }} >
+                <div className={classes.indexReferences}>
+                    <label>{index + 1}</label>
+                </div>
+                <label>{final}</label><br />
+            </Grid>
+            <Grid item>
+                <Grid container className={classes.linkReferences}>
+                    <Grid item>
+                        <Link item onClick={() => { goToNextReference(index + 1) }}><label>Go to reference </label></Link>
+                    </Grid>
+                    <Grid item>
+                        <Link item to={electronicAddress}><label>Crossref </label></Link>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
-    </Grid>
     )
 }
 
 
 
-export const MenuDesktop = ({references, menu, images, tables}) => {
+export const MenuDesktop = ({ references, menu, images, tables, uri, title }) => {
 
     const [menuOption, setMenuOption] = useState(1);
     const [menuMediaOption, setMenuMediaOption] = useState(0);
@@ -81,84 +82,83 @@ export const MenuDesktop = ({references, menu, images, tables}) => {
     const [popupSource, setPopupSource] = useState('');
 
     const classes = useStyles();
-
-    return(
-        <Grid container style={{position:'sticky', top:'0px', flexWrap:'nowrap'}} className={classes.menuDesktop}>
+    return (
+        <Grid container style={{ position: 'sticky', top: '0px', flexWrap: 'nowrap' }} className={classes.menuDesktop}>
             <Grid item xs='auto' container direction="column" className={classes.menuContainer}>
                 <Grid item className={classes.hamburguerIcon}>
-                    <Button onClick={()=>{setMenuOption(1)}}>
-                        <HamburgerIcon/>
+                    <Button onClick={() => { setMenuOption(1) }}>
+                        <HamburgerIcon />
                     </Button>
                 </Grid>
                 <Grid item className={classes.itemMenu}>
-                    <Button onClick={()=>{setMenuOption(2)}}>
-                        <PdfIcon/>
+                    <Button onClick={() => { setMenuOption(2) }}>
+                        <PdfIcon />
                     </Button>
                 </Grid>
                 <Grid item className={classes.itemMenu}>
-                    <Button onClick={()=>{setMenuOption(3)}}>
-                        <LinkIcon/>
+                    <Button onClick={() => { setMenuOption(3) }}>
+                        <LinkIcon />
                     </Button>
                 </Grid>
                 <Grid item className={classes.itemMenu}>
-                    <Button onClick={()=>{setMenuOption(4)}}>
-                        <ImageIcon/>
+                    <Button onClick={() => { setMenuOption(4) }}>
+                        <ImageIcon />
                     </Button>
                 </Grid>
                 <Grid item className={classes.itemMenu}>
-                    <Button onClick={()=>{setMenuOption(5)}}>
-                        <ReferencesIcon/>
+                    <Button onClick={() => { setMenuOption(5) }}>
+                        <ReferencesIcon />
                     </Button>
                 </Grid>
             </Grid>
             <Grid item xs='auto' className={classes.subMenu}>
-                <Collapse in={menuOption===1}>
+                <Collapse in={menuOption === 1}>
                     <Grid container direction="column" className={classes.referencesContainer}>
                         <Grid item className={classes.referencesContainerLogo}>
                             <img src={logo}></img>
                         </Grid>
                         <Grid item>
-                            <ul style={{paddingLeft:'50px'}}>
+                            <ul style={{ paddingLeft: '50px' }}>
                                 {menu?.data && menu?.data.map((item, index) => {
-                                            return <li key={index}><Link onClick={()=>{handleClickScroll(item.attributes.slug.trim())}}>{item.attributes.title}</Link></li>
-                                        })}
+                                    return <li key={index}><Link onClick={() => { handleClickScroll(item.attributes.slug.trim()) }}>{item.attributes.title}</Link></li>
+                                })}
                             </ul>
                         </Grid>
                     </Grid>
                 </Collapse>
-                <Collapse in={menuOption===2} >
+                <Collapse in={menuOption === 2} >
                     <Grid container direction="column" className={classes.panelContainer}>
                         <Grid item className={classes.titlePanel}>
                             <label>DESCARGA</label>
                         </Grid>
-                        
+
                         <Button >
                             <PdfIcon width={90} />
                         </Button>
 
                     </Grid>
                 </Collapse>
-                <Collapse in={menuOption===3} >
+                <Collapse in={menuOption === 3} >
                     <Grid container className={classes.panelContainer}>
                         <Grid item className={classes.titlePanel}>
-                            <label><LinkIcon/>COMPARTIR</label>
+                            <label><LinkIcon />COMPARTIR</label>
                         </Grid>
-                        <Button >
+                        <Button onClick={() => sendSocialNetworks(uri, title, 'whatsapp')} >
                             <WhatsappIcon width={80} />
                         </Button>
-                        <Button >
+                        <Button onClick={() => sendSocialNetworks(uri, title, 'telegram')} >
                             <TelegramIcon width={80} />
                         </Button>
-                        <Button >
+                        <Button onClick={() => sendSocialNetworks(uri, title, 'facebook')} >
                             <FaceIcon width={80} />
                         </Button>
                     </Grid>
                 </Collapse>
-                <Collapse in={menuOption===4} >
+                <Collapse in={menuOption === 4} >
                     <Grid container className={classes.panelMediaContainer}>
                         <Grid item container className={classes.titlePanelMedia}>
                             <Grid item>
-                                <ImageIcon/>
+                                <ImageIcon />
                             </Grid>
                             <Grid item>
                                 <label>MEDIA</label>
@@ -167,39 +167,39 @@ export const MenuDesktop = ({references, menu, images, tables}) => {
                     </Grid>
                     <Grid container className={classes.menuPanelMedia}>
                         <Grid item xs={4}>
-                            <Button onClick={()=>setMenuMediaOption(1)}>
+                            <Button onClick={() => setMenuMediaOption(1)}>
                                 FIGURA
                             </Button>
                         </Grid>
-                        <Grid item xs={4} style={{borderLeft:'1px solid #01461D', borderRight:'1px solid #01461D'}}>
-                            <Button onClick={()=>setMenuMediaOption(2)}>
+                        <Grid item xs={4} style={{ borderLeft: '1px solid #01461D', borderRight: '1px solid #01461D' }}>
+                            <Button onClick={() => setMenuMediaOption(2)}>
                                 TABLA
                             </Button>
                         </Grid>
                         <Grid item xs={4}>
-                            <Button onClick={()=>setMenuMediaOption(3)}>
+                            <Button onClick={() => setMenuMediaOption(3)}>
                                 OTROS
                             </Button>
                         </Grid>
                     </Grid>
                     <Grid item className={classes.bodyPanelMedia}>
-                        <Collapse in={menuMediaOption===1}>
+                        <Collapse in={menuMediaOption === 1}>
                             <Grid container direction='column'>
                                 {
-                                    images.data.map((item,index)=>{
+                                    images.data.map((item, index) => {
                                         return <Grid key={index} item container direction="column" className={classes.figureMedia}>
                                             <Grid item>
                                                 <img src={item.attributes.source}></img>
                                             </Grid>
                                             <Grid item>
-                                                <Button onClick={()=>{
-                                                    setPopup(prev=>!prev);
+                                                <Button onClick={() => {
+                                                    setPopup(prev => !prev);
                                                     setPopupSource(item.attributes.source);
                                                 }}>
                                                     ABRIR IMAGEN
                                                 </Button>
                                             </Grid>
-                                            <PopUp open={popup} close={()=>{setPopup(false)}} src={popupSource}/>
+                                            <PopUp open={popup} close={() => { setPopup(false) }} src={popupSource} />
                                             <Grid item>
                                                 <p>{item.attributes.description}</p>
                                             </Grid>
@@ -208,34 +208,34 @@ export const MenuDesktop = ({references, menu, images, tables}) => {
                                 }
                             </Grid>
                         </Collapse>
-                        <Collapse in={menuMediaOption===2}>
+                        <Collapse in={menuMediaOption === 2}>
                             <Grid container direction="column">
                                 {
-                                    tables.data.map((item, index)=>{
+                                    tables.data.map((item, index) => {
                                         return <Grid key={index} item container direction='column' className={classes.tableMedia}>
                                             <Grid item>
-                                                <h2>{`${index+1}. ${item.attributes.title}`}</h2>
+                                                <h2>{`${index + 1}. ${item.attributes.title}`}</h2>
                                             </Grid>
                                             <Grid item>
                                                 <label>{item.attributes.legend}</label>
                                             </Grid>
                                         </Grid>
-                                        
+
                                     })
                                 }
                             </Grid>
                         </Collapse>
-                        <Collapse in={menuMediaOption===3}>
+                        <Collapse in={menuMediaOption === 3}>
                             {/*
                                 Other Area
                             */}
                         </Collapse>
                     </Grid>
                 </Collapse>
-                <Collapse in={menuOption===5} >
+                <Collapse in={menuOption === 5} >
                     <Grid container className={classes.panelContainer}>
                         <Grid item className={classes.titlePanel}>
-                            <label><LinkIcon/>Referencias</label>
+                            <label><LinkIcon />Referencias</label>
                         </Grid>
                         <Grid item container>
                             {references && references.map((item, index) => {
