@@ -11,14 +11,19 @@ import link from '../../../../assets/icons/link.svg';
 import pdfIcon from '../../../../assets/icons/pdf.svg'
 import useStyles from './PopperComponent.styles';
 import { sendSocialNetworks } from '../../../../utilities/sendSocialNetworks';
+import getEnvVariables from '../../../../config/config';
 
-export default function PopperContainer({ uriArticle, title }) {
+export default function PopperContainer({ uriArticle, title, pdf }) {
   const classes = useStyles();
-
+  const { strapiServer, strapiServerPort } = getEnvVariables();
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState('top');
 
+  const uriPdf = pdf.data ? `${strapiServer}:${strapiServerPort}${pdf.data[0].attributes.url}` : strapiServer
+  const downloadArticle = () => {
+    window.open(uriPdf, '_blank');
+  }
   const handleClick = (newPlacement) => (event) => {
     setAnchorEl(event.currentTarget);
     setOpen((prev) => placement !== newPlacement || !prev);
@@ -61,7 +66,7 @@ export default function PopperContainer({ uriArticle, title }) {
       </Popper>
       <div >
         <Grid container className={classes.icons}>
-          <IconButton className={classes.buttonIcon} aria-label="pictureAsPdfIcon" >
+          <IconButton className={classes.buttonIcon} aria-label="pictureAsPdfIcon" onClick={downloadArticle}>
             <img src={pdfIcon} alt="pdf icon" />
           </IconButton>
           <IconButton className={classes.buttonIcon} aria-label="" onClick={handleClick('top')}>
