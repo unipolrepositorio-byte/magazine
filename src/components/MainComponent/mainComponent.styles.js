@@ -4,7 +4,7 @@ const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
     flexDirection: 'column-reverse',
-    margin: '3rem',
+    margin: '1.5rem',
     [mq('md')]: {
       display: 'flex',
       flex: '1',
@@ -48,6 +48,8 @@ imageDesktopContainer:{
   '& img':{
       fitContent:'cover',
       aspectRatio:'3/4',
+      objectFit: 'cover',
+      with:'100%',
       [mq('xxs')]:{
         height:'15rem'
       },

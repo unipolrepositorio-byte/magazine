@@ -13,7 +13,6 @@ import getEnvVariables from "../../config/config";
 
 export const Article = () => {
 
-    ///const data = require('../../__mock__/articleExample.json');
     const { strapiServer } = getEnvVariables();
     const { id } = useParams();
     const classes = useStyles();

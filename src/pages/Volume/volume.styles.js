@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme=>({
         },
         
         '& img':{
+            marginTop: '1.5rem',
             fitContent:'cover',
             aspectRatio:'3/4',
             [mq('sm')]:{
@@ -57,6 +58,7 @@ const useStyles = makeStyles(theme=>({
         }
     },
     bodyContainer:{
+        padding: '1.5rem',
     }
 }))
 

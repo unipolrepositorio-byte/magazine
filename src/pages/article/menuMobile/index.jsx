@@ -12,7 +12,6 @@ import { ReactComponent as FaceIcon } from '../../../assets/image/facebook.svg';
 import { ReactComponent as ReferencesIcon } from '../../../assets/image/R.svg';
 import logo from '../../../assets/image/logo.png';
 import { sendSocialNetworks } from "../../../utilities/sendSocialNetworks";
-import textImage from '../../../assets/image/banner.jpg';
 import { PopUp } from "../../../components/popup";
 
 export const MenuMobile = ({ menu, images, tables, uri, title }) => {

@@ -40,7 +40,7 @@ const MenuComponent = ({ items }) => {
                 <Grid container direction='column'>
                     <Grid item container>
                         <Grid item xs={2} />
-                        <Grid item xs container className={classes.menuContainer}>
+                        <Grid item xs={6} container className={classes.menuContainer}>
                             {items.map((item, index) => (
                                 <Link key={index} to={item.to} className={classes.link}>
                                     <ItemMenuDesktop label={item.name} variant='text' iconName={item.icon} />
@@ -91,7 +91,7 @@ const MenuComponent = ({ items }) => {
 
             <div className={classes.menuMobile}>
                 <Grid container >
-                    <Grid xs={11} />
+                    <Grid item xs={11} />
                     <Grid item xs={1} container className={classes.menuContainer}>
                         <IconButton onClick={handleSearchInput} >
                             <SearchIcon className={classes.icon} />
@@ -117,7 +117,7 @@ const MenuComponent = ({ items }) => {
                                 {volumeButton && <Grid container columns={{ xs: 14 }} rowGap={1} justifyContent='space-around'>
                                     {!isLoading ? data.data.map(year => (
 
-                                        <Grid item xs>
+                                        <Grid>
                                             <Button variant='text' onClick={() => goToVolume(year.id)}>{year.attributes.year}</Button>
                                         </Grid>
 
@@ -140,8 +140,8 @@ const MenuComponent = ({ items }) => {
                             <img alt='background' src={imageFooter} />
                         </div>
                         {items.map((item, index) => (
-                            <Grid item xs>
-                                <Link xs key={index} to={item.to} className={classes.link}>
+                            <Grid item xs={4} key={index}>
+                                <Link to={item.to} className={classes.link}>
                                     <ItemMenuMobile label={item.name} iconName={item.icon} />
                                 </Link>
                             </Grid>

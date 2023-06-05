@@ -1,6 +1,4 @@
 import { makeStyles } from '@material-ui/core';
-import transitions from '@material-ui/core/styles/transitions';
-import { height } from '@mui/system';
 import mq from '../../config/mq';
 
 export const useStyles = makeStyles(theme => ({
