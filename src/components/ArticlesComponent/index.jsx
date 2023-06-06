@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import useStyles from './articlesComponent.styles';
 import ItemComponent from '../MainComponent/itemComponent';
 import { useQuery } from 'react-query';

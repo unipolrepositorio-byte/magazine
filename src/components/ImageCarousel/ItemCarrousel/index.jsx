@@ -1,5 +1,4 @@
 import useStyles from './ItemCarrousel.styles';
-import logo from '../../../assets/image/portada.png';
 import { dateFormat } from '../../../utilities/dateFormat';
 import { Grid } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
@@ -21,14 +20,14 @@ const ItemCarrousel = ({ item, idVolume }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column" alignItems="center" className={classes.itemContainer} onClick={() => goToVolume(idVolume, item.title, item.date, item.portrait.data.attributes.url)} >
-            <Grid item className={classes.imageContainer}>
+            <Grid className={classes.imageContainer}>
                 <img src={URL_IMAGE} alt='alt' />
             </Grid>
-            <Grid item>
-                <label item className={classes.labelDate}>{dateFormat(item.date)}</label>
+            <Grid>
+                <label className={classes.labelDate}>{dateFormat(item.date)}</label>
             </Grid>
             <Grid>
-                <label item className={classes.labelTitle}>{item.title}</label>
+                <label className={classes.labelTitle}>{item.title}</label>
             </Grid>
         </Grid>
     )

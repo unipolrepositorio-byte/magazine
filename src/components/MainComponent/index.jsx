@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import useStyles from './mainComponent.styles';
 import ItemComponent from './itemComponent/index';
 import Typography from '@mui/material/Typography'
@@ -16,7 +15,7 @@ const MainComponent = ({ children }) => {
     return <div className={classes.container}>
         <div className={classes.section}>
             {isLoading ? <p>..loading</p> : data.data.map(({ id, attributes }) => (
-                <>
+                <div key={id}>
                     <Typography variant="h3" >
                         ARTÍCULOS MAS RECIENTES
                     </Typography>
@@ -26,7 +25,7 @@ const MainComponent = ({ children }) => {
                         <div className={classes.circle}></div>
                         <div className={classes.circle}></div>
                     </div>
-                </>
+                </div>
             ))}
         </div>
         <div className={classes.aside}>

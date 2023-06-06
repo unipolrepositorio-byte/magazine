@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         width: '12rem',
         height: '2.5rem',
-        display: 'flex',
         backgroundColor: theme.palette.neutro1.main,
         color: theme.palette.primary.main,
         '& a': {
@@ -47,7 +46,6 @@ const useStyles = makeStyles(theme => ({
             position: 'absolute',
             width: '26rem',
             height: '7rem',
-            display: 'flex',
             backgroundColor: theme.palette.neutro1.main,
             color: theme.palette.primary.main,
             '& a': {

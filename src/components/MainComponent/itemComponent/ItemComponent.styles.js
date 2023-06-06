@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     width: '100%',
     '& h4': {
-      fontSize: '14px',
+      fontSize: '16px',
       color: theme.palette.neutro2.main,
       textTransform: 'uppercase',
       fontFamily: 'Roboto-Bold',
@@ -19,13 +19,13 @@ const useStyles = makeStyles((theme) => ({
       }
     },
     '& h5': {
-      fontSize: '12px',
+      fontSize: '14px',
       color: theme.palette.neutro2.main,
       fontFamily: 'Lato-Ligth',
       fontStyle: 'normal',
     },
     '& p': {
-      fontSize: '10px',
+      fontSize: '12px',
       fontFamily: 'Lato-Ligth',
       textTransform: 'capitalize',
       marginTop: '2px',

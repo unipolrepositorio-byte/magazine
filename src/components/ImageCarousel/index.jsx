@@ -25,10 +25,7 @@ const ImageCarousel = ({ children }) => {
                 slidesToScroll={1}
             >
                 {isLoading ? <p>..loading</p> : data.data.map(({ attributes, id }) => (
-                    <>
-                        <ItemCarrousel item={attributes} idVolume={id} />
-                    </>
-
+                    <ItemCarrousel key={id} item={attributes} idVolume={id} />
                 ))}
             </Glider>
         </div>
