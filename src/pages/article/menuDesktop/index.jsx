@@ -15,6 +15,7 @@ import logo from '../../../assets/image/logo.png';
 import { sendSocialNetworks } from "../../../utilities/sendSocialNetworks";
 import { referencesFormat } from "../../../utilities/referencesFormat";
 import { PopUp } from "../../../components/popup";
+import getEnvVariables from '../../../config/config';
 
 const handleClickScroll = (slug) => {
     const element = document.getElementById(slug);
@@ -74,13 +75,17 @@ const Reference = ({
 
 
 
-export const MenuDesktop = ({ references, menu, images, tables, uri, title }) => {
+export const MenuDesktop = ({ references, menu, images, tables, uri, title, pdf }) => {
 
     const [menuOption, setMenuOption] = useState(1);
     const [menuMediaOption, setMenuMediaOption] = useState(0);
     const [popup, setPopup] = useState(false);
     const [popupSource, setPopupSource] = useState('');
-
+    const { strapiServer, strapiServerPort } = getEnvVariables();
+    const uriPdf = pdf.data ? `${strapiServer}:${strapiServerPort}${pdf.data[0].attributes.url}` : strapiServer
+    const downloadArticle = () => {
+        window.open(uriPdf, '_blank');
+    }
     const classes = useStyles();
     return (
         <Grid container style={{ position: 'sticky', top: '0px', flexWrap: 'nowrap' }} className={classes.menuDesktop}>
@@ -132,7 +137,7 @@ export const MenuDesktop = ({ references, menu, images, tables, uri, title }) =>
                             <label>DESCARGA</label>
                         </Grid>
 
-                        <Button >
+                        <Button onClick={downloadArticle} >
                             <PdfIcon width={90} />
                         </Button>
 

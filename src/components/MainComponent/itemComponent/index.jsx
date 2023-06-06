@@ -34,7 +34,7 @@ const ItemComponent = ({ props, id }) => {
             autor.attributes.fullName
           ))}
         </Typography>}
-        <PopperContainer uriArticle={URI_ARTICLE} title={title} />
+        <PopperContainer uriArticle={URI_ARTICLE} title={title} pdf={pdf} />
         <hr />
       </Box>
     </Box>

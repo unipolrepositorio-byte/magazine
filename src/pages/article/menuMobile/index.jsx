@@ -13,8 +13,10 @@ import { ReactComponent as ReferencesIcon } from '../../../assets/image/R.svg';
 import logo from '../../../assets/image/logo.png';
 import { sendSocialNetworks } from "../../../utilities/sendSocialNetworks";
 import { PopUp } from "../../../components/popup";
+import getEnvVariables from '../../../config/config';
 
-export const MenuMobile = ({ menu, images, tables, uri, title }) => {
+
+export const MenuMobile = ({ menu, images, tables, uri, title, pdf }) => {
 
     const [menuOption, setMenuOption] = useState(0);
     const [toggleReferences, setToggleReferences] = useState(false);
@@ -22,9 +24,11 @@ export const MenuMobile = ({ menu, images, tables, uri, title }) => {
     const [menuMediaOption, setMenuMediaOption] = useState(0);
     const [popup, setPopup] = useState(false);
     const [popupSource, setPopupSource] = useState('');
-
-
-
+    const { strapiServer, strapiServerPort } = getEnvVariables();
+    const uriPdf = pdf.data ? `${strapiServer}:${strapiServerPort}${pdf.data[0].attributes.url}` : strapiServer
+    const downloadArticle = () => {
+        window.open(uriPdf, '_blank');
+    }
     const handleMediaMenu = (value) => {
         if (value === 3) {
             setMenuOption(3)
@@ -73,8 +77,14 @@ export const MenuMobile = ({ menu, images, tables, uri, title }) => {
                 <Grid item xs={6} className={classes.menuPanel}>
                     {
                         <Collapse in={menuOption === 1 ? true : false} className={classes.panelItem1}>
-                            <PdfIcon />
-                            <label>DESCARGAR</label>
+                            {/* <Button color="white">
+                                <PdfIcon />
+                                <label>DESCARGAR</label>
+                            </Button> */}
+                            <div onClick={downloadArticle}>
+                                <PdfIcon />
+                                <label>DESCARGAR</label>
+                            </div>
                         </Collapse>}
                     {
                         <Collapse in={menuOption === 2 ? true : false}>
