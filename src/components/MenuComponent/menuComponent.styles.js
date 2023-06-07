@@ -73,7 +73,6 @@ const useStyles = makeStyles(theme => ({
         bottom:'0',
         zIndex:'1',
         alignItems:'center',
-        height: '180px',
         textAlign:'center'
     },
     backgroundImage: {
@@ -83,7 +82,9 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         height: '100%',
         '& img':{
-            width: '100%'
+            objectFit: 'cover',
+            height: '100%',
+            width : '100%'
         }
     },
     menuCloseIcon:{

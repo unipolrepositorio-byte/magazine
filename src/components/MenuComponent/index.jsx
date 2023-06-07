@@ -140,7 +140,7 @@ const MenuComponent = ({ items }) => {
                             <img alt='background' src={imageFooter} />
                         </div>
                         {items.map((item, index) => (
-                            <Grid item xs={4} key={index}>
+                            <Grid item xs key={index} style={{margin:'0.5rem'}}>
                                 <Link to={item.to} className={classes.link}>
                                     <ItemMenuMobile label={item.name} iconName={item.icon} />
                                 </Link>

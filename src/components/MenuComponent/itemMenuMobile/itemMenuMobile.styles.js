@@ -15,8 +15,8 @@ const useStyles = makeStyles(theme => ({
     },
     icon:{
         fill: theme.palette.secondary.main,
-        width:'25px',
-        height:'25px'
+        width:'20px',
+        height:'20px'
     }
 }));
 export default useStyles;
