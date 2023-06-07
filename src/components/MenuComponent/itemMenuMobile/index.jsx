@@ -3,6 +3,8 @@ import {ReactComponent as Home} from '../../../assets/image/inicio.svg';
 import {ReactComponent as Articles} from '../../../assets/image/articulos.svg'
 import {ReactComponent as Volumes} from '../../../assets/image/volumenes.svg'
 import { IconButton } from "@material-ui/core";
+import {ReactComponent as DvrIcon} from '../../../assets/image/dvr.svg';
+
 
 
 const ItemMenuMobile = ({label,iconName}) => {
@@ -11,7 +13,8 @@ const ItemMenuMobile = ({label,iconName}) => {
     const icons = {
         'home': <Home className={classes.icon}/>,
         'articles': <Articles className={classes.icon}/>,
-        'volumes': <Volumes className={classes.icon}/>
+        'volumes': <Volumes className={classes.icon}/>,
+        'repo': <DvrIcon className={classes.icon}/>
     }
 
     return (

@@ -21,6 +21,11 @@ const Header = () => {
       name: 'VOLUMENES',
       to: '/volumes',
       icon: 'volumes'
+    },
+    {
+      name: 'REPOSITORIO',
+      to:'http://repositoriounipol.com/',
+      icon: 'repo'
     }
   ]
 
