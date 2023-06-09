@@ -11,12 +11,12 @@ import useStyles from './text.styles';
 export const TextArea = ({ text }) => {
     const classes = useStyles();
     const headingRenderer = ({ children }) => {
-        const text = Array.isArray(children) ? children[0] : children;
+        const text = Array.isArray(children) && children.length > 0 ? children[0] : children;
         let slug;
         if (typeof (text) === 'string') {
             slug = text;
         } else {
-            slug = text.props.children ? text.props.children[0] : '';
+            slug = text.props.children.length > 0 ? text.props.children[0] : '';
         }
         return createElement('h2', { id: slug }, text);
     };
@@ -27,7 +27,7 @@ export const TextArea = ({ text }) => {
 
     const linkRenderer = (props) => {
         const { children } = props;
-        const text = Array.isArray(children) ? children[0] : children;;
+        const text = Array.isArray(children) && children.length > 0 ? children[0] : children;;
         let slug = '';
         const index = references.findIndex(item => item.value === text);
         if (index !== -1) {
