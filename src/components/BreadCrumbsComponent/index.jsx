@@ -8,6 +8,7 @@ import breadCrumbService from '../../async/services/breadCrumbService';
 
 const BreadCrumbComponent = () => {
     const [imageVolume, setImageVolume] = useState('');
+    const [initialIdVolume, setInitialIdVolume] = useState('');
     const { data, isLoading, isError, error } = useQuery('bradCrumb', () => breadCrumbService());
     const {
         searchInput,
@@ -21,7 +22,8 @@ const BreadCrumbComponent = () => {
     const { id } = useParams();
     useEffect(() => {
         if (data) {
-            const dateVolume = new Date(`${data.data[0].attributes.date}T00:00:00`);
+            const date = data.data ? data.data[0].attributes.date : '1996-04-20'
+            const dateVolume = new Date(`${date}T00:00:00`);
             const dateVolumeFormat = dateVolume.
                 toLocaleDateString('en-us',
                     {
@@ -29,10 +31,11 @@ const BreadCrumbComponent = () => {
                         day: 'numeric',
                         month: "short"
                     })
-            const titleVolume = data.data[0].attributes.title
-            setInitialId(data.data[0].id);
-            setImageVolume(data.data[0].attributes.portrait.data.attributes.url);
-            setInitialDate(dateVolumeFormat);
+            const titleVolume = data.data ? data.data[0].attributes.title : ''
+            setInitialIdVolume(data.data && data.data[0].id ? data.data[0].id : '')
+            setInitialId(data.data && data.data[0].attributes.year_volume ? data.data[0].attributes.year_volume.data.id : '');
+            setImageVolume(data.data ? data.data[0].attributes.portrait.data.attributes.url : '');
+            setInitialDate(data.data ? dateVolumeFormat : '');
             setInitialVolume(titleVolume);
         }
     }, [isLoading])
@@ -46,11 +49,11 @@ const BreadCrumbComponent = () => {
             {!searchInput && <Breadcrumbs separator="|" aria-label="breadcrumb"
                 className={classes.content}>
                 <Link
-                    to={`/volumes/${id ? id : initialId}`}>
+                    to={`/volumes/${id && state.idVol ? state.idVol : initialId}`}>
                     {id && state ? state.dateVolume : initialDate}
                 </Link>
                 <Link
-                    to={`/volumes/volume/${id ? id : initialId}`}
+                    to={`/volumes/volume/${id ? id : initialIdVolume}`}
                     state={{ dateVolume: initialDate, volume: initialVolume, imageVolume }}>
                     {id && state ? state.volume : initialVolume}
                 </Link>

@@ -8,42 +8,42 @@ import useStyles from './text.styles';
 
 
 
-export const TextArea = ({text}) => {
+export const TextArea = ({ text }) => {
     const classes = useStyles();
-    const headingRenderer = ({children}) => {
+    const headingRenderer = ({ children }) => {
         const text = Array.isArray(children) ? children[0] : children;
         let slug;
-        if(typeof(text)==='string'){
+        if (typeof (text) === 'string') {
             slug = text;
-        }else{
-            slug = text.props.children[0];
+        } else {
+            slug = text.props.children ? text.props.children[0] : '';
         }
         return createElement('h2', { id: slug }, text);
-      };
-    
-    const references=[
-        
+    };
+
+    const references = [
+
     ];
 
     const linkRenderer = (props) => {
         const { children } = props;
-        const text = children[0];
+        const text = Array.isArray(children) ? children[0] : children;;
         let slug = '';
-        const index = references.findIndex(item=>item.value===text);
-        if(index!==-1){
+        const index = references.findIndex(item => item.value === text);
+        if (index !== -1) {
             references[index].count += 1;
             slug = `r${text}-${references[index].count}`;
-        }else{
-            references.push({value:text, count:1});
+        } else {
+            references.push({ value: text, count: 1 });
             slug = `r${text}-1`;
         }
-    
-        return createElement('a', {id: slug, href:props.href}, text);
+
+        return createElement('a', { id: slug, href: props.href }, text);
     };
 
     const tableRender = (props) => {
-        
-        const table = createElement('table', {style:{"white-space":'nowrap'}}, props.children)
+
+        const table = createElement('table', { style: { "white-space": 'nowrap' } }, props.children)
         const tableWraper = <div className={classes.wrapper}>{table}</div>
 
         return tableWraper
@@ -52,7 +52,7 @@ export const TextArea = ({text}) => {
     return (
         <ReactMarkdown
             children={text}
-            components={{ h2: headingRenderer, a: linkRenderer, table: tableRender}}
+            components={{ h2: headingRenderer, a: linkRenderer, table: tableRender }}
             rehypePlugins={[rehypeSlug]}
             remarkPlugins={[remarkGfm]}
         />

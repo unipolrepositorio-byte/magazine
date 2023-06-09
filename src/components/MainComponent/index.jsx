@@ -23,7 +23,7 @@ const MainComponent = ({ children }) => {
             </Typography>
             {isLoading ? <p>..loading</p> : data.data.map(({ id, attributes }) => (
                 <div key={id}>
-                    
+
                     <ItemComponent props={attributes} id={id} />
                     <div className={classes.separator}>
                         <div className={classes.circle}></div>
@@ -33,11 +33,11 @@ const MainComponent = ({ children }) => {
                 </div>
             ))}
         </div>
-        <div className={classes.aside}>
-            {!isLoading && <Grid className={classes.imageDesktopContainer}>
-                <img src={`${strapiServer}:${strapiServerPort}${imageData.data[0].attributes?.portrait?.data?.attributes?.formats?.large?.url}`} />
+        {!isLoading && <div className={classes.aside}>
+            {data.data && <Grid className={classes.imageDesktopContainer}>
+                <img src={data.data[0].attributes.images.data.length > 0 ? data.data[0].attributes.images.data[0].attributes.source : ''} />
             </Grid>}
-        </div>
+        </div>}
     </div>
 }
 export default MainComponent;
