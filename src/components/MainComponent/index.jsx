@@ -30,7 +30,7 @@ const MainComponent = ({ children }) => {
         </div>
         <div className={classes.aside}>
             {!isLoading && <Grid className={classes.imageDesktopContainer}>
-                <img src={`${data.data[0].attributes.images.data[0].attributes.source}`} />
+                <img src={`${data.data[0].attributes.images.data.length > 0 ?data.data[0].attributes.images.data[0].attributes.source : ''}`} />
             </Grid>}
         </div>
     </div>
