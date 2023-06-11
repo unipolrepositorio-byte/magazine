@@ -2,7 +2,9 @@ pipeline {
     agent {
         label '!master'
     }
-
+    options {
+        timeout(time: 5, unit: 'MINUTES')
+    }
     environment {
         DOCKER_HUB_USERNAME = 'ditmar'
         DOCKER_HUB_REPO = 'magazine-spa'
