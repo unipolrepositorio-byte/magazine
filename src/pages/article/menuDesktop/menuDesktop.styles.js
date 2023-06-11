@@ -176,6 +176,14 @@ export const useStyles = makeStyles(theme=>({
             fontSize:'1.2rem',
         }
     },
+    titleTableMedia:{
+        cursor:'pointer',
+        transition:'0.3s all ease',
+        '&:hover':{
+            opacity:'0.5',
+            transition:'0.3s all ease'
+        }
+    },
 
     referenceContainer:{
         marginBottom:'15px',
