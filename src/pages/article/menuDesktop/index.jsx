@@ -118,7 +118,7 @@ export const MenuDesktop = ({ references, menu, images, tables, uri, title, pdf 
             </Grid>
             <Grid item xs='auto' className={classes.subMenu}>
                 <Collapse in={menuOption === 1}>
-                    <Grid container direction="column" className={classes.referencesContainer}>
+                    <Grid container direction="column" wrap="nowrap" className={classes.referencesContainer}>
                         <Grid item className={classes.referencesContainerLogo}>
                             <img src={logo}></img>
                         </Grid>

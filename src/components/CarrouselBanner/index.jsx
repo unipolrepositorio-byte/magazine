@@ -3,6 +3,7 @@ import Glider from "react-glider";
 import "glider-js/glider.min.css";
 import ItemCarrouselBanner from './ItemCarrouselBanner';
 import useStyles from './carrouselBanner.styles';
+import mainBanner from '../../assets/image/mainBanner.jpeg';
 
 
 const CarrouselBanner = ({id}) => {
@@ -89,14 +90,9 @@ const CarrouselBanner = ({id}) => {
 
     return (
         <Glider id={id} slidesToShow={1} className={classes.gliderContainer} hasArrows={true} draggable ref={callbackRef} >
-            <ItemCarrouselBanner/>
-            <ItemCarrouselBanner/>
-            <ItemCarrouselBanner/>
-            <ItemCarrouselBanner/>
-            <ItemCarrouselBanner/>
-            <ItemCarrouselBanner/>
-            <ItemCarrouselBanner/>
-            <ItemCarrouselBanner/>
+            <ItemCarrouselBanner image={mainBanner}/>
+            <ItemCarrouselBanner image={mainBanner}/>
+            <ItemCarrouselBanner image={mainBanner}/>
         </Glider>
     )
 }

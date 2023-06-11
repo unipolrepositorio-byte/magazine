@@ -1,12 +1,12 @@
 import banner from '../../../assets/image/banner.jpg'
 import useStyles from './itemCarrouselBanner.styles';
 
-const ItemCarrouselBanner = () => {
+const ItemCarrouselBanner = ({image}) => {
 
   const classes = useStyles();
     return (
         <div >
-          <img alt='alt' src={banner} className={classes.image}/>
+          <img alt='alt' src={image} className={classes.image}/>
         </div>
     )
 }
