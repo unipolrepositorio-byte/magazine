@@ -3,6 +3,7 @@ import rehypeSlug from 'rehype-slug';
 import { createElement } from "react";
 import remarkGfm from 'remark-gfm';
 import useStyles from './text.styles';
+import rehypeRaw from "rehype-raw";
 
 
 
@@ -53,7 +54,7 @@ export const TextArea = ({ text }) => {
         <ReactMarkdown
             children={text}
             components={{ h2: headingRenderer, a: linkRenderer, table: tableRender }}
-            rehypePlugins={[rehypeSlug]}
+            rehypePlugins={[rehypeSlug, rehypeRaw]}
             remarkPlugins={[remarkGfm]}
         />
     )

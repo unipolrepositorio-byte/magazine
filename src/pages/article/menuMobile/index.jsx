@@ -114,7 +114,7 @@ export const MenuMobile = ({ menu, images, tables, uri, title, pdf }) => {
             <Grid item container>
                 <Grid item xs={3}>
                     <Collapse xs={3} in={toggleReferences} style={{ position: 'absolute', top: '41px', zIndex: '1' }}>
-                        <Grid container direction="column" className={classes.menuReferences}>
+                        <Grid container direction="column" wrap="nowrap" className={classes.menuReferences}>
                             <Grid item style={{ height: '25px' }}>
                                 <img src={logo} style={{ height: '100%' }}></img>
                             </Grid>

@@ -64,6 +64,8 @@ export const useStyles = makeStyles(theme=>({
         }
     },
     referencesContainer:{
+        overflowX:'hidden',
+        overflowY:'auto',
         background:'#EEEEEE',
         height:'100vh',
         fontFamily: 'Lato-ligth',
@@ -91,7 +93,7 @@ export const useStyles = makeStyles(theme=>({
         background:theme.palette.primary.main,
         color: theme.palette.neutro1.main,
         fill: theme.palette.neutro1.main,
-        
+        overflowY:'auto',
         height:'100vh',
         fontSize:'25px',
         fontFamily: 'Lato-ligth',
@@ -178,11 +180,11 @@ export const useStyles = makeStyles(theme=>({
     referenceContainer:{
         marginBottom:'15px',
         fontSize:'0.9rem',
-        paddingLeft:'1.5rem'
+        paddingLeft:'2.5rem'
     },
     indexReferences:{
         position:'absolute',
-        left:'-15px',
+        left:'-25px',
         top:'-2px',
         fontSize:'1rem',
     },

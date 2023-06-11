@@ -77,10 +77,15 @@ export const useStyles = makeStyles(theme => ({
             '& a':{
                 color:theme.palette.primary.main,
             }
-        }
+        },
+        overflowY:'auto',
+        overflowX:'hidden',
+        height:'auto',
+        maxHeight:'calc(100vh - 85px)',
     },
     menuReferencesList:{
-        gap:'5px'
+        gap:'5px',
+        paddingLeft:'0.5rem'
     },
     menuMedia:{
         background:theme.palette.primary.main,

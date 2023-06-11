@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import useStyles from './bannerStatic.styles';
 import logo from '../../assets/image/logo.png';
-import imageBanner from '../../assets/image/banner2.png';
+import imageBanner from '../../assets/image/mainBanner.jpeg';
 import Collapse from '@mui/material/Collapse';
 
 import { BanerContext } from '../../context/BanerContext';
