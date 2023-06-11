@@ -3,9 +3,9 @@ import buildApiUri from "../utils/buildApiUri";
 
 const volumesService = async(idYear) => {
     if (idYear) {
-        return await get(`${buildApiUri()}/year-volumes/${idYear}?populate[volumes][populate]=portrait`);
+        return await get(`${buildApiUri()}/year-volumes/${idYear}?populate[volumes][populate]=*`);
     } else {
-        return await get(`${buildApiUri()}/volumes?populate=portrait&sort=title`);
+        return await get(`${buildApiUri()}/volumes?populate=*&sort=title`);
     }
 }
 
