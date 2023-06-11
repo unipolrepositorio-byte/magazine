@@ -34,8 +34,8 @@ const MainComponent = ({ children }) => {
             ))}
         </div>
         {!isLoading && <div className={classes.aside}>
-            {data.data.length > 0 && <Grid className={classes.imageDesktopContainer}>
-                <img src={data.data[0].attributes.images.data.length > 0 ? data.data[0].attributes.images.data[0].attributes.source : ''} />
+            {imageData.data.length > 0 && <Grid className={classes.imageDesktopContainer}>
+                <img src={`${strapiServer}:${strapiServerPort}${imageData.data[0].attributes?.portrait?.data?.attributes?.formats?.large?.url}`} />
             </Grid>}
         </div>}
     </div>
