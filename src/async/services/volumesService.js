@@ -8,4 +8,8 @@ const volumesService = async(idYear) => {
         return await get(`${buildApiUri()}/volumes?populate=portrait&sort=title`);
     }
 }
+
+export const getLastVolume = async() => {
+    return await get(`${buildApiUri()}/volumes?populate=portrait&sort=id:desc&_limit=1`);
+}
 export default volumesService;
