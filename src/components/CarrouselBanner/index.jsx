@@ -12,7 +12,7 @@ const CarrouselBanner = ({id}) => {
 
 
     const INTERVAL = 5000;
-    const ITEMS = 7;
+    
 
     const [isDragging, setIsDragging] = useState(false);
     const intervalRef = useRef(null);
@@ -20,17 +20,21 @@ const CarrouselBanner = ({id}) => {
     const gliderRef = useRef(null);
     const classes = useStyles();
     const { data: image, isLoading, isError, error  } = useQuery('banner', () => getDynamicBanner());
+    const ITEMS = image?.data?.length || 3;
+    console.log(ITEMS);
     const callbackRef = useCallback((glider) => {
         if (glider) {
           gliderRef.current = glider;
           if (!intervalRef.current && !isDragging) {
+            let index = glider.page;
             intervalRef.current = setInterval(() => {
-              let index = glider.page;
+              
               if (index < ITEMS) {
                 index += 1;
               } else {
                 index = 0;
               }
+              
               glider.scrollItem(index, false);
             }, INTERVAL);
           }
