@@ -6,11 +6,12 @@ const useStyles = makeStyles(theme => ({
         filter: 'brightness(40%)',
         width: '100%',
         objectFit: 'cover',
+        
         [mq('xxs')]:{
             height: '12rem',
         },
         [mq('sm')]:{
-            height: 'calc(18.5rem - 10px)',
+            height: 'calc(25rem - 10px)',
         }
     }
 }));

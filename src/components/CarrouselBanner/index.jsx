@@ -4,7 +4,9 @@ import "glider-js/glider.min.css";
 import ItemCarrouselBanner from './ItemCarrouselBanner';
 import useStyles from './carrouselBanner.styles';
 import mainBanner from '../../assets/image/mainBanner.jpeg';
-
+import { useQuery } from 'react-query';
+import getDynamicBanner from '../../async/services/bannerServices'
+import getEnvVariables from '../../config/config';
 
 const CarrouselBanner = ({id}) => {
 
@@ -14,10 +16,10 @@ const CarrouselBanner = ({id}) => {
 
     const [isDragging, setIsDragging] = useState(false);
     const intervalRef = useRef(null);
-
+    const { strapiServer, strapiServerPort } = getEnvVariables();
     const gliderRef = useRef(null);
     const classes = useStyles();
-
+    const { data: image, isLoading, isError, error  } = useQuery('banner', () => getDynamicBanner());
     const callbackRef = useCallback((glider) => {
         if (glider) {
           gliderRef.current = glider;
@@ -90,9 +92,9 @@ const CarrouselBanner = ({id}) => {
 
     return (
         <Glider id={id} slidesToShow={1} className={classes.gliderContainer} hasArrows={true} draggable ref={callbackRef} >
-            <ItemCarrouselBanner image={mainBanner}/>
-            <ItemCarrouselBanner image={mainBanner}/>
-            <ItemCarrouselBanner image={mainBanner}/>
+            {isLoading ? <p>..loading</p> : image.data.map((item) => (<div>
+              <ItemCarrouselBanner key={item.id} image={`${strapiServer}:${strapiServerPort}${item.attributes.image.data.attributes.url}`}/>
+            </div>))}
         </Glider>
     )
 }
