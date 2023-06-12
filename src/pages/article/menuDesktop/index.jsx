@@ -218,7 +218,7 @@ export const MenuDesktop = ({ references, menu, images, tables, uri, title, pdf 
                                 {
                                     tables.data.map((item, index) => {
                                         return <Grid key={index} item container direction='column' className={classes.tableMedia}>
-                                            <Grid item>
+                                            <Grid item className={classes.titleTableMedia} onClick={()=>{handleClickScroll(`table-${index+1}`)}}>
                                                 <h2>{`${index + 1}. ${item.attributes.title}`}</h2>
                                             </Grid>
                                             <Grid item>

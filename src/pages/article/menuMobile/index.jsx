@@ -188,7 +188,13 @@ export const MenuMobile = ({ menu, images, tables, uri, title, pdf }) => {
                                         {
                                             tables.data.map((item, index) => {
                                                 return <Grid item container direction='column' className={classes.tableMedia}>
-                                                    <Grid item>
+                                                    <Grid 
+                                                        item
+                                                        onClick={()=>{
+                                                            handleClickScroll(`table-${index+1}`);
+                                                            setToogleMedia(false);
+                                                        }}
+                                                    >
                                                         <h3>{`${index + 1}. ${item.attributes.title}`}</h3>
                                                     </Grid>
                                                     <Grid item>

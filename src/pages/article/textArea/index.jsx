@@ -1,6 +1,6 @@
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import rehypeSlug from 'rehype-slug';
-import { createElement } from "react";
+import { createElement, useState } from "react";
 import remarkGfm from 'remark-gfm';
 import useStyles from './text.styles';
 import rehypeRaw from "rehype-raw";
@@ -25,6 +25,7 @@ export const TextArea = ({ text }) => {
     const references = [
 
     ];
+    
 
     const linkRenderer = (props) => {
         const { children } = props;
@@ -42,11 +43,13 @@ export const TextArea = ({ text }) => {
         return createElement('a', { id: slug, href: props.href }, text);
     };
 
+    
+    let numTable=1;
     const tableRender = (props) => {
 
         const table = createElement('table', { style: { "white-space": 'nowrap' } }, props.children)
-        const tableWraper = <div className={classes.wrapper}>{table}</div>
-
+        const tableWraper = <div id={`table-${numTable}`} className={classes.wrapper}>{table}</div>
+        numTable+=1;
         return tableWraper
     }
 
