@@ -5,7 +5,7 @@ const useStyles = makeStyles(theme => ({
   bannerContainer: {
     [mq('sm')]:{
       borderBottom: `10px solid ${theme.palette.secondary.main}`,
-      height: '18.5rem',
+      height: '25rem',
     }
   },
   collapse: {
