@@ -7,7 +7,7 @@ pipeline {
     }
     environment {
         DOCKER_HUB_USERNAME = 'ditmar'
-        DOCKER_HUB_REPO = 'new-spa'
+        DOCKER_HUB_REPO = 'magazine-spa'
         DOCKER_HUB_CREDENTIALS_ID = 'docker-hub-credentials'
         CACHE_IMAGE = "${DOCKER_HUB_USERNAME}/${DOCKER_HUB_REPO}:cache"
     }
