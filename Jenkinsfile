@@ -8,7 +8,7 @@ pipeline {
     environment {
         DOCKER_HUB_USERNAME = 'ditmar'
         DOCKER_HUB_REPO = 'magazine-spa'
-        DOCKER_HUB_CREDENTIALS_ID = 'my-docker-hub-creds'
+        DOCKER_HUB_CREDENTIALS_ID = 'docker-hub-creds'
     }
 
     stages {
