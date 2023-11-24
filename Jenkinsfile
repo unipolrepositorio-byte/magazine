@@ -3,7 +3,7 @@ pipeline {
         label '!master'
     }
     options {
-        timeout(time: 4, unit: 'MINUTES')
+        timeout(time: 8, unit: 'MINUTES')
     }
     environment {
         DOCKER_HUB_USERNAME = 'ditmar'
