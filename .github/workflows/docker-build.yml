@@ -1,0 +1,53 @@
+# .github/workflows/docker-build.yml
+
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - "**"
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      DOCKER_HUB_USERNAME: "ditmar"
+      DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      DOCKER_HUB_REPO: "magazine-spa"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set environment variables
+        run: |
+          echo "GIT_COMMIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          echo "CACHE_IMAGE=${DOCKER_HUB_USERNAME}/${DOCKER_HUB_REPO}:cache" >> $GITHUB_ENV
+
+      - name: Docker Login
+        uses: docker/login-action@v2
+        with:
+          username: ${{ env.DOCKER_HUB_USERNAME }}
+          password: ${{ env.DOCKER_HUB_PASSWORD }}
+
+      - name: Prepare Cache
+        run: |
+          docker pull $CACHE_IMAGE || true
+
+      - name: Build Image
+        run: |
+          docker build --cache-from $CACHE_IMAGE -t $DOCKER_HUB_USERNAME/$DOCKER_HUB_REPO:$GIT_COMMIT_HASH .
+
+      - name: Tag Cache Image
+        run: |
+          docker tag $DOCKER_HUB_USERNAME/$DOCKER_HUB_REPO:$GIT_COMMIT_HASH $CACHE_IMAGE
+
+      - name: Push Docker Images
+        run: |
+          docker push $DOCKER_HUB_USERNAME/$DOCKER_HUB_REPO:$GIT_COMMIT_HASH
+          docker push $CACHE_IMAGE
+
+      - name: Clean Up Images
+        if: always()
+        run: |
+          docker rmi $DOCKER_HUB_USERNAME/$DOCKER_HUB_REPO:$GIT_COMMIT_HASH || true
