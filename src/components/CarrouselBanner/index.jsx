@@ -97,7 +97,7 @@ const CarrouselBanner = ({id}) => {
     return (
         <Glider id={id} slidesToShow={1} className={classes.gliderContainer} hasArrows={true} draggable ref={callbackRef} >
             {isLoading ? <p>..loading</p> : image.data.map((item) => (<div>
-              <ItemCarrouselBanner key={item.id} image={`${strapiServer}:${strapiServerPort}${item.attributes.image.data.attributes.url}`}/>
+              <ItemCarrouselBanner key={item.id} image={`${strapiServer}${item.attributes.image.data.attributes.url}`}/>
             </div>))}
         </Glider>
     )

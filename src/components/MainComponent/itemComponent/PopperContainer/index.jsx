@@ -20,7 +20,7 @@ export default function PopperContainer({ uriArticle, title, pdf }) {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState('top');
 
-  const uriPdf = pdf.data ? `${strapiServer}:${strapiServerPort}${pdf.data[0].attributes.url}` : strapiServer
+  const uriPdf = pdf.data ? `${strapiServer}${pdf.data[0].attributes.url}` : strapiServer
   const downloadArticle = () => {
     window.open(uriPdf, '_blank');
   }

@@ -25,7 +25,7 @@ export const MenuMobile = ({ menu, images, tables, uri, title, pdf }) => {
     const [popup, setPopup] = useState(false);
     const [popupSource, setPopupSource] = useState('');
     const { strapiServer, strapiServerPort } = getEnvVariables();
-    const uriPdf = pdf.data ? `${strapiServer}:${strapiServerPort}${pdf.data[0].attributes.url}` : strapiServer
+    const uriPdf = pdf.data ? `${strapiServer}${pdf.data[0].attributes.url}` : strapiServer
     const downloadArticle = () => {
         window.open(uriPdf, '_blank');
     }
