@@ -1,7 +1,7 @@
-import getEnvVariables from "../../config/config"
+import getEnvVariables from "../../config/config";
 
 const buildApiUri = () => {
-    const { strapiServer, strapiServerPort, strapiServerService } = getEnvVariables();
-    return `${strapiServer}:${strapiServerPort}/${strapiServerService}`;
-}
+  const { strapiServer, strapiServerService } = getEnvVariables();
+  return `${strapiServer}/${strapiServerService}`;
+};
 export default buildApiUri;
