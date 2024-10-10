@@ -6,7 +6,7 @@ import getEnvVariables from '../../../config/config';
 
 const ItemCarrousel = ({ item, idVolume }) => {
     const { strapiServer } = getEnvVariables();
-    const URL_IMAGE = `${strapiServer}:1337${item.portrait.data.attributes.url}`
+    const URL_IMAGE = `${strapiServer}${item.portrait.data.attributes.url}`
     const navigate = useNavigate();
     const goToVolume = (id, volume, date, imageVolume, idVol) => {
         const dateVolume = new Date(`${date}T00:00:00`).toLocaleDateString('en-us',
