@@ -14,7 +14,18 @@ RUN apk add --no-cache openssl && \
     -subj "/CN=localhost"
 WORKDIR /build
 COPY --from=build /app/build /usr/share/nginx/html
-COPY ./nginx-conf/base-nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copiar ambas configuraciones de nginx
+COPY ./nginx-conf/base-nginx.conf /etc/nginx/conf.d/base-nginx.conf
+COPY ./nginx-conf/base-nginx-no-ssl.conf /etc/nginx/conf.d/base-nginx-no-ssl.conf
+
+# Copiar script de configuración
+COPY ./scripts/configure-nginx.sh /usr/local/bin/configure-nginx.sh
+RUN chmod +x /usr/local/bin/configure-nginx.sh
+
+# Crear directorio para certbot
+RUN mkdir -p /var/www/certbot/.well-known/acme-challenge
+
 EXPOSE 80 443
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/usr/local/bin/configure-nginx.sh"]

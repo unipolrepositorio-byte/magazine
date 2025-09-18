@@ -51,13 +51,78 @@ To run the project using docker yo can run this command
 
 ### `docker run -p 80:80 magazine-spa`
 
-### renew  ssl
-run this command inside the  
-`root@ip-172-31-14-141:/home/ubuntu/deploy/deployment/development# `
+## SSL Configuration
+
+The application supports both SSL and non-SSL configurations:
+
+### 🔒 Production with SSL (Let's Encrypt)
+
+When deploying to production with SSL certificates, mount the Let's Encrypt certificates:
+
+```bash
+docker run -p 80:80 -p 443:443 \
+  -v /path/to/letsencrypt:/etc/letsencrypt \
+  -v /path/to/certbot/www:/var/www/certbot \
+  magazine-spa
 ```
+
+### 🌐 Development without SSL
+
+For development or when SSL certificates are not available, the container will automatically run in HTTP-only mode:
+
+```bash
+docker run -p 80:80 magazine-spa
+```
+
+## SSL Certificate Management
+
+### Initial certificate generation
+
+To generate initial certificates using certbot:
+
+```bash
+docker run --rm \
+  -v $(pwd)/letsencrypt:/etc/letsencrypt \
+  -v $(pwd)/certbot/www:/var/www/certbot \
+  certbot/certbot certonly \
+  --webroot --webroot-path=/var/www/certbot \
+  --email your-email@domain.com \
+  --agree-tos --no-eff-email \
+  -d revista.repositoriounipol.com
+```
+
+### renew ssl
+
+run this command inside the deployment directory:  
+`root@ip-172-31-14-141:/home/ubuntu/deploy/deployment/development# `
+```bash
 docker run --rm \
   -v $(pwd)/letsencrypt:/etc/letsencrypt \
   -v $(pwd)/certbot/www:/var/www/certbot \
   certbot/certbot renew \
   --webroot --webroot-path=/var/www/certbot
 ```
+
+### Docker Compose Example
+
+For production deployment with SSL:
+
+```yaml
+version: '3.8'
+services:
+  webapp:
+    image: unipolrepositorio/magazine:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./letsencrypt:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:rw
+    restart: unless-stopped
+```
+
+## Troubleshooting
+
+- **Container keeps restarting**: Check if SSL certificates exist. The container automatically falls back to HTTP-only mode if certificates are missing.
+- **SSL errors**: Verify certificate paths and permissions.
+- **Port conflicts**: Ensure ports 80 and 443 are available on the host.
