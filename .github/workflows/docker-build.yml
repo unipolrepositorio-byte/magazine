@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      DOCKER_HUB_USERNAME: "ditmar"
+      DOCKER_HUB_USERNAME: "unipolrepositorio"
       DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-      DOCKER_HUB_REPO: "magazine-spa"
+      DOCKER_HUB_REPO: "magazine"
 
     steps:
       - name: Checkout

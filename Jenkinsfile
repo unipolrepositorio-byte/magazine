@@ -1,3 +1,6 @@
+/* 
+is not working because now we used github actions
+*/
 pipeline {
     agent {
         label '!master'
