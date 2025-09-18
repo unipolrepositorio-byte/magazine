@@ -48,6 +48,7 @@ function App() {
                   <BannerStaticComponent />
                 </BanerContextProvider>
                 <Article />
+                 <ImageCarousel />
                 <FooterComponent />
               </>} />
             </Route>
@@ -59,6 +60,7 @@ function App() {
                     <BannerStaticComponent />
                     <VolumesComponent />
                   </BanerContextProvider>
+                  <ImageCarousel />
                   <FooterComponent />
                 </>} />
               <Route path=":date" element={<>
@@ -77,6 +79,7 @@ function App() {
                     <BreadCrumbsComponent />
                     <Volume />
                   </BanerContextProvider>
+                  <ImageCarousel />
                   <FooterComponent />
                 </>}
               />

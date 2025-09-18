@@ -6,16 +6,16 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     width: '100%',
-    '& h4': {
-      fontSize: '16px',
+    '& h2': {
+      fontSize: '24px',
       color: theme.palette.neutro2.main,
       textTransform: 'uppercase',
       fontFamily: 'Roboto-Bold',
-      cursor:'pointer',
-      transition:'.5s all ease',
-      '&:hover':{
-        background:'#EEEEEE',
-        transition:'.5s all ease'
+      cursor: 'pointer',
+      transition: '.5s all ease',
+      '&:hover': {
+        background: '#EEEEEE',
+        transition: '.5s all ease'
       }
     },
     '& h5': {
@@ -25,16 +25,15 @@ const useStyles = makeStyles((theme) => ({
       fontStyle: 'normal',
     },
     '& p': {
-      fontSize: '12px',
+      fontSize: '16px',
       fontFamily: 'Lato-Ligth',
-      textTransform: 'capitalize',
       marginTop: '2px',
+      lineHeight: '176%',
     },
     '& h5:first-letter': {
       textTransform: 'uppercase',
     },
   },
-
   [mq('sm')]: {
     wrapper: {
       display: 'flex',
@@ -57,17 +56,16 @@ const useStyles = makeStyles((theme) => ({
         fontStyle: 'normal',
       },
       '& p': {
-        fontSize: '14px',
+        fontSize: '18px',
         fontFamily: 'Lato-Ligth',
         fontWeight: 275,
-        lineHeight: '136%',
-        textTransform: 'capitalize',
+        lineHeight: '176%',
       },
       '& h5:first-letter': {
         textTransform: 'uppercase',
       },
     },
-  }, 
+  },
 
   content: {
     '& hr': {
@@ -84,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
         height: 5,
         marginTop: '2rem',
         marginBottom: '1rem',
-        
+
       },
     }
   },

@@ -3,9 +3,9 @@ import { autorsFormat } from "../../../utilities/autorsFormat";
 import { dateFormat } from "../../../utilities/dateFormat";
 import { volumeInfoFormat } from "../../../utilities/volumeInfoFormat";
 import { useStyles } from "./titleArea.styles";
+import { Typography } from "@material-ui/core";
 
 export const TitleArea = ({date, title, autors, volume}) => {
-
     const autorNames=[];
     autors.map(item=>{
         autorNames.push(item.attributes.fullName)
@@ -22,7 +22,14 @@ export const TitleArea = ({date, title, autors, volume}) => {
                     <label>{title}</label>
             </Grid>
             <Grid item className={classes.autors}>
-                    <label>{autorsFormat(autorNames)}</label>
+                <Typography variant="h6">
+                    {autors.length > 1 ? 'Autores' : 'Autor'}:
+                </Typography>
+                    <ul>
+                    {autors.map(item => (
+                        <li key={item.id}>{item.attributes.fullName} </li>
+                    ))}
+                    </ul>
             </Grid>
             <Grid item className={classes.volumeInfo}>
                 <label>{volumeInfoFormat(volume)}</label>

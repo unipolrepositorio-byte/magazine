@@ -1,11 +1,11 @@
-export const referencesFormat = ({authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear}) => {
+export const referencesFormat = ({ authorInitial, authorLastName, publicationTitle, editorInitials, editorLastName, volume, pages, publicationYear }) => {
     let referencesFinal = '';
 
 
     ///---Control authorFirstName
-    if(authorInitial){
+    if (authorInitial) {
         authorInitial = authorInitial.trim();
-        if(authorInitial[authorInitial.length-1]!=='.'){
+        if (authorInitial[authorInitial.length - 1] !== '.') {
             authorInitial += '.'
         }
         referencesFinal += authorInitial + ' ';
@@ -13,24 +13,27 @@ export const referencesFormat = ({authorInitial, authorLastName, publicationTitl
 
 
     ///---Control authorLastName
-    if(authorLastName){
+    if (authorLastName) {
         authorLastName = authorLastName.trim();
         referencesFinal += authorLastName;
     }
 
 
     ///---Control title
-    publicationTitle = publicationTitle.trim();
-    if(publicationTitle[publicationTitle.length-1]!=='.'){
+    if (!publicationTitle) {
+        return referencesFinal;
+    }
+    publicationTitle = publicationTitle?.trim();
+    if (publicationTitle[publicationTitle.length - 1] !== '.') {
         publicationTitle += '.'
     }
     referencesFinal += ', ' + publicationTitle + ' ';
 
 
     ///---Control editorialInitials
-    if(editorInitials){
+    if (editorInitials) {
         editorInitials = editorInitials.trim();
-        if(editorInitials[editorInitials.length-1]!=='.'){
+        if (editorInitials[editorInitials.length - 1] !== '.') {
             editorInitials += '.'
         }
         referencesFinal += editorInitials + ' '
@@ -39,9 +42,9 @@ export const referencesFormat = ({authorInitial, authorLastName, publicationTitl
 
 
     ///---Control editorLastName
-    if(editorLastName){
+    if (editorLastName) {
         editorLastName = editorLastName.trim();
-        if(editorLastName[editorLastName.length-1]!=='.'){
+        if (editorLastName[editorLastName.length - 1] !== '.') {
             editorLastName += '.'
         }
         referencesFinal += editorLastName + ' '
@@ -50,21 +53,21 @@ export const referencesFormat = ({authorInitial, authorLastName, publicationTitl
 
 
     ///---Control volume
-    if(volume){
+    if (volume) {
         volume = volume.trim();
         referencesFinal += volume;
     }
 
 
     ///---Control pages
-    if(pages){
+    if (pages) {
         pages = pages.trim();
         referencesFinal += ', ' + pages
     }
 
-    
+
     ///---Control publicationYear
-    if(publicationYear){
+    if (publicationYear) {
         publicationYear = String(publicationYear);
         publicationYear = publicationYear.trim();
         referencesFinal += ' (' + publicationYear + ').';
@@ -72,5 +75,5 @@ export const referencesFormat = ({authorInitial, authorLastName, publicationTitl
     }
 
 
-    return(referencesFinal)
+    return (referencesFinal)
 }
