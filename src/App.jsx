@@ -15,6 +15,7 @@ import { Article } from './pages/article';
 import FooterComponent from './components/Footer';
 
 function App() {
+  console.log('version 1.0');
   const queryClient = new QueryClient();
 
   return (
