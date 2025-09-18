@@ -1,8 +1,8 @@
-FROM node:16-alpine AS build
+FROM node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN yarn install --frozen-lockfile
-ENV NODE_ENV production
+ENV NODE_ENV=production
 COPY . .
 RUN yarn build
 
