@@ -50,7 +50,6 @@ const MainComponent = () => {
     <div className={classes.container}>
       <div className={classes.section}>
         <Typography variant="h3">ARTÍCULOS MÁS RECIENTES</Typography>
-
         {isArticlesLoading ? (
           <p>Cargando artículos...</p>
         ) : (
